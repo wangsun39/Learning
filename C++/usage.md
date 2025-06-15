@@ -1,0 +1,80 @@
+
+
+## Lambda 函数
+
+
+
+### 遍历map
+
+```cpp
+    vector<int>& answers;
+    unordered_map<int, int> counter;
+    for (auto x: answers) {
+        counter[x]++;
+    }
+    int ans=0;
+
+    for (auto& [k, v]: counter) {
+        ans += (v + k) / (k + 1) * (k + 1);
+    }
+```
+### 初始化vector
+
+```cpp
+// 二维 n*2 vector
+vector<vector<int>> dp(n, vector<int>(2, 0));
+```
+
+### 优先队列
+priority_queue 默认是一个最大堆，即优先级最高的元素是最大的元素。<br>使用 greater<> 会将其变成最小堆。
+```cpp
+// 二个元素
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
+
+// 三个元素
+priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<>> pq;
+
+```
+
+### 数组求和
+```cpp
+// 两种方法
+long long s = accumulate(nums1.begin(), nums1.end(), 0LL);
+
+long long s = reduce(candies.begin(), candies.end(), 0LL);
+```
+
+## ranges 库
+
+[ref](https://cppreference.cn/w/cpp/algorithm)
+
+### 计数
+```cpp
+// 统计x的个数
+int z1 = ranges::count(nums, x);
+
+// 自定义计数函数
+ranges::count_if(words, [&](string x)->bool{
+    return s.starts_with(x);
+});
+```
+
+### 最大值
+```cpp
+// vector 求最大值
+long long mx = ranges::max(candies);
+
+// map 求最大值
+unordered_map<int, int> dis;
+ranges::max(dis | views::values);   //这个写法 leetcode 需要加 #include <ranges>
+
+```
+
+### 排序
+```cpp
+ranges::sort(cpx)   // vector 排序
+
+// 普通的排序
+sort(intervals.begin(), intervals.end(), [](const std::vector<int> &a, const std::vector<int> &b)
+     { return a[1] < b[1]; });
+```
