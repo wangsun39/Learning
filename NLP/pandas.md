@@ -106,6 +106,24 @@ print('2:', ans.to_markdown(index=False))
 |       5 |    8 | 2017-01-09 00:00:00 |      188 |        3 |     4 |
 
 
+组内取最小值，过滤出到达最小值的行
+```python
+    sales['first_year'] = sales.groupby('product_id')['year'].transform('min')
+    # print(sales)
+    sales[sales['year'] == sales['first_year']][['product_id', 'first_year', 'quantity', 'price']]
+```
+
+|   sale_id |   product_id |   year |   quantity |   price |
+|----------:|-------------:|-------:|-----------:|--------:|
+|         1 |          100 |   2008 |         10 |    5000 |
+|         2 |          100 |   2009 |         12 |    5000 |
+|         7 |          200 |   2011 |         15 |    9000 |
+
+|   product_id |   first_year |   quantity |   price |
+|-------------:|-------------:|-----------:|--------:|
+|          100 |         2008 |         10 |    5000 |
+|          200 |         2011 |         15 |    9000 |
+
 ## 2. merge 用法
 
 ```python

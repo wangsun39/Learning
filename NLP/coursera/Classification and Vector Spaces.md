@@ -73,7 +73,7 @@ $$\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}$$
 由于某些词$P(w_i|pos)或P(w_i|neg)$可能为0，为了避免除以0，可以做一个Laplacian Smoothing
 
 ### Laplacian Smoothing
-$$P(w_i|class)=\frac{freq(wi,class)+1}{N_{class}+V_{class}},  class\in \left \{  pos,neg\right \} $$
+$$P(w_i|class)=\frac{freq(wi,class)+1}{N_{class}+V_{class}},  class\in  \{  pos,neg \} $$
 
 $N_{class}$=frequency of all words in class <br>
 $V_{class}$= number of unique words in class
