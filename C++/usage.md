@@ -44,7 +44,7 @@ long long s = accumulate(nums1.begin(), nums1.end(), 0LL);
 long long s = reduce(candies.begin(), candies.end(), 0LL);
 ```
 
-## ranges 库
+## ranges 库 (>=C++20)
 
 [ref](https://cppreference.cn/w/cpp/algorithm)
 
@@ -73,6 +73,12 @@ ranges::max(dis | views::values);   //这个写法 leetcode 需要加 #include <
 ### 排序
 ```cpp
 ranges::sort(cpx)   // vector 排序
+
+// 可以有第三个参数，投影函数，把数组中的值映射为另一个数，再进行比较，有点类似python中sort的key参数
+vector<int>& nums = {2,1,3,3};
+vector<int> idx(n, 0);
+ranges::iota(idx, 0);  // 从0开始的递增序列
+ranges::sort(idx, {}, [&](int i) {return -nums[i];});
 
 // 普通的排序
 sort(intervals.begin(), intervals.end(), [](const std::vector<int> &a, const std::vector<int> &b)

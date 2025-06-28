@@ -61,7 +61,7 @@ print('1:', df.to_markdown(index=False))
 |    9 |           3 |          10 |        12 | completed           | 2013-10-03   |      1 |
 |   10 |           4 |          13 |        12 | cancelled_by_driver | 2013-10-03   |      0 |
 
-按request_at分组统计comp的和，组内的记录数， 并重新命名
+按request_at分组统计comp的和，组内的记录数， 并重新命名。agg函数可以几列聚集列
 
 ```python
 grouped = df.groupby('request_at')

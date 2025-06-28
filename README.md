@@ -8,6 +8,7 @@
 
 ### [KNN](NLP/knn.md)
 ### [pandas](NLP/pandas.md)
+### [PCA](NLP/pca.md)
 
 ## SQL
 ### [SQL](SQL/language.md)
