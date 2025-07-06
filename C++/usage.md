@@ -1,7 +1,26 @@
 
 
-## Lambda 函数
+### Lambda 函数
 
+用lambda函数初始化全局变量，可以在所有代码执行之前初始化，这里的lambda表达式必须要有个返回值（即使没有用），因为void类型的返回值无法赋值给一个init变量
+
+这种写法通常被称为“**立即执行的函数表达式**”
+
+```cpp
+
+#define MX  100'000
+#define MOD  1'000'000'007
+
+long long pow2[MX+1];
+auto init = [] {
+    pow2[0]=1;
+    for (int i=1;i<=MX;i++) {
+        pow2[i]=(pow2[i-1]*2)%MOD;
+    }
+    return 0;
+}();
+
+``
 
 
 ### 遍历map

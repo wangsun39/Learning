@@ -229,6 +229,10 @@ concat
 ```
 
 ### 删除重复行
+**keep**：指定保留重复行的方式。
+- 'first'（默认值）：保留重复行中的第一行。
+- 'last'：保留重复行中的最后一行。
+- False：删除所有重复行。
 ```python
 df_drop = my_numbers.drop_duplicates(subset=['num'], keep=False)
 ```
@@ -242,4 +246,18 @@ df = df.reindex(columns=['C', 'A', 'B'])
 修改某个字段
 ```python
 salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
+```
+
+
+### 列重命名
+
+```python
+ans.rename(columns={'activity_date': 'day'}, inplace=True)
+```
+
+
+### reset_index同时重命名新列
+
+```python
+ans = grouped['user_id'].nunique().reset_index(name='active_users')
 ```
