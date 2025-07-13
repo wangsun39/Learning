@@ -84,6 +84,31 @@ select id,
 from tree;
 ```
 
+## 4. join on
+```sql
+--inner
+SELECT s.name, sc.subject, sc.mark
+FROM student s
+JOIN score sc ON s.id = sc.stu_id;
+
+-- left join
+SELECT s.name, sc.subject, sc.mark
+FROM student s
+LEFT JOIN score sc ON s.id = sc.stu_id;
+
+-- right join
+SELECT s.name, sc.subject, sc.mark
+FROM student s
+RIGHT JOIN score sc ON s.id = sc.stu_id;
+
+-- full outer join
+SELECT * FROM student s
+LEFT JOIN score sc ON s.id = sc.stu_id
+UNION
+SELECT * FROM student s
+RIGHT JOIN score sc ON s.id = sc.stu_id;
+```
+
 
 ## 4. 其他
 

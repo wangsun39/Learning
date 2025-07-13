@@ -103,3 +103,19 @@ ranges::sort(idx, {}, [&](int i) {return -nums[i];});
 sort(intervals.begin(), intervals.end(), [](const std::vector<int> &a, const std::vector<int> &b)
      { return a[1] < b[1]; });
 ```
+
+### 优先队列
+- 优先队列默认是大顶堆
+- 默认是用了less<>比较函数
+- 定义小顶堆，可以用great<>，如 priority_queue<int, vector<int>, greater<int>> small_heap;
+- 自定义比较函数，如果依次传入a,b两个参数，返回true说明b的优先级高，返回false说明a的优先级高，优先级高的元素，在pop时，优先弹出。
+
+```cpp
+// lambda 函数定义比较函数，需要用关键字 decltype 获取函数类型
+// 按 nums[i][1] 排序，越小的排在前面，如果相同，nums[i][0] 小的排在前面
+std::priority_queue<std::vector<int>, std::vector<std::vector<int>>, 
+                    [](const std::vector<int>& a, const std::vector<int>& b) {
+                        if (a[1] == b[1]) return a[0] > b[0];
+                        return a[1] > b[1]; // b[1] 小返回true，此时b的优先级高
+                    }> hp;
+```

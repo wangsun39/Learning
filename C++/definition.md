@@ -47,3 +47,15 @@ class Solution {
     }
 }
 ```
+### 区间的优先队列
+
+```cpp
+// 按 区间右端点 排序，越小的排在前面，如果相同，按区间左端点小的排在前面
+std::priority_queue<std::vector<int>, std::vector<std::vector<int>>, 
+                    [](const std::vector<int>& a, const std::vector<int>& b) {
+                        if (a[1] == b[1]) return a[0] > b[0];
+                        return a[1] > b[1];
+                    }> hp;
+
+
+```
