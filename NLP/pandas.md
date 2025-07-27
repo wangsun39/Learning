@@ -141,6 +141,12 @@ result = df1.merge(df2, on=['EmployeeID', 'Year'], how='inner')
 result = df1.merge(df2, left_on=['EmployeeID', 'Year'], right_on=['ID', 'Year'], how='inner')
 ```
 
+在 pandas 的 merge 操作中，如果某些行在另一个 DataFrame 中没有匹配的记录，合并后这些字段会变成 NaN。如果你想把这些 NaN 设置成默认值，可以使用 .fillna()。
+```python
+ans = pd.merge(users, g, left_on='user_id', right_on='buyer_id', how='left')
+ans['count'] = ans['count'].fillna(0)
+```
+
 ## 列求和
 ```python
 total_sales = df['Sales'].sum()

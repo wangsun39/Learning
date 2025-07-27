@@ -109,6 +109,10 @@ SELECT * FROM student s
 RIGHT JOIN score sc ON s.id = sc.stu_id;
 ```
 
+对于join后有空的字段，附上默认值的方式
+```sql
+COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10
+```
 
 ## 4. 其他
 
