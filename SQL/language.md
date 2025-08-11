@@ -114,6 +114,31 @@ RIGHT JOIN score sc ON s.id = sc.stu_id;
 COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10
 ```
 
+## 5. 横表变纵表
+
+| Column Name | Type    |
+|-------------|---------|
+| id          | int     |
+| revenue     | int     |
+| month       | varchar |
+
+```sql
+select id, 
+    sum(case month when 'Jan' then revenue end) as Jan_Revenue,
+    sum(case month when 'Feb' then revenue end) as Feb_Revenue,
+    sum(case month when 'Mar' then revenue end) as Mar_Revenue,
+    sum(case month when 'Apr' then revenue end) as Apr_Revenue,
+    sum(case month when 'May' then revenue end) as May_Revenue,
+    sum(case month when 'Jun' then revenue end) as Jun_Revenue,
+    sum(case month when 'Jul' then revenue end) as Jul_Revenue,
+    sum(case month when 'Aug' then revenue end) as Aug_Revenue,
+    sum(case month when 'Sep' then revenue end) as Sep_Revenue,
+    sum(case month when 'Oct' then revenue end) as Oct_Revenue,
+    sum(case month when 'Nov' then revenue end) as Nov_Revenue,
+    sum(case month when 'Dec' then revenue end) as Dec_Revenue from Department group by id;
+```
+
+
 ## 4. 其他
 
 
@@ -172,3 +197,4 @@ Data类型+1
 ```sql
 DATE_ADD(MIN(event_date), INTERVAL 1 DAY)
 ```
+

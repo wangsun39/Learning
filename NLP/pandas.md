@@ -74,6 +74,22 @@ print('2:', ans.to_markdown(index=False))
 | 2013-10-02   |      2 |       2 |
 | 2013-10-03   |      1 |       2 |
 
+### 综合用法
+groupby + 汇总 同时进行
+```python
+ans = (
+        transactions
+        .groupby(['country', 'month'], dropna=False)   # 显式保留 NaN
+        .agg(
+                trans_count=('amount', 'size'),  # 新增：统计每组的行数
+                approved_count=('ca', 'sum'),
+                trans_total_amount=('amount', 'sum'),
+                approved_total_amount=('aa', 'sum')
+        )
+    ).reset_index()
+```
+
+
 ### 在每个分组内执行操作
 使用 **transform** 对每个分组应用**聚合函数**（如 count），并将结果广播到原始 DataFrame 的每一行。
 
@@ -166,7 +182,44 @@ df.loc[df['score'] > 80, 'score'] -= 10
 df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
 ```
 
-## 4. 其他
+## 4. 行转列
+
+pivot() 是 pandas.DataFrame 的一个“长转宽”变形函数，它把多行记录按照某个键值展开成列，常用于透视表或报表格式化。
+```python
+DataFrame.pivot(index=None, columns=None, values=None)
+```
+| 参数        | 说明                                                  |
+| --------- | --------------------------------------------------- |
+| `index`   | 用作新 DataFrame **行索引** 的列名（可以多个）                     |
+| `columns` | 用作新 DataFrame **列名** 的列（其唯一值会变成列）                   |
+| `values`  | 要填充到新 DataFrame **单元格** 的列（只能一个；多个请用 `pivot_table`） |
+
+举例
+
+```python
+def reformat_table(department: pd.DataFrame) -> pd.DataFrame:
+    # 更有解法
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+    # 使用 pivot 重塑数据
+    data = department.pivot(index='id', columns='month', values='revenue')
+    print(data)
+
+    # 按指定月份顺序重新排列列，缺失月份用 NaN 填充
+    data = data.reindex(columns=months)
+    print(data)
+
+    # 重命名列：加上 _Revenue 后缀
+    data.columns = [f"{m}_Revenue" for m in data.columns]
+    print(data)
+
+    # 重置索引，恢复 id 为列
+    return data.reset_index()
+```
+
+
+## 5. 其他
 
 ### 排序
 ```python
@@ -267,3 +320,8 @@ ans.rename(columns={'activity_date': 'day'}, inplace=True)
 ```python
 ans = grouped['user_id'].nunique().reset_index(name='active_users')
 ```
+
+### round函数的四舍五入
+在Python中的round函数和NumPy中的np.round函数默认使用的是"四舍五入"规则。具体来说，当要舍入的数字是正好在5的一半上方时，它们将向最接近的偶数舍入。这种规则被称为"银行家舍入法"或"四舍六入五留双"，它旨在减少舍入误差的累积，从而提高精度。
+如果我们想要使用不同的舍入规则，需要通过指定精度来使用decimal模块中的ROUND_HALF_UP等舍入模式，或者自定义舍入逻辑。
+[参考](https://leetcode.cn/problems/queries-quality-and-percentage/solutions/1508376/by-zg104-1sdy)
