@@ -89,6 +89,15 @@ ans = (
     ).reset_index()
 ```
 
+### 分组后执行复杂的运算
+```python
+ans = (
+        result.groupby('product_id')
+        .apply(lambda g: round(g['units'].mul(g['price']).sum() / g['units'].sum(), 2))
+        .reset_index(name='average_price')
+    )
+```
+
 
 ### 在每个分组内执行操作
 使用 **transform** 对每个分组应用**聚合函数**（如 count），并将结果广播到原始 DataFrame 的每一行。
@@ -144,9 +153,11 @@ ans = (
 
 ```python
 pd.merge(table1, table2, left_on='player_id', right_on='player_id', how='inner')
+# 笛卡尔积，不需要关联字段
+ss = pd.merge(students, subjects, how='cross')
 ```
 
-how的取值还可以有 left/right
+**how**的取值还可以有 **left/right/outer**
 
 如果是两个关联字段
 ```python
@@ -181,6 +192,19 @@ df.loc[df['score'] > 80, 'score'] -= 10
 # 修改 id 为 3 的行的 score 值，设置为 100，并将 name 设置为 "New Name"
 df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
 ```
+**iloc** 可以定位第i行
+
+```python
+    for i, row in grouped.iterrows():  # 遍历每条记录
+        if i < 6:
+            cur += row['amount']
+            continue
+        cur += row['amount']
+        if i > 6:
+            cur -= grouped.iloc[i - 7]['amount']
+        ans.append([row['visited_on'], cur, round(cur / 7, 2)])
+```
+
 
 ## 4. 行转列
 
@@ -264,6 +288,8 @@ result = df1[~df1['A'].isin(df2['A'])]
 df = df.drop(columns=['score'])  # 删除 'score' 列
 # 或者
 df = df.drop('score', axis=1)    # 删除 'score' 列
+# 原地删除一列
+result.drop(columns=['matched'], inplace=True)
 ```
 
 ### 堆叠两个表

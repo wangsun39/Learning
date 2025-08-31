@@ -37,6 +37,30 @@ LIMIT 1 OFFSET 1;
 
 ## 2. 窗口函数
 
+SQL 窗口函数（Window Functions）是一种强大的分析工具，允许在不改变行数的情况下，对一组行（称为“窗口”）进行聚合、排序、排名等操作。与 GROUP BY 不同，窗口函数不会折叠结果行，而是为每一行返回一个基于窗口计算的值。
+
+```sql
+<窗口函数> OVER (
+    [PARTITION BY 分区列1, 分区列2, ...]
+    [ORDER BY 排序列1, 排序列2, ...]
+    [ROWS BETWEEN 起始行 AND 结束行]  -- 可选，定义行范围
+)
+```
+
+常见窗口函数分类
+| 类别  | 函数示例                                          | 说明              |
+| --- | --------------------------------------------- | --------------- |
+| 聚合类 | `SUM()`, `AVG()`, `MAX()`, `MIN()`, `COUNT()` | 计算窗口内的聚合值       |
+| 排名类 | `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`      | 对窗口内的行进行排名      |
+| 偏移类 | `LAG()`, `LEAD()`                             | 获取前后行的值         |
+| 首尾类 | `FIRST_VALUE()`, `LAST_VALUE()`               | 获取窗口内第一行或最后一行的值 |
+
+ROWS BETWEEN 可用于定义滑动窗口，如近3行的平均值：
+```sql
+AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
+```
+
+
 ### ROW_NUMBER()
 为每一行分配一个唯一的序号，序号在每个分区中从 1 开始递增。
 
@@ -137,9 +161,22 @@ select id,
     sum(case month when 'Nov' then revenue end) as Nov_Revenue,
     sum(case month when 'Dec' then revenue end) as Dec_Revenue from Department group by id;
 ```
+## 6. 日期型
 
+```sql
+-- 查询2023年1月1日到2023年12月31日之间的数据
+SELECT * FROM your_table
+WHERE date_column BETWEEN '2023-01-01' AND '2023-12-31';
 
-## 4. 其他
+-- 或者使用>=和<=
+SELECT * FROM your_table
+WHERE date_column >= '2023-01-01' AND date_column <= '2023-12-31';
+
+-- oracle 去掉时间，只保留日期
+TO_CHAR(visited_on, 'YYYY-MM-DD') AS visited_on
+```
+
+## 7. 其他
 
 
 ### null 值映射
