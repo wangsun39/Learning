@@ -54,6 +54,28 @@ priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
 priority_queue<tuple<int, int, int>, vector<tuple<int, int, int>>, greater<>> pq;
 
 ```
+- 优先队列默认是大顶堆
+- 默认是用了less<>比较函数
+- 定义小顶堆，可以用great<>，如 priority_queue<int, vector<int>, greater<int>> small_heap;
+- 自定义比较函数，如果依次传入a,b两个参数，返回true说明b的优先级高，返回false说明a的优先级高，优先级高的元素，在pop时，优先弹出。
+
+```cpp
+// lambda 函数定义比较函数，需要用关键字 decltype 获取函数类型
+// 按 nums[i][1] 排序，越小的排在前面，如果相同，nums[i][0] 小的排在前面
+std::priority_queue<std::vector<int>, std::vector<std::vector<int>>, 
+                    [](const std::vector<int>& a, const std::vector<int>& b) {
+                        if (a[1] == b[1]) return a[0] > b[0];
+                        return a[1] > b[1]; // b[1] 小返回true，此时b的优先级高
+                    }> hp;
+```
+```cpp
+    // 一个三元组小顶堆的例子
+    using DII = tuple<double, int, int>;
+    auto cmp = [](const DII& a, const DII& b) {
+        return get<0>(a) > get<0>(b);
+    };
+    priority_queue<DII, vector<DII>, decltype(cmp)> pq;  // 小顶堆
+```
 
 ### 数组求和
 ```cpp
@@ -99,23 +121,16 @@ vector<int> idx(n, 0);
 ranges::iota(idx, 0);  // 从0开始的递增序列
 ranges::sort(idx, {}, [&](int i) {return -nums[i];});
 
-// 普通的排序
+// 普通的排序，自定义排序函数，函数返回true，说明前面的参数a排在前面
 sort(intervals.begin(), intervals.end(), [](const std::vector<int> &a, const std::vector<int> &b)
      { return a[1] < b[1]; });
 ```
 
-### 优先队列
-- 优先队列默认是大顶堆
-- 默认是用了less<>比较函数
-- 定义小顶堆，可以用great<>，如 priority_queue<int, vector<int>, greater<int>> small_heap;
-- 自定义比较函数，如果依次传入a,b两个参数，返回true说明b的优先级高，返回false说明a的优先级高，优先级高的元素，在pop时，优先弹出。
+### iota
 
-```cpp
-// lambda 函数定义比较函数，需要用关键字 decltype 获取函数类型
-// 按 nums[i][1] 排序，越小的排在前面，如果相同，nums[i][0] 小的排在前面
-std::priority_queue<std::vector<int>, std::vector<std::vector<int>>, 
-                    [](const std::vector<int>& a, const std::vector<int>& b) {
-                        if (a[1] == b[1]) return a[0] > b[0];
-                        return a[1] > b[1]; // b[1] 小返回true，此时b的优先级高
-                    }> hp;
+传统方式
+```c++
+std::vector<int> vec(10); // 10个元素
+std::iota(vec.begin(), vec.end(), 0); // 填充 0,1,2,...,9
 ```
+
