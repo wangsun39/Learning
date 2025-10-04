@@ -138,6 +138,18 @@ RIGHT JOIN score sc ON s.id = sc.stu_id;
 COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10
 ```
 
+## 5. group by
+
+除了普通的sum，count等聚合函数，还有字符串的拼接函数 **STRING_AGG**
+```sql
+SELECT sell_date, 
+       COUNT(1) AS num_sold,
+       STRING_AGG(product, ',' ORDER BY product) AS products
+FROM sales
+GROUP BY sell_date;
+```
+
+
 ## 5. 横表变纵表
 
 | Column Name | Type    |

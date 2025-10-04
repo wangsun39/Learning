@@ -84,6 +84,7 @@ ans = (
                 trans_count=('amount', 'size'),  # 新增：统计每组的行数
                 approved_count=('ca', 'sum'),
                 trans_total_amount=('amount', 'sum'),
+                avg=('rating', 'mean'),
                 approved_total_amount=('aa', 'sum')
         )
     ).reset_index()
