@@ -44,6 +44,34 @@ auto init = [] {
 vector<vector<int>> dp(n, vector<int>(2, 0));
 ```
 
+### 有序集合
+
+C++ 中“有序集合”相关的数据结构主要包括 std::set 和 std::multiset。它们一般基于红黑树等平衡二叉搜索树实现，保证元素有序、操作复杂度为对数级。
+
+一、核心容器
+
+std::set<T>
+不允许重复键，按比较器顺序存储唯一元素。
+std::multiset<T>
+允许重复键，按顺序存储多个相等元素。
+
+**常用接口**
+- insert(value) / emplace(args...)：插入元素
+- set::insert 返回 pair<iterator,bool>
+- multiset::insert 返回 iterator
+- erase(key) / erase(iterator) / erase(first,last)
+- find(key) -> iterator
+- count(key) -> size_type
+- set 中为 0 或 1
+- multiset 中为出现次数
+- lower_bound(key), upper_bound(key), equal_range(key)
+- size(), empty(), clear()
+- begin(), end(), rbegin(), rend()
+- swap(other)
+- merge(other)：将 other 中不冲突的节点移入当前集合（C++17）
+- extract(key/it)：提取节点句柄，可修改键后再插入（C++17，安全修改键）
+
+
 ### 优先队列
 priority_queue 默认是一个最大堆，即优先级最高的元素是最大的元素。<br>使用 greater<> 会将其变成最小堆。
 ```cpp

@@ -85,7 +85,8 @@ ans = (
                 approved_count=('ca', 'sum'),
                 trans_total_amount=('amount', 'sum'),
                 avg=('rating', 'mean'),
-                approved_total_amount=('aa', 'sum')
+                approved_total_amount=('aa', 'sum'),
+                products=('product', lambda x: ','.join(sorted(x.unique())))  # 添加自定义函数
         )
     ).reset_index()
 ```
@@ -256,6 +257,9 @@ df_sorted = df.sort_values(by='score', ascending=False)
 
 # 多列排序：先按年龄升序，再按成绩降序
 df_sorted = df.sort_values(by=['age', 'score'], ascending=[True, False])
+
+# 原地排序
+grouped.sort_values(by='sell_date', inplace=True)
 ```
 
 
@@ -280,6 +284,11 @@ not in 的对应写法
 ```python
 # 实现 NOT IN
 result = df1[~df1['A'].isin(df2['A'])]
+```
+
+正则的写法
+```python
+ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', na=False)]
 ```
 
 ### 删掉某列
