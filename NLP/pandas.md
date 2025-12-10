@@ -85,6 +85,7 @@ ans = (
                 approved_count=('ca', 'sum'),
                 trans_total_amount=('amount', 'sum'),
                 avg=('rating', 'mean'),
+                unique_leads=('lead_id', 'nunique'),  # 对lead_id去重后的数量
                 approved_total_amount=('aa', 'sum'),
                 products=('product', lambda x: ','.join(sorted(x.unique())))  # 添加自定义函数
         )
@@ -260,6 +261,38 @@ df_sorted = df.sort_values(by=['age', 'score'], ascending=[True, False])
 
 # 原地排序
 grouped.sort_values(by='sell_date', inplace=True)
+```
+
+### 选列
+
+使用列名列表选取多列
+```python
+# 示例 DataFrame
+df = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6],
+    'C': [7, 8, 9],
+    'D': [10, 11, 12]
+})
+
+# 选取特定列
+selected_columns = df[['A', 'C']]
+
+# 选取单列（返回 Series）
+column_a = df.A
+
+# 选取所有行的特定列
+selected = df.loc[:, ['A', 'B']]
+
+# 选取特定行和列
+subset = df.loc[0:1, ['A', 'C']]
+
+# 按列索引位置选取（第0列和第2列）
+selected = df.iloc[:, [0, 2]]
+
+# 选取连续的列（第1列到第3列）
+subset = df.iloc[:, 1:3]
+
 ```
 
 
