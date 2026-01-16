@@ -152,6 +152,10 @@ ranges::sort(idx, {}, [&](int i) {return -nums[i];});
 // 普通的排序，自定义排序函数，函数返回true，说明前面的参数a排在前面
 sort(intervals.begin(), intervals.end(), [](const std::vector<int> &a, const std::vector<int> &b)
      { return a[1] < b[1]; });
+
+// 下面 a 前面的引用一定不能少，可能有10倍的性能差异
+ranges::sort(meetings, {}, [](auto& a) { return a[2]; });
+
 ```
 
 ### iota

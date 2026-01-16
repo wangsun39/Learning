@@ -248,6 +248,25 @@ def reformat_table(department: pd.DataFrame) -> pd.DataFrame:
 
 ## 5. 其他
 
+### 构造 DataFrame
+```python
+# 字典：键为列名，值为列表/序列（长度需一致）
+df = pd.DataFrame({'A': [1, 2], 'B': ['x', 'y']})
+
+# 列表的字典（行记录）
+data = [{'A': 1, 'B': 'x'}, {'A': 2, 'B': 'y'}]
+df = pd.DataFrame(data)
+
+# 列表的列表/元组 + 指定列名
+df = pd.DataFrame([(1, 'x'), (2, 'y')], columns=['A', 'B'])
+
+# 字典的 Series（不同索引会自动对齐缺失）
+df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
+                   'B': pd.Series(['x'], index=['r1'])})
+                   
+```
+
+
 ### 排序
 ```python
 # 单列升序排序
@@ -300,6 +319,8 @@ subset = df.iloc[:, 1:3]
 ```python
 # 或者的关系，'|' 两侧的括号不能省
 mg[(mg['bonus']<1000) | (mg['bonus'].isna())]
+
+# 过滤 + 选列
 ans.loc[(ans['x'] + ans['y'] > ans['z']) & (ans['x'] + ans['z'] > ans['y']) & (ans['y'] + ans['z'] > ans['x']), 'triangle'] = 'Yes'
 ```
 
@@ -318,6 +339,8 @@ not in 的对应写法
 # 实现 NOT IN
 result = df1[~df1['A'].isin(df2['A'])]
 ```
+
+获取字段的字符串需要用 **字符串访问器** (.str.)
 
 正则的写法
 ```python
@@ -394,3 +417,21 @@ ans = grouped['user_id'].nunique().reset_index(name='active_users')
 在Python中的round函数和NumPy中的np.round函数默认使用的是"四舍五入"规则。具体来说，当要舍入的数字是正好在5的一半上方时，它们将向最接近的偶数舍入。这种规则被称为"银行家舍入法"或"四舍六入五留双"，它旨在减少舍入误差的累积，从而提高精度。
 如果我们想要使用不同的舍入规则，需要通过指定精度来使用decimal模块中的ROUND_HALF_UP等舍入模式，或者自定义舍入逻辑。
 [参考](https://leetcode.cn/problems/queries-quality-and-percentage/solutions/1508376/by-zg104-1sdy)
+
+### 新增一列
+```python
+# 新增常量列
+df2 = df.assign(store='store1')
+
+# 用 lambda
+df2 = df.assign(
+    total=lambda d: d['price'] * d['qty'],
+    tax=lambda d: d['total'] * 0.06  # 可引用同一次 assign 里前面创建的列
+)
+```
+
+
+### 日期类型的比较
+```python
+ans = logins.loc[(logins['time_stamp'] >= '2020-01-01') & (logins['time_stamp'] < '2021-01-01')]
+```

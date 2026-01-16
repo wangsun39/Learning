@@ -1,5 +1,24 @@
 
 
+- [1. order by 用法](#1-order-by-用法)
+- [2. 窗口函数](#2-窗口函数)
+  - [ROW\_NUMBER()](#row_number)
+  - [RANK() 和 DENSE\_RANK()](#rank-和-dense_rank)
+  - [聚合函数（SUM()、AVG()、MIN()、MAX() 等）](#聚合函数sumavgminmax-等)
+  - [LEAD() 和 LAG()](#lead-和-lag)
+- [3. case when](#3-case-when)
+- [4. join on](#4-join-on)
+- [5. group by](#5-group-by)
+- [5. 横表变纵表](#5-横表变纵表)
+- [6. 日期型](#6-日期型)
+- [7. 其他](#7-其他)
+  - [null 值映射](#null-值映射)
+  - [Postgres](#postgres)
+  - [Oracle](#oracle)
+  - [Mysql](#mysql)
+- [常用字符串函数(PG)](#常用字符串函数pg)
+
+
 ## 1. order by 用法
 
 取第一行
@@ -180,6 +199,9 @@ select id,
 SELECT * FROM your_table
 WHERE date_column BETWEEN '2023-01-01' AND '2023-12-31';
 
+-- 带时间
+time_stamp BETWEEN '2020-01-01' AND '2020-12-31 23:59:59'
+
 -- 或者使用>=和<=
 SELECT * FROM your_table
 WHERE date_column >= '2023-01-01' AND date_column <= '2023-12-31';
@@ -195,6 +217,13 @@ TO_CHAR(visited_on, 'YYYY-MM-DD') AS visited_on
 ```
 -- oracle
 NVL(employee_id, 'No Employee')
+```
+
+判断字段是否为空
+```
+-- Postgres
+SELECT * FROM t WHERE col IS NULL;
+SELECT * FROM t WHERE col IS NOT NULL;
 ```
 
 ### Postgres
@@ -247,3 +276,35 @@ Data类型+1
 DATE_ADD(MIN(event_date), INTERVAL 1 DAY)
 ```
 
+
+## 常用字符串函数(PG)
+
+**基础获取与定位**
+
+- length(text) / char_length(text)：字符长度（多字节按字符计）
+- octet_length(text)：字节长度
+- substring(text [from int] [for int]) 或 substr(text, from, count)：截取子串
+- left(text, n) / right(text, n)：取左/右 n 个字符
+- position(sub in str) 或 strpos(str, sub)：子串位置（从 1 开始）
+- overlay(str placing replacement from pos [for n])：用 replacement 覆盖 str 的一段
+- reverse(text)：反转字符串
+- repeat(text, n)：重复 n 次
+- translate(str, from, to)：按字符集对位映射替换（非正则）
+- lpad(text, length [, fill]) / rpad(text, length [, fill])：左/右填充到指定长度
+
+
+**大小写与空白处理**
+
+- lower(text) / upper(text) / initcap(text)：小写/大写/单词首字母大写
+- trim([both|leading|trailing] [chars] from str) / btrim/ltrim/rtrim：去除两端/左/右的空白或指- 定字符
+- nullif(str, '')：把空串转为 NULL（常与 trim 配合）
+  
+
+**拼接与格式化**
+
+- ||：拼接运算符
+- concat(v1, v2, ...)：拼接，自动把 NULL 当空串
+- concat_ws(delim, v1, v2, ...)：以分隔符拼接，跳过 NULL
+- format(format_str, variadic args)：C风格/Printf 风格格式化（%s、%I、%L 等）
+- %s 普通替换，%I 标识符，%L 文字常量
+- to_char(value, format)：把数值/日期格式化为文本（虽然主要用于数值/日期，但产物是字符串）
