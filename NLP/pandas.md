@@ -266,6 +266,26 @@ df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
                    
 ```
 
+### DataFrame 的自带属性
+ - index：行索引，返回一个 Index 对象
+ - columns：列标签，返回一个 Index 对象
+ - dtypes：每一列的数据类型，返回一个 Series
+ - values：底层的二维数组表示（通常是 numpy ndarray，某些扩展类型可能不是纯 ndarray）
+ - ndim：维度数量，DataFrame 固定为 2
+ - size：元素总数，等于行数×列数
+ - axes：由两个 Index 组成的列表，[index, columns]
+ - T：转置后的 DataFrame（列变行、行变列）
+ - empty：是否为空 DataFrame，返回布尔值
+ - attrs：用户自定义的元数据字典，可自由存放键值对
+ - loc：基于标签的索引器（属性，返回一个索引器对象）
+ - iloc：基于位置的索引器（属性，返回一个索引器对象）
+ - at：基于标签的单元素快速访问（属性，返回一个索引器对象）
+ - iat：基于位置的单元素快速访问（属性，返回一个索引器对象）
+ - style：样式访问器，返回 Styler，用于美化展示（主要用于 Jupyter/HTML）
+ - plot：绘图访问器（属性，返回一个绘图接口，常配合 .plot.line() 等使用）
+ - sparse：稀疏数据访问器（当列为稀疏类型时有用）
+ - flags：DataFrame 的标志控制器，可设置/查看如 allows_duplicate_labels 等标志
+
 
 ### 排序
 ```python
