@@ -339,6 +339,7 @@ subset = df.iloc[:, 1:3]
 ```python
 # 或者的关系，'|' 两侧的括号不能省
 mg[(mg['bonus']<1000) | (mg['bonus'].isna())]
+mg[(mg['bonus']<1000) | (mg['bonus'].notna())]
 
 # 过滤 + 选列
 ans.loc[(ans['x'] + ans['y'] > ans['z']) & (ans['x'] + ans['z'] > ans['y']) & (ans['y'] + ans['z'] > ans['x']), 'triangle'] = 'Yes'
