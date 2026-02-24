@@ -4,7 +4,7 @@
 - [2. 窗口函数](#2-窗口函数)
   - [ROW\_NUMBER()](#row_number)
   - [RANK() 和 DENSE\_RANK()](#rank-和-dense_rank)
-  - [聚合函数（SUM()、AVG()、MIN()、MAX() 等）](#聚合函数sumavgminmax-等)
+  - [聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST\_VALUE、LAST\_VALUE 等）](#聚合函数sumavgminmaxfirst_valuelast_value-等)
   - [LEAD() 和 LAG()](#lead-和-lag)
 - [3. case when](#3-case-when)
 - [4. join on](#4-join-on)
@@ -99,13 +99,26 @@ SELECT id, name, salary,
 FROM employees;
 ```
 
-### 聚合函数（SUM()、AVG()、MIN()、MAX() 等）
+### 聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST_VALUE、LAST_VALUE 等）
 这些函数可以在窗口函数中使用，计算分区内的聚合值，同时保留每一行的原始数据。
 ```sql
 SELECT id, name, salary,
        SUM(salary) OVER (PARTITION BY department_id) AS total_salary,
        AVG(salary) OVER (PARTITION BY department_id) AS avg_salary
 FROM employees;
+```
+
+LAST_VALUE() 窗口函数中的窗口最后一行对应的值，这里要注意的是窗口函数默认的窗口范围是：
+[unbounded preceding, current row]
+即窗口内第一行到当前行，因此默认情况下LAST_VALUE就是当前行，作用不大，如果要获取整个窗口的真正最后一行有两种方法：
+
+- 第一种就是改变默认范围，改成rows between unbounded preceding and unbounded following，就是上界到下界整个范围:
+```sql
+LAST_VALUE(score) over(partition by student_id, subject order by exam_date rows between unbounded preceding and unbounded following) latest_score
+```
+- 第二种就是用FIRST_VALUE，但是order by选择相反顺序来排序：
+```sql
+FIRST_VALUE(score) over(partition by student_id, subject order by exam_date desc) latest_score
 ```
 
 ### LEAD() 和 LAG()

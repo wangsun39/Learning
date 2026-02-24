@@ -209,7 +209,7 @@ df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
 ```
 
 
-## 4. 行转列
+## 4. 行列互转
 
 pivot() 是 pandas.DataFrame 的一个“长转宽”变形函数，它把多行记录按照某个键值展开成列，常用于透视表或报表格式化。
 ```python
@@ -244,6 +244,17 @@ def reformat_table(department: pd.DataFrame) -> pd.DataFrame:
     # 重置索引，恢复 id 为列
     return data.reset_index()
 ```
+
+melt 用于把“宽表”转为“长表”。函数签名如下： pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None, ignore_index=True)
+| 参数 | 说明 |
+| --- | --- |
+| `frame` | 要进行“熔化”的 DataFrame（输入数据） |
+| `id_vars` | 保留为“标识/键”的列（一个或多个列名/位置；不参与熔化） |
+| `value_vars` | 要被“熔化”为行的列（一个或多个列名/位置；未指定时为除 `id_vars` 外的所有列） |
+| `var_name` | 保存“原列名”的新列名（默认 `"variable"`） |
+| `value_name` | 保存“原列值”的新列名（默认 `"value"`） |
+| `col_level` | 当列为 MultiIndex 时，指定从哪一层进行熔化（未指定则使用完整多层标签作为变量名） |
+| `ignore_index` | 是否重置结果行索引为连续整数（默认 `True`；`False` 保留原索引） |
 
 
 ## 5. 其他
@@ -366,6 +377,10 @@ result = df1[~df1['A'].isin(df2['A'])]
 正则的写法
 ```python
 ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', na=False)]
+
+# 反选
+cond = logs['ip'].str.match(r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$', na=False)
+    ans = logs[~cond]
 ```
 
 ### 删掉某列
