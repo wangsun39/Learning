@@ -2,6 +2,38 @@
 
 2025/4/26
 
+- [1. groupby用法](#1-groupby用法)
+  - [min的写法](#min的写法)
+  - [max的写法](#max的写法)
+  - [size的写法](#size的写法)
+  - [sum/count 的写法](#sumcount-的写法)
+  - [综合用法](#综合用法)
+  - [分组后执行复杂的运算](#分组后执行复杂的运算)
+  - [在每个分组内执行操作](#在每个分组内执行操作)
+- [2. merge 用法](#2-merge-用法)
+- [列求和](#列求和)
+- [3. loc 用法](#3-loc-用法)
+  - [修改某(些)列的值](#修改某些列的值)
+- [4. 行列互转](#4-行列互转)
+- [5. 其他](#5-其他)
+  - [构造 DataFrame](#构造-dataframe)
+  - [DataFrame 的自带属性](#dataframe-的自带属性)
+  - [排序](#排序)
+  - [选列](#选列)
+  - [过滤](#过滤)
+  - [删掉某列](#删掉某列)
+  - [堆叠两个表](#堆叠两个表)
+  - [获取行号](#获取行号)
+  - [删除重复行](#删除重复行)
+  - [调整列顺序](#调整列顺序)
+  - [lambda 函数](#lambda-函数)
+  - [列重命名](#列重命名)
+  - [reset\_index同时重命名新列](#reset_index同时重命名新列)
+  - [round函数的四舍五入](#round函数的四舍五入)
+  - [新增一列](#新增一列)
+  - [日期类型的比较](#日期类型的比较)
+
+
 ## 1. groupby用法
 
 在使用 groupby() 后，分组的结果通常会将分组键作为索引。如果需要将分组键恢复为普通列，可以使用 reset_index()
@@ -87,7 +119,8 @@ ans = (
                 avg=('rating', 'mean'),
                 unique_leads=('lead_id', 'nunique'),  # 对lead_id去重后的数量
                 approved_total_amount=('aa', 'sum'),
-                products=('product', lambda x: ','.join(sorted(x.unique())))  # 添加自定义函数
+                products=('product', lambda x: ','.join(sorted(x.unique()))),  # 添加自定义函数
+                filter =('rating', lambda x: len(x) >= 3 and x.iloc[-3] < x.iloc[-2] < x.iloc[-1])
         )
     ).reset_index()
 ```
@@ -382,6 +415,8 @@ ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', 
 cond = logs['ip'].str.match(r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$', na=False)
     ans = logs[~cond]
 ```
+str.contains(pattern): 只要字符串中任意位置“包含”pattern 即返回 True，等价于 re.search 的语义。
+str.match(pattern): 只在“字符串开头”尝试匹配，等价于 re.match 的语义（可理解为自动在前面加了一个 ^）。如果想要求整串完全匹配，用 str.fullmatch（pandas 1.0+）或自己加 ^...$。
 
 ### 删掉某列
 
@@ -419,7 +454,7 @@ concat
 **keep**：指定保留重复行的方式。
 - 'first'（默认值）：保留重复行中的第一行。
 - 'last'：保留重复行中的最后一行。
-- False：删除所有重复行。
+- False：删除所有重复行（即重复组内的所有项都丢弃，**只保留完全唯一的行**）。
 ```python
 df_drop = my_numbers.drop_duplicates(subset=['num'], keep=False)
 ```
@@ -432,7 +467,17 @@ df = df.reindex(columns=['C', 'A', 'B'])
 
 修改某个字段
 ```python
-salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
+    salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
+
+    def get_season(date):
+        if date.month in (3,4,5):
+            return 'Spring'
+        if date.month in (6,7,8):
+            return 'Summer'
+        if date.month in (9,10,11):
+            return 'Fall'
+        return 'Winter'
+    sales['season'] = sales['sale_date'].apply(get_season)
 ```
 
 
@@ -470,4 +515,7 @@ df2 = df.assign(
 ### 日期类型的比较
 ```python
 ans = logins.loc[(logins['time_stamp'] >= '2020-01-01') & (logins['time_stamp'] < '2021-01-01')]
+
+# 字符串转成时间
+ans['session_duration_minutes'] = (pd.to_datetime(ans['max_time']) - pd.to_datetime(ans['min_time'])) / pd.Timedelta(minutes=1)
 ```

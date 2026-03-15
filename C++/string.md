@@ -12,3 +12,4 @@
     int c0=std::count(strs[i].begin(), strs[i].end(), '0');
 ```
 
+[string常用函数](https://en.cppreference.com/w/cpp/string/basic_string.html)

@@ -221,6 +221,9 @@ WHERE date_column >= '2023-01-01' AND date_column <= '2023-12-31';
 
 -- oracle 去掉时间，只保留日期
 TO_CHAR(visited_on, 'YYYY-MM-DD') AS visited_on
+
+-- pgsql 获取一年中的第几周
+to_char(meeting_date, 'IYYY-"W"IW')
 ```
 
 ## 7. 其他
