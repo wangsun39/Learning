@@ -344,6 +344,9 @@ df_sorted = df.sort_values(by=['age', 'score'], ascending=[True, False])
 
 # 原地排序
 grouped.sort_values(by='sell_date', inplace=True)
+
+ans.sort_values(by=['transition_count', 'first_course', 'second_course'], ascending=[False, True, True],
+                           key=lambda col: col.str.lower() if col.dtype == 'object' else col)
 ```
 
 ### 选列
