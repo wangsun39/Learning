@@ -1,3 +1,13 @@
 .gitignore
 routine_update.bat
 *.html
+
+# 虚拟环境
+.venv/
+
+# MkDocs 构建生成的静态网页目录
+site/
+
+# 系统或编辑器缓存
+.DS_Store
+__pycache__/
