@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://wangsun39.github.io/Learning/NLP/pca/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Pca - Learning</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Learning</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
+</li>
+                                    
+<li>
+    <a href="../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
+</li>
+                                    
+<li>
+    <a href="../../C%2B%2B/string/" class="dropdown-item">String</a>
+</li>
+                                    
+<li>
+    <a href="../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../langchain/" class="dropdown-item">Langchain</a>
+</li>
+                                    
+<li>
+    <a href="../pandas/" class="dropdown-item">Pandas</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Pca</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Coursera</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../coursera/2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
+</li>
+            
+<li>
+    <a href="../coursera/3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Afflix</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="dropdown-item">1.Classification and Vector Spaces</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数学物理方法</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="dropdown-item">复数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高中</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../SQL/language/" class="dropdown-item">Language</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../pandas/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../coursera/2.Probabilistic%20Models/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#pca" class="nav-link">PCA是什么</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">降维好处</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#pca_1" class="nav-link">PCA降维缺点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">降维的衡量指标</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">如何找到方差最大的维度</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#r" class="nav-link">如何求R</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>2025/4/20</p>
+<p><a href="https://www.bilibili.com/video/BV1E5411E71z/?spm_id_from=333.337.search-card.all.click&amp;vd_source=841d763fe9132a9c849a39245e699de4">参考视频</a></p>
+<p><a href="https://www.latexlive.com/">latex</a></p>
+<h2 id="pca">PCA是什么</h2>
+<p>就是降维，降维的同时尽可能防止数据失真。</p>
+<h2 id="_1">降维好处</h2>
+<p>简化特征的复杂程度，减少训练模型计算量；</p>
+<h2 id="pca_1">PCA降维缺点</h2>
+<p>离群点的影响较大。</p>
+<h2 id="_2">降维的衡量指标</h2>
+<p>降维后，在各保留维度中的<strong>方差</strong>要最大，因为方差越大数据越散，防止了数据重叠导致信息失真。</p>
+<h2 id="_3">如何找到方差最大的维度</h2>
+<p>设降维后的数据叫做“白数据”，我们以“白数据”为目标。
+手头数据矩阵D' -&gt; 白数据矩阵D，通过拉伸和旋转；</p>
+<p>问题转化为求拉伸的比例、旋转的角度；
+设拉伸矩阵S、旋转矩阵R，问题转化为求矩阵S和R；</p>
+<p>拉伸矩阵,将x轴拉伸a倍,y轴拉伸b倍
+$<span class="arithmatex">\(S=\begin{pmatrix}
+  a&amp;0 \\
+  0&amp;b
+\end{pmatrix}\)</span>$</p>
+<p>旋转矩阵,将数据逆时针旋转角度 <span class="arithmatex">\(\theta\)</span>
+$<span class="arithmatex">\(R=\begin{pmatrix}
+  cos(\theta )&amp;-sin(\theta)  \\
+  sin(\theta)&amp;cos(\theta )
+\end{pmatrix}\)</span>$</p>
+<p>原白噪声数据 D ，经过拉伸，旋转之后得到 <span class="arithmatex">\(D'=RSD\)</span>
+$<span class="arithmatex">\(S^{-1} =\begin{pmatrix}
+  1/a&amp;0 \\
+  0&amp;1/b
+\end{pmatrix}\)</span>$</p>
+<div class="arithmatex">\[R^{-1}=\begin{pmatrix}
+  cos(-\theta )&amp;-sin(-\theta)  \\
+  sin(-\theta)&amp;cos(-\theta )
+\end{pmatrix}=\begin{pmatrix}
+  cos(\theta )&amp;sin(\theta)  \\
+  -sin(\theta)&amp;cos(\theta )
+\end{pmatrix}=R^{T}\]</div>
+<p><span class="arithmatex">\(D=S^{-1}R^{-1}D'=S^{-1}R^{T}D'\)</span></p>
+<p>现在的问题是，已知D'矩阵，要求一个的旋转R，使得RD’的方差最大，（因为拉伸不影响方差，可以不考虑）</p>
+<h2 id="r">如何求R</h2>
+<h3 id="_4">结论</h3>
+<p>协方差矩阵的特征向量就是R</p>
+<p>协方差 <span class="arithmatex">\(cov(x, y)=\frac{ {\textstyle \sum_{i=1}^{n}}(x_i-\bar{x})(y_i-\bar{y})   }{n-1}\)</span>，用来衡量两个变量的同向程度，当x=y时，就是方差。x，y不相关时，协方差为0。</p>
+<p>协方差矩阵：
+$<span class="arithmatex">\(C=\begin{pmatrix}
+  cov(x,x)&amp;cov(x,y)  \\
+  cov(x,y)&amp;cov(y,y)
+\end{pmatrix}\)</span>$</p>
+<p>对于白噪声数据，协方差矩阵是对角阵
+按cov的定义，可以推出</p>
+<div class="arithmatex">\[C=\frac{1}{n-1}\begin{pmatrix}
+  x_1&amp;x_2&amp;x_3&amp;x_4  \\
+  y_1&amp;y_2&amp;y_3&amp;y_4
+\end{pmatrix}\begin{pmatrix}
+  x_1&amp;y_1  \\
+  x_2&amp;y_2  \\
+  x_3&amp;y_3  \\
+  x_4&amp;y_4  \\
+\end{pmatrix}=\frac{1}{n-1}DD^{T}\]</div>
+<p>对于白数据D，C为单位矩阵，S是对角阵<span class="arithmatex">\(S=S^{T}\)</span></p>
+<div class="arithmatex">\[C'=\frac{1}{n-1}D'D'^{T}=\frac{1}{n-1}RSD(RSD)^{T}=RS(\frac{1}{n-1}DD^{T})S^{T}R^{T}=RSCS^{T}R^{T}=RSS^{T}R^{T}=RLR^{-1}\]</div>
+<p>特征向量<span class="arithmatex">\(\vec{v}\)</span> 和特征值 <span class="arithmatex">\(\lambda\)</span>，具有关系
+<span class="arithmatex">\(C'V=V\Lambda\)</span>, 其中<span class="arithmatex">\(V\)</span>是特征向量组成的矩阵，<span class="arithmatex">\(\Lambda\)</span>是所以特征值放在对角线位置的矩阵</p>
+<p>$<span class="arithmatex">\(C'=V\Lambda V^{-1}\)</span>$
+由此可知，R矩阵就是V，即每个特征向量就是矩阵之后的每个坐标方向，<span class="arithmatex">\(\lambda\)</span>矩阵就是S矩阵的平方，即特征值就是各个方法的拉伸值。</p>
+<p>结论证毕。</p>
+<p>在实际应用中，通过协方差矩阵计算特征向量R，有时计算量会比较大，因此可能使用奇异值分解（SVD），其中奇异值就是特征值的平方根，</p>
+<div class="arithmatex">\[D^{T}=U\Sigma V^{T},   其中\Sigma 是奇异值矩阵，V是特征矩阵R\]</div></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

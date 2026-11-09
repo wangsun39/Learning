@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://wangsun39.github.io/Learning/NLP/coursera/afflix/1.Classification%20and%20Vector%20Spaces/">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+        <title>1.Classification and Vector Spaces - Learning</title>
+        <link href="../../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../../..">Learning</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
+</li>
+                                    
+<li>
+    <a href="../../../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
+</li>
+                                    
+<li>
+    <a href="../../../../C%2B%2B/string/" class="dropdown-item">String</a>
+</li>
+                                    
+<li>
+    <a href="../../../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../langchain/" class="dropdown-item">Langchain</a>
+</li>
+                                    
+<li>
+    <a href="../../../pandas/" class="dropdown-item">Pandas</a>
+</li>
+                                    
+<li>
+    <a href="../../../pca/" class="dropdown-item">Pca</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Coursera</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
+</li>
+            
+<li>
+    <a href="../../3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Afflix</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">1.Classification and Vector Spaces</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数学物理方法</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="dropdown-item">复数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高中</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../../SQL/language/" class="dropdown-item">Language</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../3.Sequence%20Models/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#week1-tweets" class="nav-link">Week1 分类tweets</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#week2-a" class="nav-link">Week2 概率 + 贝叶斯规则 {#a}</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#week3" class="nav-link">Week3 词向量</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#week4" class="nav-link">Week4 机器翻译</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><a href="https://www.coursera.org/learn/classification-vector-spaces-in-nlp/">参考视频</a></p>
+<ul>
+<li><a href="#week1-分类tweets">Week1 分类tweets</a></li>
+<li><a href="#预处理">预处理</a></li>
+<li><a href="#正负数据计算">正负数据计算</a></li>
+<li><a href="#特征提取">特征提取</a></li>
+<li><a href="#训练">训练</a></li>
+<li><a href="#week2-概率--贝叶斯规则-a">Week2 概率 + 贝叶斯规则 {#a}</a></li>
+<li><a href="#laplacian-smoothing">Laplacian Smoothing</a></li>
+<li><a href="#log-likelyhood">log likelyhood</a></li>
+<li><a href="#朴素贝叶斯的训练">朴素贝叶斯的训练</a></li>
+<li><a href="#应用场景">应用场景</a></li>
+<li><a href="#week3-词向量">Week3 词向量</a></li>
+<li><a href="#欧式距离">欧式距离</a></li>
+<li><a href="#余弦相似度">余弦相似度</a></li>
+<li><a href="#pca">PCA</a></li>
+<li><a href="#week4-机器翻译">Week4 机器翻译</a></li>
+<li><a href="#transforming">Transforming</a></li>
+<li><a href="#knn">KNN</a></li>
+<li><a href="#locality-sensitive-hashing-位置敏感哈希">Locality sensitive hashing （位置敏感哈希）</a><ul>
+<li><a href="#一个平面">一个平面</a></li>
+<li><a href="#多个平面">多个平面</a></li>
+</ul>
+</li>
+<li><a href="#近似knn">近似KNN</a></li>
+</ul>
+<h2 id="week1-tweets">Week1 分类tweets</h2>
+<p>个人感觉这个方法比较粗糙，准确率不高</p>
+<h3 id="_1">预处理</h3>
+<ul>
+<li>Removing stopwords, punctuation, handles and URLs</li>
+<li>Stemming</li>
+<li>Lowercasing</li>
+</ul>
+<h3 id="_2">正负数据计算</h3>
+<p>把收集来的tweets语料分成两类，positive和negative</p>
+<p>为每个单词在postive和nagative中的的次数计数， 如：</p>
+<p><img alt="alt text" src="afflix/image-1.png" /></p>
+<h3 id="_3">特征提取</h3>
+<p>对于一个tweet，提取3个features
+$$ [Bias, Sum Pos. Freq, Sum Neg. Freq] $$
+<span class="arithmatex">\(Bias=1\)</span> <br>
+<span class="arithmatex">\(Sum Pos. Freq = \sum_{\omega } freqs(w, 1)\)</span> <br>
+<span class="arithmatex">\(Sum Neg. Freq = \sum_{\omega } freqs(w, 0)\)</span></p>
+<p>如，freqs[("today",1.0)] 表示today在pos的tweets中出现的次数
+freqs[("today",0.0)] 表示today在neg的tweets中出现的次数</p>
+<p>每个单词在正负样本中出现的计数的总和</p>
+<p>每个tweet，就对应下面一个三元组</p>
+<div class="arithmatex">\[ [1, \sum_{\omega } freqs(w, 1), \sum_{\omega } freqs(w, 0)] \]</div>
+<h3 id="_4">训练</h3>
+<p>训练方法就是逻辑回归(Logistic Regression)</p>
+<ul>
+<li>input: 训练集中每个tweet的所有三元组</li>
+<li>output: 每个tweet的标签</li>
+</ul>
+<h2 id="week2-a">Week2 概率 + 贝叶斯规则 {#a}</h2>
+<p>朴素贝叶斯是在指，<strong>假设用于分类的所有特征都是互相独立没有关联的</strong>。<br>虽然这个假设非常的强，实际中不太可能出现，单作为简单的处理方式，还是可以的。</p>
+<p>在一个大的语料库中，对每个单词在正负两种情感的tweet中出现的次数进行统计,
+得到 <span class="arithmatex">\(P(w_i|pos)\)</span> 和 <span class="arithmatex">\(P(w_i|neg)\)</span></p>
+<p>现在的问题是，对于一个新的tweet，我们要分析它的正负情感属性。
+这个新tweet中出现了这些单词，<span class="arithmatex">\(w_1,w_2,...,w_m\)</span>。这相当于计算<span class="arithmatex">\(P(pos|(w_1,w_2,...,w_m))\)</span>，或计算<span class="arithmatex">\(P(neg|(w_1,w_2,...,w_m))\)</span></p>
+<p>根据贝叶斯公式，可知
+$$ P(pos|(w_1,w_2,...,w_m))=\frac{P(pos)P((w_1,w_2,...,w_m)|pos)}{P(w_1,w_2,...,w_m)}  $$</p>
+<p><strong>按朴素贝叶斯的假设</strong> <span class="arithmatex">\(P((w_1,w_2,...,w_m)|pos) = P(w_1|pos)...P(w_m|pos)=\prod_{i=1}^{m}P(w_i|pos)\)</span></p>
+<p>我们可以通过计算 <span class="arithmatex">\(P(pos|(w_1,w_2,...,w_m))\)</span> 和 <span class="arithmatex">\(P(neg|(w_1,w_2,...,w_m))\)</span> 的比值来对新 tweet进行评估，那么
+$<span class="arithmatex">\(\frac{P(pos|(w_1,w_2,...,w_m))}{P(neg|(w_1,w_2,...,w_m))}=\frac{P(pos)\prod_{i=1}^{m}P(w_i|pos)}{P(neg)\prod_{i=1}^{m}P(w_i|neg)}=\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>如果P(pos)=P(neg)，可以约掉这两项，实际中可能它们并不相同，计算的时候就要带着这两项。</p>
+<p>简化后，实际我们只需要计算这个的比值，将它与1进行比较
+$<span class="arithmatex">\(\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>由于某些词<span class="arithmatex">\(P(w_i|pos)或P(w_i|neg)\)</span>可能为0，为了避免除以0，可以做一个Laplacian Smoothing</p>
+<h3 id="laplacian-smoothing">Laplacian Smoothing</h3>
+<div class="arithmatex">\[P(w_i|class)=\frac{freq(wi,class)+1}{N_{class}+V_{class}},  class\in  \{  pos,neg \} \]</div>
+<p><span class="arithmatex">\(N_{class}\)</span>=frequency of all words in class <br>
+<span class="arithmatex">\(V_{class}\)</span>= number of unique words in class</p>
+<p>拉普拉斯变换之后，就不会有除以0的情况了</p>
+<h3 id="log-likelyhood">log likelyhood</h3>
+<p>P(pos) 和 P(neg) 也称为先验概率。
+以下是完整的朴素贝叶斯二分类公式
+$<span class="arithmatex">\(\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>为了避免运算过程中的精度问题，将上面的公式改为log形式
+$<span class="arithmatex">\(log(\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)})=log(\frac{P(pos)}{P(neg)})+log(\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)})=log(\frac{P(pos)}{P(neg)})+\sum_{i=1}^{m}log(\frac{P(w_i|pos)}{P(w_i|neg)} )\)</span>$</p>
+<p>判断准则是，以上公式的值是否大于0，大于0为正属性，小于0为负属性</p>
+<h3 id="_5">朴素贝叶斯的训练</h3>
+<ul>
+<li>收集标注语料库</li>
+<li>预处理</li>
+<li>lowercase</li>
+<li>Remove punctuation, urls, names</li>
+<li>Remove stop words</li>
+<li>Stemming</li>
+<li>Tokenize sentence</li>
+<li>计数，每个词统计在正负样本中的次数</li>
+<li>计算 <span class="arithmatex">\(P(w|class)\)</span></li>
+<li>计算 <span class="arithmatex">\(\lambda(w)=log(\frac{P(w|pos)}{P(w|neg)})\)</span></li>
+<li>计算 <span class="arithmatex">\(logprior=log(\frac{P(pos)}{P(neg)})\)</span></li>
+</ul>
+<h3 id="_6">应用场景</h3>
+<ul>
+<li>Sentiment analysis</li>
+<li>Author identification</li>
+<li>Information retrieval</li>
+<li>Word disambiguation</li>
+<li>Simple, fast and robust!</li>
+</ul>
+<h2 id="week3">Week3 词向量</h2>
+<p>两种方式构建词向量
+- word by word
+  - 在语料中，统计某个词周围距离&lt;k的词的计数，维度是所有单词的个数
+  <img alt="alt text" src="afflix/image.png" />
+- word by doc
+  - 在语料中，统计某个词在某类语料中出现的计数，维度是所有分类的个数
+<img alt="alt text" src="afflix/image-2.png" /></p>
+<p>用词向量空间描述两个词的关系</p>
+<h3 id="_7">欧式距离</h3>
+<p>用于衡量两个向量之间的距离</p>
+<div class="arithmatex">\[ d(\vec{u}, \vec{v}) = \sqrt{\sum_{i=1}^{n} (\vec{u_i}-\vec{v_i})^2  } = ||\vec{u}- \vec{v}||_2 \]</div>
+<p><strong>不足：当向量的长度差异很大时，欧式距离不是很准确（语料集的大小差异很大）</strong></p>
+<h3 id="_8">余弦相似度</h3>
+<p><img alt="alt text" src="afflix/image-3.png" /></p>
+<p>衡量两个向量在方向上的相似度</p>
+<p>可以用此方式预测一个关系</p>
+<h3 id="pca">PCA</h3>
+<p>词向量往往是高维向量，PCA是一种降维简化的方法
+PCA算法有单独介绍的章节</p>
+<h2 id="week4">Week4 机器翻译</h2>
+<h3 id="transforming">Transforming</h3>
+<p>语言A翻译为语言B，需要计算出两种语言的所有词的词向量
+将A的一个词翻译成B的一个词，就是找到一个词向量的映射关系，这可以通过一个转换矩阵<span class="arithmatex">\(R\)</span>表示。而转换过程就是向量和矩阵的乘法 <span class="arithmatex">\(XR=Y\)</span> 。现在的问题就是如何找到转换矩阵<span class="arithmatex">\(R\)</span>。</p>
+<p>实际上，这就是一个机器学习的过程，用一些已有的X和Y的对应关系，学习到一个最为解决的矩阵R。</p>
+<p>$$
+\begin{align*}
+initialize\ R \
+in\ a\ loop&amp;: \
+&amp;Loss=||XR-Y||_F=\frac{2}{m}(X^T(XR-Y)) \
+&amp;g=\frac{d}{dR}Loss \
+&amp;R=R-\alpha g</p>
+<p>\end{align*}
+$$</p>
+<p>用这种方法得到了R之后，就可以用R来预测测试集中的其他向量了，但这有个问题，XR得到得向量Y，不一定是语言B中对应任何单词，这时就需要在语言B中找一个与Y最接近得单词作为预测值。这就需要用到KNN。</p>
+<h3 id="knn">KNN</h3>
+<p>在一个向量空间中找一个与目标最接近的向量。</p>
+<p>在整个B语言的空间中寻找，是个效率很低的实现，可以考虑将大的向量空间，按类型分成若干个小的向量空间，在每个小向量空间中查找的性能就要高很多。</p>
+<p>可以使用hash函数将每个向量分配到一个子空间中。</p>
+<p>如何划分子空间呢? 先了解一下位置敏感哈希的概念</p>
+<h3 id="locality-sensitive-hashing">Locality sensitive hashing （位置敏感哈希）</h3>
+<p>Locality sensitive hashing is a technique that allows you to hash similar inputs into the same buckets with high probability. </p>
+<p>一些点，如何用一个平面将它们分开，使得不同的点被分隔在平面的两侧，相当于找到一个Hash函数，将这些点分类。</p>
+<h4 id="_9">一个平面</h4>
+<p>对于二维平面的点，每个点看作从原点的一个向量，考虑如何找到一条过原点的直线（下图的虚线），如何将这些向量分在这条直线两侧，先找到它的一个法向量P</p>
+<p><img alt="alt text" src="afflix/image4.png" /></p>
+<p>这里使用的是 <strong>向量的内积</strong>，数学上点乘，就是</p>
+<p><span class="arithmatex">\(\vec{a} \cdot \vec{b} = |a||b|cos\theta\)</span></p>
+<p>具有性质
+1. 表征或计算两个向量之间的夹角：同向是正，反向是负，垂直为0
+2. b向量在a向量方向上的投影*|a|<br> (<span class="arithmatex">\(\vec{a} \cdot \vec{b} = |a||b|cos\theta=|a|p,p为b在a上的投影\)</span>)</p>
+<p>这样通过判断向量Vi与P的内积就可以直到Vi是在哪个分类中。</p>
+<h4 id="_10">多个平面</h4>
+<p>如果要用多个平面将这些点分割在多个子区域内
+可以根据V与P的内积值的正负号，决定V在这个平面的Hash值Hi
+将所有Hi加和，计算总的Hash值
+$<span class="arithmatex">\(h = \sum_{i=1}^{n} 2^i *h_i   (其中 h_i=\begin{cases}
+1 当 sign(\vec{a} \cdot \vec{b}) &gt; 0\\
+0 其他
+\end{cases} )\)</span>$</p>
+<h3 id="knn_1">近似KNN</h3>
+<p>由于在整个向量空间中求KNN计数量是非常大的，为了折中，可以考虑在一个范围内计算一个近似的KNN。那如何找近似空间呢？
+可以多次执行下面的算法
+  - 随机选择一组平面，把与目标点在一个子空间范围的点都最为目标点的近似
+  - 将这些点放入候选项之中</p>
+<p>多次执行之后，在所有候选点中找一个与目标点最近的，作为近似KNN的最终答案。</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../../js/base.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

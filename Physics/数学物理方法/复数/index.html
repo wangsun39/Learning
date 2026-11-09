@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://wangsun39.github.io/Learning/Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>复数 - Learning</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Learning</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
+</li>
+                                    
+<li>
+    <a href="../../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
+</li>
+                                    
+<li>
+    <a href="../../../C%2B%2B/string/" class="dropdown-item">String</a>
+</li>
+                                    
+<li>
+    <a href="../../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../NLP/langchain/" class="dropdown-item">Langchain</a>
+</li>
+                                    
+<li>
+    <a href="../../../NLP/pandas/" class="dropdown-item">Pandas</a>
+</li>
+                                    
+<li>
+    <a href="../../../NLP/pca/" class="dropdown-item">Pca</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Coursera</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../NLP/coursera/2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
+</li>
+            
+<li>
+    <a href="../../../NLP/coursera/3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Afflix</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../NLP/coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="dropdown-item">1.Classification and Vector Spaces</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数学物理方法</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">复数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高中</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../../SQL/language/" class="dropdown-item">Language</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../../NLP/coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link">复数基本概念</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">复变函数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">复变积分</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_8" class="nav-link">复级数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#_13" class="nav-link">幂级数</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="_1">复数基本概念</h2>
+<ul>
+<li><span class="arithmatex">\(i=\sqrt{-1}\)</span></li>
+<li><span class="arithmatex">\(z=x+iy\)</span></li>
+<li>负共轭 <span class="arithmatex">\(\bar{z}=x-iy\)</span></li>
+<li><span class="arithmatex">\(x=\frac{z+\bar{z}}{2}, y=\frac{z-\bar{z}}{2i}\)</span></li>
+<li>实部，虚部</li>
+<li>复数集 <span class="arithmatex">\(z\in\mathbb{C}\)</span></li>
+<li>复平面，复向量</li>
+<li>三角函数表示法 <span class="arithmatex">\((\rho,\phi)\)</span>  模，辐角</li>
+</ul>
+<pre><code class="language-math">\begin{aligned}
+&amp; \begin{cases}
+x=\rho\cos\phi \\
+y=\rho\sin\phi
+\end{cases} \\
+&amp; \begin{cases}
+\rho^2=x^2+y^2 \\
+\tan\phi=\frac{x}{y}
+\end{cases}
+\end{aligned}
+</code></pre>
+<ul>
+<li>黎曼球表示复数的方法（测地投影法）</li>
+<li>棣莫弗定理 <span class="arithmatex">\((\cos\theta1+i\sin\theta1)*(\cos\theta1+i\sin\theta1)=\cos(\theta1+\theta2)+i\sin(\theta1+\theta2)\)</span></li>
+<li>欧拉公式  <span class="arithmatex">\(e^{i\theta}=\cos\theta+i\sin\theta\)</span></li>
+<li><span class="arithmatex">\(z=\rho e^{i\phi}\)</span>，则 <span class="arithmatex">\(z^{\frac{1}{n}}=\rho^{\frac{1}{n}}e^{i(\frac{\phi+2k\pi}{n})}\)</span>  <span class="arithmatex">\((k=0,1,...,n-1)\)</span></li>
+<li><span class="arithmatex">\(z_1+z_2,z_1-z_2\)</span> 满足向量平行四边形法则</li>
+<li>由平行四边形性质： <span class="arithmatex">\(|z_1|^2+|z_2|^2=|z_1+z_2|^2+|z_1-z_2|^2\)</span></li>
+<li>复平面的椭圆方程： <span class="arithmatex">\(|z-\frac{c}{2}|+|z+\frac{c}{2}|=2a\)</span>   其中，a是半长轴长，c是焦点到原点距离</li>
+</ul>
+<h2 id="_2">复变函数</h2>
+<p><span class="arithmatex">\(W(z)=u(x,y)+iv(x,y)\)</span> \
+<span class="arithmatex">\(z=x+iy\)</span> \
+<span class="arithmatex">\(x,y,u(x,y),v(x,y)\in \mathbb{R}\)</span></p>
+<p>这个函数可以是1对1的，多对1，1对多(如 <span class="arithmatex">\(W(z)=\sqrt[3]{z}\)</span>)</p>
+<ul>
+<li>邻域</li>
+<li>内点</li>
+<li>区域：全部由内点组成，并且连通</li>
+<li>外点</li>
+<li>界点</li>
+<li>边界： 界点的集合</li>
+<li>单连通区域: 若属于D内任一简单闭曲线的内部都属于D</li>
+<li>复连通区域，中间有空洞</li>
+<li>边界的方向，内边界顺时针，外边界逆时针</li>
+<li>复变函数的极限和连续性
+  (<span class="arithmatex">\(\lim_{z \to z_0} f(z) = f(z_0)\)</span> 表示在<span class="arithmatex">\(z_0连续\)</span>)</li>
+</ul>
+<p>在闭区域 <span class="arithmatex">\(\bar{G}\)</span>中连续的函数，具有性质：
+（1） <span class="arithmatex">\(|f(z)|\)</span>在 <span class="arithmatex">\(\bar{G}\)</span>中有界，且能达到。（2） <span class="arithmatex">\(f(z)\)</span>在 <span class="arithmatex">\(\bar{G}\)</span>中一致连续。</p>
+<h3 id="_3">解析函数</h3>
+<p>可导定义，下式在<span class="arithmatex">\(\Delta z\)</span>以不同方式趋于0，下式趋于同一个值
+$$\lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z} $$</p>
+<ul>
+<li>
+<p>复变函数可导的<strong>必要条件</strong>：柯西-黎曼条件 (C-R)\
+<span class="arithmatex">\(\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y}\)</span>, <span class="arithmatex">\(\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(z)\)</span>可导的<strong>充要条件</strong>是 <span class="arithmatex">\(\frac{\partial u}{\partial x}，\frac{\partial v}{\partial y}，\frac{\partial u}{\partial y}，\frac{\partial v}{\partial x}\)</span> 都存在，且连续，并且满足C-R条件。</p>
+</li>
+<li>
+<p>若函数 <span class="arithmatex">\(f(z)\)</span>在点 <span class="arithmatex">\(z_0\)</span>及其邻域上处处可导，则称 <span class="arithmatex">\(f(z)\)</span>在点 <span class="arithmatex">\(z_0\)</span><strong>解析</strong>。解析能推出可导，反之不成立。</p>
+</li>
+<li>
+<p>解析函数的实部和虚部不是独立的，根据C-R条件，知道其中之一就能推出另一个。
+  全微分 <span class="arithmatex">\(dv=\frac{\partial v}{\partial x}dx+\frac{\partial v}{\partial y}dy=-\frac{\partial u}{\partial y}dx+\frac{\partial u}{\partial x}dy\)</span> ，再积分</p>
+</li>
+<li>
+<p>解析函数求导: <span class="arithmatex">\(\frac{\partial f}{\partial z}=\frac{\partial u}{\partial x}-i\frac{\partial u}{\partial y}\)</span>  (这步在证明可在上面充要条件的过程中得到)，除了这个式子之外，依据C-R条件，还能得到其他3个等价形式。</p>
+</li>
+<li>
+<p>若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u(x,y)和v(x,y)是\sigma上的\)</span><strong>调和函数</strong>，即满足二维拉普拉斯方程</p>
+</li>
+</ul>
+<pre><code class="language-math">\begin{array}{l}  
+  \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=\nabla^2 u(x,y)=0  \\  
+  \frac{\partial^2 v}{\partial x^2}+\frac{\partial^2 v}{\partial y^2}=\nabla^2 v(x,y)=0 
+\end{array}
+</code></pre>
+<p><span class="arithmatex">\(\nabla^2=\nabla \cdot \nabla\)</span> (中间是点乘)称为拉普拉斯算符， <span class="arithmatex">\(\nabla\)</span> 是梯度算符， <span class="arithmatex">\(\nabla\cdot\)</span> 是散度算符。<strong>物理意义</strong>：解析函数的实部和虚部都可以用来描述二维静电场的电势场
+- 若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u,v的等值线 u(x,y)=C1和v(x,y)=C2\)</span> 在各个相交处正交。</p>
+<p>解析函数的实部和虚部是有关联的，已知其中之一，是可以算出另一个的。</p>
+<p>初等解析函数
+- 幂函数  <span class="arithmatex">\((z^n)'=nz^{n-1}\)</span> 对于 <span class="arithmatex">\(z\in Z\)</span>
+- 指数函数 <span class="arithmatex">\(e^z=e^{x+iy}=e^x(\cos{y}+i\sin{y}),\)</span>  <span class="arithmatex">\((e^z)'=e^z\)</span>
+- 三角函数 <span class="arithmatex">\(sin z=\frac{e^{iz}-e^{-iz}}{2i}\)</span>, <span class="arithmatex">\(cos z=\frac{e^{iz}+e^{-iz}}{2}\)</span> 在全平面解析，其他三角函数 <span class="arithmatex">\(\tan z,\cot z,\sec z,\csc z, \sinh z,\cosh z,\tan z,\cot z,\sec z,\csc z\)</span> 也都解析，三角恒等式也都成立。</p>
+<h3 id="_4">多值函数</h3>
+<p><strong>根式函数</strong>
+- <span class="arithmatex">\(w(z)=\sqrt{z}\)</span> 有两个支：</p>
+<pre><code class="language-math">w(z)=\sqrt{z}=
+\begin{cases}
+\sqrt{r}e^{i\frac{\theta}{2}} \\
+-\sqrt{r}e^{i\frac{\theta}{2}}
+\end{cases}
+</code></pre>
+<p>三次根式就有三个支，如果只考虑一个支，那么它是单值函数。
+- 有两个枝点，0和 <span class="arithmatex">\(\infty\)</span>，连接两个枝点的线称为<strong>支割线</strong>。这是定义一个单值解析函数的方法：只要不穿过支割线。
+- <span class="arithmatex">\(w(z)=\sqrt{(z-a)(z-b)}\)</span>, a, b是两个枝点（<span class="arithmatex">\(\infty\)</span>不是枝点），连接它们的点是支割线，另一种支割线是连接a和<span class="arithmatex">\(\infty\)</span></p>
+<p><strong>对数函数</strong>
+- <span class="arithmatex">\(w(z)=\ln{z}=\ln{|z|}+i(\theta+2n\pi)=\ln{|z|}+i\arg{z}\)</span>  实部固定，虚部有无穷多个，相差<span class="arithmatex">\(2\pi\)</span>
+- 枝点有两个：0和 <span class="arithmatex">\(\infty\)</span>
+- 作割线连接0和 <span class="arithmatex">\(\infty\)</span>，规定割线一侧的<span class="arithmatex">\(\arg{z}\)</span>值，即可得到 <span class="arithmatex">\(w(z)=\ln{z}\)</span>单值分支，单值分支上都有 <span class="arithmatex">\(\frac{d}{dz}(\ln{z})=\frac{1}{z}\)</span></p>
+<details>
+<summary>补充：单值分支上 (ln z)′ = 1/z 的推导</summary>
+
+设 $f(z)=\ln z$ 的某个单值分支为
+$$f(z)=\ln|z|+i\theta(z),$$
+其中 $\theta(z)$ 是选定的连续辐角。于是
+$$e^{f(z)}=z.$$
+两边对 $z$ 求导：
+$$e^{f(z)}f'(z)=1.$$
+因为 $e^{f(z)}=z\neq 0$，所以
+$$f'(z)=\frac{1}{e^{f(z)}}=\frac1z.$$
+因此
+$$\frac{d}{dz}\ln z=\frac1z.$$
+不同单值分支只相差常数 $2n\pi i$，求导后常数项消失，所以导数与选哪个分支无关。
+
+</details>
+
+<p><strong>一般函数</strong></p>
+<p>由 <span class="arithmatex">\(e^{z}\)</span>和<span class="arithmatex">\(\ln{z}\)</span>的定义就能得到一般指数函数和幂函数的定义
+- 指数函数 <span class="arithmatex">\(w(z)=a^z=e^{(\ln{a})z}, a\in\mathbb{C},z\in\mathbb{C}\)</span>
+- 幂函数 <span class="arithmatex">\(w(z)=z^s=e^{(\ln{z})s}, s\in\mathbb{C},z\in\mathbb{C}\)</span></p>
+<h2 id="_5">复变积分</h2>
+<p>f(z) 在曲线C上的积分，两种求法</p>
+<p>极限定义： <span class="arithmatex">\(\int_{C} f(z)dz=\lim_{\max{|\Delta z_k|} \to 0} f(\zeta_k)\Delta z_k\)</span> （ <span class="arithmatex">\(\zeta_k\)</span>是 <span class="arithmatex">\(z_{k-1}到z_{k}\)</span>之间的任意点，等式右边需要存在）</p>
+<p>积分 <span class="arithmatex">\(\int_{C} f(z)dz=\int_{C} (u+iv)(dx+idy)=\int_{C} (udx-vdy) + i\int_{C} (udy+vdx)\)</span></p>
+<ul>
+<li><span class="arithmatex">\(\int_{l} (C_1f_1(z)+C_2f_2(z))dz=C_1\int_{l} f_1(z)dz+C_21\int_{l} f_2(z)dz\)</span></li>
+<li><span class="arithmatex">\(\int_{l^-} f(z)dz=-\int_{l} f(z)dz\)</span>  (<span class="arithmatex">\(l^-\)</span>表示<span class="arithmatex">\(l\)</span>的逆向)</li>
+<li><span class="arithmatex">\(|\int_{l} f(z)dz|\le\int_{l} |f(z)||dz|\)</span></li>
+</ul>
+<h3 id="_6">单连通区域内的柯西定理</h3>
+<p>如果函数 <span class="arithmatex">\(f(z)\)</span>在单连通区域 <span class="arithmatex">\(\bar{G}\)</span>中解析，则沿 <span class="arithmatex">\(\bar{G}\)</span>中任何一个分段光滑的围道 <span class="arithmatex">\(C\)</span>( <span class="arithmatex">\(C\)</span>可以是 <span class="arithmatex">\(\bar{G}\)</span>的边界)有
+$$\oint_{C}f(z)dz=0 $$
+默认的方向： 区域在路径的左侧（逆时针）。</p>
+<p><strong>推论</strong> 如果函数 <span class="arithmatex">\(f(z)\)</span>在单连通区域 <span class="arithmatex">\(\bar{G}\)</span>中解析，则复变积分 <span class="arithmatex">\(\int_{C} f(z)dz\)</span> 与路径无关。</p>
+<p><strong>柯西型积分</strong>
+固定起点 $z_0，令终点 <span class="arithmatex">\(z\)</span>为变点 <span class="arithmatex">\(F(z)=\int_{z_0}^zf(z) dz\)</span>，如果 <span class="arithmatex">\(f(z)\)</span>在单连通区域G内解析，则 <span class="arithmatex">\(F(z)\)</span>在G内也解析。</p>
+<h3 id="_7">复连通区域内的柯西定理</h3>
+<p>如果函数 <span class="arithmatex">\(f(z)\)</span>是在复连通区域 <span class="arithmatex">\(\bar{G}\)</span>中的单值解析函数，则沿 <span class="arithmatex">\(\bar{G}\)</span>中任何一个分段光滑的围道 <span class="arithmatex">\(C\)</span>(<span class="arithmatex">\(C\)</span>可以是 <span class="arithmatex">\(\bar{G}\)</span>的边界)有
+$<span class="arithmatex">\(\oint_{C_0}f(z)dz=\sum_{i=1}^{n} \oint_{C_i}f(z)dz\)</span>$
+其中 <span class="arithmatex">\(C_0,C_1,...,C_n是构成复连通区域\bar{G}\)</span>的边界的各段光滑闭合曲线， <span class="arithmatex">\(C_1,...,C_n都包含在C_0内部\)</span>,且所有积分走向相同。</p>
+<p>柯西定理反映，<strong>解析函数在它的解析区域内，各点的函数值是密切关联的</strong></p>
+<h3 id="cauchy">Cauchy 积分公式</h3>
+<p>函数 <span class="arithmatex">\(f(z)\)</span>是区域 <span class="arithmatex">\(\bar{G}\)</span>中的单值解析函数， <span class="arithmatex">\(\bar{G}\)</span>的边界C是分段光滑曲线，a为G内一点，则：
+$<span class="arithmatex">\(单连通的形式：f(a)=\frac{1}{2\pi i} \oint_{C}\frac{f(z)}{z-a}dz\)</span>$
+$<span class="arithmatex">\(复连通的形式：f(a)=\frac{1}{2\pi i} \oint_{l}\frac{f(z)}{z-a}dz + \frac{1}{2\pi i}\sum_{k=1}^n \oint_{l_k^-} \frac{f(z)}{z-a}dz\)</span>$
+<span class="arithmatex">\(l_k^-\)</span>是内围道的顺时针方向</p>
+<p><strong>推论1</strong>：\
+函数 <span class="arithmatex">\(f(z)\)</span> 是区域 <span class="arithmatex">\(\bar{G}\)</span> 中解析，则在G内 <span class="arithmatex">\(f(z)\)</span> 的任意阶导数均存在，且
+$<span class="arithmatex">\(f^{(n)}(z)=\frac{n!}{2\pi i} \oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta\)</span>$
+C为G的正向边界，z为G内任意点。</p>
+<p><strong>Cauchy不等式</strong>：\
+函数 <span class="arithmatex">\(f(z)\)</span>是区域 <span class="arithmatex">\(\bar{G}\)</span> 中解析，则 <span class="arithmatex">\(f(z)\)</span>在边界C上连续， <span class="arithmatex">\(|f(z)|\)</span>在C上必有上界，且能达到上界M：
+$<span class="arithmatex">\(|f^{(n)}(z)|=\frac{n!}{2\pi } |\oint_{C}\frac{f(\zeta)}{(\zeta-z)^{n+1}}d\zeta|\le \frac{n! Ml}{2\pi d^{n+1}}\)</span>$
+其中l是C的长度，d是z到边界的最短距离。
+特别地，C是以z为圆心，R为半径的圆时，
+$<span class="arithmatex">\(|f^{(n)}(z)|=\le \frac{n! M}{ R^{n}}\)</span>$</p>
+<p><strong>最大模原理</strong>\
+函数 <span class="arithmatex">\(f(z)\)</span>在闭区域 <span class="arithmatex">\(\bar{G}\)</span>中解析，则模 <span class="arithmatex">\(|f(z)|\)</span>的最大值在 <span class="arithmatex">\(\bar{G}\)</span>的边界达到。\
+非常数函数，则不会在内部达到（可以用下面的均值定理反证）</p>
+<p><strong>均值定理</strong>\
+解析函数 <span class="arithmatex">\(f(z)\)</span>在解析区域G内任意一点a的值f(a)，等于以a为圆心，完全位于G内的任一圆周上的函数值的平均
+$<span class="arithmatex">\(f(a)=\frac{1}{2\pi} \int_{0}^{2\pi}f(a+Re^{i\theta})d\theta\)</span>$</p>
+<p><strong>Morera定理(柯西定理逆定理)</strong>\
+函数 <span class="arithmatex">\(f(z)\)</span>是区域 <span class="arithmatex">\(\bar{G}\)</span>中连续，如果对 <span class="arithmatex">\(\bar{G}\)</span>中任何闭合围道 <span class="arithmatex">\(C\)</span>，都有
+$$\oint_{C}f(z)dz=0 $$
+则 <span class="arithmatex">\(f(z)\)</span>在G内解析</p>
+<h2 id="_8">复级数</h2>
+<h3 id="_9">级数收敛</h3>
+<p><span class="arithmatex">\(S_n=u_0+u_1+...+u_n\)</span>构成的序列 <span class="arithmatex">\(\{S_n\}\)</span> 收敛，则称级数 <span class="arithmatex">\(\sum u_n\)</span>收敛。</p>
+<h4 id="cauchy_1">Cauchy 收敛充要条件</h4>
+<p>任意给定 <span class="arithmatex">\(\epsilon&gt;0\)</span>，存在正整数n，使得对于任意正整数p，有
+$<span class="arithmatex">\(|u_{n+1}+u_{n+2}+...+u_{n+p}|&lt;\epsilon\)</span>$</p>
+<h4 id="_10">绝对收敛</h4>
+<p><span class="arithmatex">\(\sum_{n=0}^{\infty}|u_n|\)</span> 收敛，则称级数 <span class="arithmatex">\(\sum_{n=0}^{\infty}u_n\)</span>绝对收敛
+- 绝对收敛 =&gt; 收敛
+- 任意改变各项顺序，新的级数仍然收敛，且其和不变
+- 两个绝对收敛的级数，逐项相乘，所得级数依然收敛
+- d'Alembert判别法： <span class="arithmatex">\(|\frac{f_{k+1}}{f_k}|&lt;\rho\)</span>, <span class="arithmatex">\(\rho&lt;1\)</span> 与k无关，则级数 <span class="arithmatex">\(\sum_{k=0}^{\infty}f_k\)</span> 绝对收敛。如果 <span class="arithmatex">\(\lim_{k \to \infty}|\frac{f_{k+1}}{f_k}|=l\)</span>， <span class="arithmatex">\(l&lt;1\)</span> 绝对收敛， <span class="arithmatex">\(l&gt;1\)</span> 发散， <span class="arithmatex">\(l=1\)</span> 不能判断
+- <strong>Cauchy判别法（根式判别法）：</strong></p>
+<p>对于 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span>，若有</p>
+<div class="arithmatex">\[
+\lim_{k \to \infty} \sqrt[k]{|f_k|} = r,
+\]</div>
+<p>则当 <span class="arithmatex">\(r &lt; 1\)</span> 时， <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span> 绝对收敛；</p>
+<p>当 <span class="arithmatex">\(r &gt; 1\)</span> 时， <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span> 发散；</p>
+<p>当 <span class="arithmatex">\(r = 1\)</span> 时， <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span> 的敛散性须另行判断（如利用高斯判别法）.
+- <strong>Gauss判别法（根式判别法）：</strong></p>
+<p>对于 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span>，若</p>
+<div class="arithmatex">\[
+\frac{f_k}{f_{k+1}} = 1 + \frac{\mu}{k} + O\left(\frac{1}{k^\lambda}\right), \quad \lambda &gt; 1,
+\]</div>
+<p>其中 <span class="arithmatex">\(O\left(\frac{1}{k^\lambda}\right)\)</span> 的含义见下文补充，<span class="arithmatex">\(\mu \in \mathbb{C}\)</span>.</p>
+<p>则当 <span class="arithmatex">\(\operatorname{Re} \mu &gt; 1\)</span> 时，<span class="arithmatex">\(\sum_{k=1}^{\infty} f_k\)</span> 绝对收敛；</p>
+<p>当 <span class="arithmatex">\(\operatorname{Re} \mu \le 1\)</span> 时，<span class="arithmatex">\(\sum_{k=1}^{\infty} |f_k|\)</span> 发散.</p>
+<h4 id="_11">复变函数项级数</h4>
+<p>形如 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 的级数称为复变函数项级数。</p>
+<h4 id="_12">复变函数项级数一致收敛性</h4>
+<p>设 <span class="arithmatex">\(F_n(z) = \sum_{k=1}^{n} f_k(z)\)</span> 是复变函数项级数 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 的前 <span class="arithmatex">\(n\)</span> 项和（构成部分和序列 <span class="arithmatex">\(\{F_n(z)\}\)</span> ）。如果在区域 <span class="arithmatex">\(\sigma\)</span> 上存在函数 <span class="arithmatex">\(F(z)\)</span>，对任意正数 <span class="arithmatex">\(\varepsilon\)</span>，总存在无关于 <span class="arithmatex">\(z\)</span> 的自然数 <span class="arithmatex">\(N\)</span>，使得当 <span class="arithmatex">\(n &gt; N\)</span> 时，对任意 <span class="arithmatex">\(z \in \sigma\)</span>，均有</p>
+<p>$$
+  |F(z) - F_n(z)| &lt; \varepsilon, 
+  $$</p>
+<p>则称 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 在 <span class="arithmatex">\(\sigma\)</span> 上一致收敛于 <span class="arithmatex">\(F(z)\)</span>，并称 <span class="arithmatex">\(F(z)\)</span> 为 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 的和函数。</p>
+<ul>
+<li>
+<p>在区域 <span class="arithmatex">\(\sigma\)</span> 内，如果 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 一致收敛于 <span class="arithmatex">\(F(z)\)</span>，则有如下性质成立：</p>
+</li>
+<li>
+<p><strong>连续性：</strong></p>
+<p>若对于任意 <span class="arithmatex">\(k\)</span>，<span class="arithmatex">\(f_k(z)\)</span> 在区域 <span class="arithmatex">\(\sigma\)</span> 内处处连续，则 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z) = F(z)\)</span> 在 <span class="arithmatex">\(\sigma\)</span> 上必亦连续。</p>
+</li>
+<li>
+<p><strong>逐项可积性：</strong>
+    若对于任意 <span class="arithmatex">\(k\)</span>，<span class="arithmatex">\(f_k(z)\)</span> 在 <span class="arithmatex">\(\sigma\)</span> 内的一条曲线 <span class="arithmatex">\(l\)</span> 上连续可积，则 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 可沿着 <span class="arithmatex">\(l\)</span> 逐项积分，换句话说，此时积分和求和可以交换次序，即</p>
+<div class="arithmatex">\[
+\int_l F(z)\mathrm{d}z = \int_l \sum_{k=1}^{\infty} f_k(z)\mathrm{d}z = \sum_{k=1}^{\infty} \int_l f_k(z)\mathrm{d}z. 
+\]</div>
+</li>
+<li>
+<p><strong>逐项可导性（Weierstrass定理、魏尔斯特拉斯定理）：</strong></p>
+<p>若对于任意 <span class="arithmatex">\(k\)</span>，<span class="arithmatex">\(f_k(z)\)</span> 在 <span class="arithmatex">\(\sigma\)</span> 内解析，且级数在 <span class="arithmatex">\(\sigma\)</span> 内任一闭区域 <span class="arithmatex">\(\bar{\sigma}'\)</span> 上一致收敛于 <span class="arithmatex">\(F(z)\)</span>，则</p>
+<p>i. <span class="arithmatex">\(F(z) = \sum_{k=1}^{\infty} f_k(z)\)</span> 在 <span class="arithmatex">\(\sigma\)</span> 内解析；</p>
+<p>ii. 在 <span class="arithmatex">\(\sigma\)</span> 内级数可以逐项求导至任意阶，且</p>
+<p>$$
+ F^{(n)}(z) = \left( \sum_{k=1}^{\infty} f_k(z) \right)^{(n)} = \sum_{k=1}^{\infty} f_k^{(n)}(z), 
+ $$</p>
+<p>即此时求导和求和可以交换次序.</p>
+</li>
+<li>
+<p><em>M</em> 判别法：复变函数项级数绝对且一致收敛的一种判别法</p>
+</li>
+</ul>
+<p>若对于任意 <span class="arithmatex">\(k\)</span>，在区域 <span class="arithmatex">\(\bar{\sigma} = \sigma + l\)</span> 上 <span class="arithmatex">\(|f_k(z)| \leqslant M_k\)</span>（<span class="arithmatex">\(M_k\)</span> 与 <span class="arithmatex">\(z\)</span> 无关），且 <span class="arithmatex">\(\sum_{k=1}^{\infty} M_k\)</span> 收敛，则 <span class="arithmatex">\(\sum_{k=1}^{\infty} f_k(z)\)</span> 在 <span class="arithmatex">\(\bar{\sigma}\)</span> 上绝对且一致收敛.</p>
+<p>将上述条件改成“在区域 <span class="arithmatex">\(\sigma\)</span>”内也成立. 这是复变函数项级数绝对且一致收敛的一个充分不必要条件.</p>
+<h2 id="_13">幂级数</h2>
+<p>形如 <span class="arithmatex">\(\sum_{k=0}^{\infty} a_k(z - b)^k\)</span> 的级数，称为幂级数. 它是一个以 <span class="arithmatex">\(b\)</span> 为中心的幂级数，其中 <span class="arithmatex">\(a_k (k=0,1,2,\dots)\)</span> 是复常数：<span class="arithmatex">\(a_k \in \mathbb{C}, \ k=0,1,2,\dots\)</span>.</p>
+<h3 id="_14">收敛性</h3>
+<p><strong>Abel定理（阿贝尔定理）：</strong> 幂级数敛散性判别法</p>
+<p>若幂级数 <span class="arithmatex">\(\sum_{k=0}^{\infty} a_k(z - b)^k\)</span> 在某点 <span class="arithmatex">\(z = z_0\)</span> 处收敛，则它在 <span class="arithmatex">\(|z - b| &lt; |z_0 - b|\)</span> 内（以 <span class="arithmatex">\(b\)</span> 为圆心，<span class="arithmatex">\(|z_0 - b|\)</span> 内为半径的圆区域内）绝对收敛，在更小的闭圆（<span class="arithmatex">\(|z - b| \leqslant \rho, \ \rho &lt; |z_0 - b|\)</span>）上一致收敛.</p>
+<p><strong>推论</strong>：如果幂级数 <span class="arithmatex">\(\sum_{k=0}^{\infty} a_k(z - b)^k\)</span> 在某点 <span class="arithmatex">\(z = z_0\)</span> 处发散，则其必在闭圆区域 <span class="arithmatex">\(|z - b| \leqslant |z_0 - b|\)</span> 外处处发散，即该幂级数在 <span class="arithmatex">\(|z - b| &gt; |z_0 - b|\)</span> 上处处发散.</p>
+<p><strong>幂级数的收敛半径：</strong>
+根据达朗贝尔比值判别法，可判断幂级数的收敛半径. 设 <span class="arithmatex">\(f_k = a_k(z - b)^k\)</span>.</p>
+<p>因为 <span class="arithmatex">\(\lim_{k \to \infty} \left| \frac{f_{k+1}}{f_k} \right| = \lim_{k \to \infty} \left| \frac{a_{k+1}}{a_k} \right| |z - b|\)</span>，所以由比值判别法，</p>
+<p>当 <span class="arithmatex">\(\lim_{k \to \infty} \left| \frac{a_{k+1}}{a_k} \right| |z - b| &lt; 1\)</span> 时，即 <span class="arithmatex">\(|z - b| &lt; \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|\)</span> 时，级数绝对收敛；</p>
+<p>当 <span class="arithmatex">\(\lim_{k \to \infty} \left| \frac{a_{k+1}}{a_k} \right| |z - b| &gt; 1\)</span> 时，即 <span class="arithmatex">\(|z - b| &gt; \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|\)</span> 时，级数发散.</p>
+<p>因此，幂级数的收敛圆以 <span class="arithmatex">\(b\)</span> 为圆心，收敛半径为</p>
+<p>$$
+  R = \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|. 
+  $$</p>
+<p>另外，也可以根据根式判别法求收敛半径，这是收敛圆半径的一种等价求法. 与上面做法类似，可得</p>
+<p>$$
+  R = \lim_{k \to \infty} \frac{1}{\sqrt[k]{|a_k|}}. 
+  $$</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

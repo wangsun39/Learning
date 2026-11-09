@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://wangsun39.github.io/Learning/NLP/langchain/">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Langchain - Learning</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Learning</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
+</li>
+                                    
+<li>
+    <a href="../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
+</li>
+                                    
+<li>
+    <a href="../../C%2B%2B/string/" class="dropdown-item">String</a>
+</li>
+                                    
+<li>
+    <a href="../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Langchain</a>
+</li>
+                                    
+<li>
+    <a href="../pandas/" class="dropdown-item">Pandas</a>
+</li>
+                                    
+<li>
+    <a href="../pca/" class="dropdown-item">Pca</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Coursera</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../coursera/2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
+</li>
+            
+<li>
+    <a href="../coursera/3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
+</li>
+            
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">Afflix</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="dropdown-item">1.Classification and Vector Spaces</a>
+</li>
+    </ul>
+  </li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">数学物理方法</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="dropdown-item">复数</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">高中</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
+</li>
+    </ul>
+  </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../SQL/language/" class="dropdown-item">Language</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../C%2B%2B/usage/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../pandas/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="2"><a href="#langchain-for-llm-application-development" class="nav-link">LangChain for LLM Application Development</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="2"><a href="#chat-with-your-data" class="nav-link">chat with your data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p>2025/4/22</p>
+<p><a href="https://learn.deeplearning.ai/courses/langchain/lesson/ls57z/memory">LangChain for LLM Application Development</a></p>
+<p><a href="https://www.latexlive.com/">latex</a></p>
+<h2 id="langchain-for-llm-application-development">LangChain for LLM Application Development</h2>
+<p>LLM 实际上是没有记忆的(stateless)，每次交互是独立的，
+Chatbots appear to have memory by providing the full conversation as context.
+一些管理记忆的方法</p>
+<ul>
+<li>buffer window 指定记忆消息条数</li>
+<li>token buffer 指定记忆token数</li>
+<li>Summary buffer 对话转成摘要</li>
+</ul>
+<h3 id="qa">QA系统</h3>
+<p>将LLM和未训练过的数据相结合</p>
+<h4 id="embeddings">Embeddings 和 向量数据库</h4>
+<p><strong>Embeddings</strong>: 一段文字转成一个向量, 相似的文本具有相似的向量</p>
+<p><strong>向量数据库</strong>: 存储向量的数组，并不在LLM里面，因为很大，也不能一次都传给LLM</p>
+<p>大文本拆分成小块，构成向量数据库</p>
+<p>把 query 转成 向量，在向量数据库中搜索最接近的前k个句子，把这k个句子合并起来，加上问题，发给LLM，让它给出一个合适的答案，相当于把问题和可能信息给LLM，让它从中提取信息。</p>
+<p>另外有一些组织k个搜索结果的句子的方式，当句子非常大时可能有用</p>
+<ul>
+<li>map_reduce</li>
+<li>refine</li>
+<li>map_rerank</li>
+</ul>
+<h3 id="_1">评估</h3>
+<p>可以手工编写一个问题和答案</p>
+<p>也可以通过langchain来根据自动构造一些问答</p>
+<pre><code class="language-python">from langchain.evaluation.qa import QAGenerateChain
+
+example_gen_chain = QAGenerateChain.from_llm(ChatOpenAI(model=llm_model))
+new_examples = example_gen_chain.apply_and_parse(
+    [{&quot;doc&quot;: t} for t in data[:5]]
+)
+</code></pre>
+<p>将这些问答的问题传给LLM，并用debug的方式观察整个回答问题的过程，包括上面的检索过程</p>
+<p>这个过程会打印大量中间的过程，包括：生成的prompt/token的使用量/cost/答案</p>
+<pre><code class="language-python">import langchain
+
+langchain.debug = True
+qa.run(examples[0][&quot;query&quot;])
+</code></pre>
+<p>再用LLM去给这些问答的打分，这种评估是比较难的，因为实际答案和期望答案在文字上可能完全不同的</p>
+<pre><code class="language-python">graded_outputs = eval_chain.evaluate(examples, predictions)
+</code></pre>
+<h3 id="agent">Agent</h3>
+<p>智能体</p>
+<p>需要一些其他工具协助LLM，回答问题，比如 计算器 or 维基百科网站</p>
+<p>当问它一个专门领域的问题，它会先根据问题选择合适的工具，再利用工具的接口，查询出结果返回给LLM，让LLM整理输出最终结果</p>
+<pre><code class="language-python">tools = load_tools([&quot;llm-math&quot;,&quot;wikipedia&quot;], llm=llm)
+agent= initialize_agent(
+    tools, 
+    llm, 
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+    handle_parsing_errors=True,
+    verbose = True)
+agent(&quot;What is the 25% of 300?&quot;)
+question = &quot;Tom M. Mitchell is an American computer scientist \
+and the Founders University Professor at Carnegie Mellon University (CMU)\
+what book did he write?&quot;
+result = agent(question)
+</code></pre>
+<p>另外一个例子，是代码的 copilot</p>
+<p>在LangChain中，PythonREPL作为一个工具，允许我们执行任意Python代码</p>
+<pre><code class="language-python">agent = create_python_agent(
+    llm,
+    tool=PythonREPLTool(),
+    verbose=True
+)
+</code></pre>
+<p>用Langchain的debug模式，可以看到更多的处理细节（我在试的时候发现一直有些错误的循环打印，不过最后的打印是对的）</p>
+<h2 id="chat-with-your-data">chat with your data</h2>
+<p><a href="https://learn.deeplearning.ai/courses/langchain-chat-with-your-data/lesson/snupv/introduction">chat with your data</a></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../javascripts/mathjax.js"></script>
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
