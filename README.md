@@ -1,20 +1,4 @@
 # Learning
 
-## C++
-### [常用定义](C++/definition.md)
-### [常用用法](C++/usage.md)
+[在线阅读](https://wangsun39.github.io/Learning/)
 
-## NLP
-### coursera
-- [1.Classification and Vector Spaces](NLP//coursera/1.Classification%20and%20Vector%20Spaces.md)
-- [2.Probabilistic Models](NLP//coursera/2.Probabilistic%20Models.md)
-- [3.Sequence Models](NLP//coursera/3.Sequence%20Models.md)
-### [pandas](NLP/pandas.md)
-### [PCA](NLP/pca.md)
-
-## SQL
-### [SQL](SQL/language.md)
-
-## Physics
-
-### [数学物理方法](Physics/数学物理方法/复数.md)

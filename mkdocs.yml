@@ -3,8 +3,17 @@ site_url: https://wangsun39.github.io/Learning/
 
 # 启用数学公式渲染扩展
 markdown_extensions:
+  - md_in_html
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: math
+          class: arithmatex
+          format: !!python/object/apply:pymdownx.arithmatex.arithmatex_fenced_format
+            kwds:
+              mode: generic
 
 # 引入 MathJax 脚本（用来渲染公式）
 extra_javascript:
