@@ -273,8 +273,8 @@ where <span class="arithmatex">\(C(w_i)\)</span> is the total number of times <s
 </li>
 </ul>
 <h3 id="_2">最短编辑距离的计算</h3>
-<p>使用DP来计算，用来衡量纠正后的单词和纠正之前的差距</p>
-<pre><code class="language-python">def min_edit_distance(source, target, ins_cost = 1, del_cost = 1, rep_cost = 2):
+<p>使用DP来计算，用来衡量纠正后的单词和纠正之前的差距
+<pre class="highlight"><code class="language-python">def min_edit_distance(source, target, ins_cost = 1, del_cost = 1, rep_cost = 2):
     '''
     Input: 
         source: a string corresponding to the string you are starting with
@@ -319,8 +319,7 @@ where <span class="arithmatex">\(C(w_i)\)</span> is the total number of times <s
     med = D[m,n]
 
     ### END CODE HERE ###
-    return D, med
-</code></pre>
+    return D, med</code></pre></p>
 <h2 id="week2-markov-chains-and-pos-tags">Week2 Markov Chains and POS Tags</h2>
 <h3 id="part-of-speech-pos-tagging">Part of speech (POS) tagging</h3>
 <p>词性标注</p>
@@ -510,8 +509,8 @@ backoff/插值</p>
 <li>评估模型，计算困惑度</li>
 <li>计算补全的词，从概率最高的单词：</li>
 </ul>
-<pre><code class="language-python">def suggest_a_word(previous_tokens, n_gram_counts, n_plus1_gram_counts, vocabulary, end_token='&lt;e&gt;', unknown_token=&quot;&lt;unk&gt;&quot;, k=1.0, start_with=None):
-    &quot;&quot;&quot;
+<pre class="highlight"><code class="language-python">def suggest_a_word(previous_tokens, n_gram_counts, n_plus1_gram_counts, vocabulary, end_token='&lt;e&gt;', unknown_token="&lt;unk&gt;", k=1.0, start_with=None):
+    """
     Get suggestion for the next word
 
     Args:
@@ -526,12 +525,12 @@ backoff/插值</p>
         A tuple of 
           - string of the most likely next word
           - corresponding probability
-    &quot;&quot;&quot;
+    """
 
     # length of previous words
     n = len(list(n_gram_counts.keys())[0])
 
-    # append &quot;start token&quot; on &quot;previous_tokens&quot;
+    # append "start token" on "previous_tokens"
     previous_tokens = ['&lt;s&gt;'] * n + previous_tokens
 
     # From the words that the user already typed
@@ -581,8 +580,7 @@ backoff/插值</p>
 
     ### END CODE HERE
 
-    return suggestion, max_prob
-</code></pre>
+    return suggestion, max_prob</code></pre>
 <h2 id="word-embedding">Word embedding</h2>
 <p>词表示的方法
 - integers 不能体现词之间的内在关系
@@ -605,7 +603,7 @@ backoff/插值</p>
 <li>Sliding window of words</li>
 <li>通过滑窗技巧，提取出每个中心词和滑窗中周围的词</li>
 </ul>
-<pre><code class="language-python"># Define the 'get_windows' function
+<p><pre class="highlight"><code class="language-python"># Define the 'get_windows' function
 # C 是窗口中单词的数量
 def get_windows(words, C):
     i = C
@@ -613,17 +611,12 @@ def get_windows(words, C):
         center_word = words[i]
         context_words = words[(i - C):i] + words[(i+1):(i+C+1)]
         yield context_words, center_word
-        i += 1
-</code></pre>
-<ul>
-<li>Transforming words into vectors for the training set</li>
-<li>把训练集中的词都转成one-hot word vectors<ul>
-<li>中心词是一个单独的 one-hot word vectors</li>
-<li>周围词是把周围词的 one-hot word vectors 都加起来做平均</li>
-</ul>
-</li>
-</ul>
-<pre><code>效果大概这样：
+        i += 1</code></pre>
+- Transforming words into vectors for the training set
+  - 把训练集中的词都转成one-hot word vectors
+    - 中心词是一个单独的 one-hot word vectors
+    - 周围词是把周围词的 one-hot word vectors 都加起来做平均
+<pre class="highlight"><code>效果大概这样：
 Context words vector:  [0.25 0.25 0.   0.5  0.  ]
 Center word vector:  [0. 0. 1. 0. 0.]
 
@@ -631,8 +624,7 @@ Context words vector:  [0.5  0.   0.25 0.25 0.  ]
 Center word vector:  [0. 1. 0. 0. 0.]
 
 Context words vector:  [0.25 0.25 0.25 0.   0.25]
-Center word vector:  [0. 0. 0. 1. 0.]
-</code></pre>
+Center word vector:  [0. 0. 0. 1. 0.]</code></pre></p>
 <h3 id="_5">训练模型</h3>
 <p>模型是一个3层的全连接神经网络，输入就是上面计算出来的Context words vector，输出层的期望是Center word vector，两个激活函数分别是Relu和softmax, 如下图：</p>
 <p><img alt="alt text" src="../afflix/image-10.png" /></p>

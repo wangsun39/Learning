@@ -247,15 +247,14 @@
 <li><a href="#常用字符串函数pg">常用字符串函数(PG)</a></li>
 </ul>
 <h2 id="1-order-by">1. order by 用法</h2>
-<p>取第一行</p>
-<pre><code class="language-sql">--oracle
+<p>取第一行
+<pre class="highlight"><code class="language-sql">--oracle
 select customer_number from (select customer_number, count(1) as cnt from Orders group by customer_number order by cnt desc) where ROWNUM = 1;
 
 --pg or Mysql 可以用limit
-select customer_number from (select customer_number, count(1) as cnt from Orders group by customer_number order by cnt desc limit 1) a;
-</code></pre>
+select customer_number from (select customer_number, count(1) as cnt from Orders group by customer_number order by cnt desc limit 1) a;</code></pre></p>
 <p>取某一行可以加offset</p>
-<pre><code class="language-sql">--oracle
+<pre class="highlight"><code class="language-sql">--oracle
 SELECT *
 FROM (
     SELECT *
@@ -272,16 +271,14 @@ WHERE ROWNUM = 1;
 SELECT *
 FROM students
 ORDER BY score DESC
-LIMIT 1 OFFSET 1;
-</code></pre>
+LIMIT 1 OFFSET 1;</code></pre>
 <h2 id="2">2. 窗口函数</h2>
 <p>SQL 窗口函数（Window Functions）是一种强大的分析工具，允许在不改变行数的情况下，对一组行（称为“窗口”）进行聚合、排序、排名等操作。与 GROUP BY 不同，窗口函数不会折叠结果行，而是为每一行返回一个基于窗口计算的值。</p>
-<pre><code class="language-sql">&lt;窗口函数&gt; OVER (
+<pre class="highlight"><code class="language-sql">&lt;窗口函数&gt; OVER (
     [PARTITION BY 分区列1, 分区列2, ...]
     [ORDER BY 排序列1, 排序列2, ...]
     [ROWS BETWEEN 起始行 AND 结束行]  -- 可选，定义行范围
-)
-</code></pre>
+)</code></pre>
 <p>常见窗口函数分类
 | 类别  | 函数示例                                          | 说明              |
 | --- | --------------------------------------------- | --------------- |
@@ -289,64 +286,54 @@ LIMIT 1 OFFSET 1;
 | 排名类 | <code>ROW_NUMBER()</code>, <code>RANK()</code>, <code>DENSE_RANK()</code>      | 对窗口内的行进行排名      |
 | 偏移类 | <code>LAG()</code>, <code>LEAD()</code>                             | 获取前后行的值         |
 | 首尾类 | <code>FIRST_VALUE()</code>, <code>LAST_VALUE()</code>               | 获取窗口内第一行或最后一行的值 |</p>
-<p>ROWS BETWEEN 可用于定义滑动窗口，如近3行的平均值：</p>
-<pre><code class="language-sql">AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
-</code></pre>
+<p>ROWS BETWEEN 可用于定义滑动窗口，如近3行的平均值：
+<pre class="highlight"><code class="language-sql">AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)</code></pre></p>
 <h3 id="row_number">ROW_NUMBER()</h3>
 <p>为每一行分配一个唯一的序号，序号在每个分区中从 1 开始递增。</p>
-<pre><code class="language-sql">SELECT id, name, salary,
+<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
        ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS row_num
-FROM employees;
-</code></pre>
+FROM employees;</code></pre>
 <h3 id="rank-dense_rank">RANK() 和 DENSE_RANK()</h3>
 <ul>
 <li>RANK()：为每一行分配一个排名，如果存在并列值，则会跳过一些排名。</li>
 <li>DENSE_RANK()：为每一行分配一个排名，即使存在并列值，排名也不会跳过。</li>
 </ul>
-<pre><code class="language-sql">SELECT id, name, salary,
+<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
        RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank_num,
        DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS dense_rank_num
-FROM employees;
-</code></pre>
+FROM employees;</code></pre>
 <h3 id="sumavgminmaxfirst_valuelast_value">聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST_VALUE、LAST_VALUE 等）</h3>
-<p>这些函数可以在窗口函数中使用，计算分区内的聚合值，同时保留每一行的原始数据。</p>
-<pre><code class="language-sql">SELECT id, name, salary,
+<p>这些函数可以在窗口函数中使用，计算分区内的聚合值，同时保留每一行的原始数据。
+<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
        SUM(salary) OVER (PARTITION BY department_id) AS total_salary,
        AVG(salary) OVER (PARTITION BY department_id) AS avg_salary
-FROM employees;
-</code></pre>
+FROM employees;</code></pre></p>
 <p>LAST_VALUE() 窗口函数中的窗口最后一行对应的值，这里要注意的是窗口函数默认的窗口范围是：
 [unbounded preceding, current row]
 即窗口内第一行到当前行，因此默认情况下LAST_VALUE就是当前行，作用不大，如果要获取整个窗口的真正最后一行有两种方法：</p>
 <ul>
-<li>第一种就是改变默认范围，改成rows between unbounded preceding and unbounded following，就是上界到下界整个范围:</li>
+<li>第一种就是改变默认范围，改成rows between unbounded preceding and unbounded following，就是上界到下界整个范围:
+<pre class="highlight"><code class="language-sql">LAST_VALUE(score) over(partition by student_id, subject order by exam_date rows between unbounded preceding and unbounded following) latest_score</code></pre></li>
+<li>第二种就是用FIRST_VALUE，但是order by选择相反顺序来排序：
+<pre class="highlight"><code class="language-sql">FIRST_VALUE(score) over(partition by student_id, subject order by exam_date desc) latest_score</code></pre></li>
 </ul>
-<pre><code class="language-sql">LAST_VALUE(score) over(partition by student_id, subject order by exam_date rows between unbounded preceding and unbounded following) latest_score
-</code></pre>
-<ul>
-<li>第二种就是用FIRST_VALUE，但是order by选择相反顺序来排序：</li>
-</ul>
-<pre><code class="language-sql">FIRST_VALUE(score) over(partition by student_id, subject order by exam_date desc) latest_score
-</code></pre>
 <h3 id="lead-lag">LEAD() 和 LAG()</h3>
 <ul>
 <li>LEAD(column, n)：获取当前行之后第 n 行的值。</li>
-<li>LAG(column, n)：获取当前行之前第 n 行的值。</li>
-</ul>
-<pre><code class="language-sql">SELECT id, name, salary,
+<li>LAG(column, n)：获取当前行之前第 n 行的值。
+<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
        LEAD(salary, 1) OVER (ORDER BY salary) AS next_salary,
        LAG(salary, 1) OVER (ORDER BY salary) AS prev_salary
-FROM employees;
-</code></pre>
+FROM employees;</code></pre></li>
+</ul>
 <h2 id="3-case-when">3. case when</h2>
-<pre><code class="language-sql">select id,
+<pre class="highlight"><code class="language-sql">select id,
     case when p_id is null then 'Root'
          when id in (select p_id from tree) then 'Inner'
     else 'Leaf' end type
-from tree;
-</code></pre>
+from tree;</code></pre>
 <h2 id="4-join-on">4. join on</h2>
-<pre><code class="language-sql">--inner
+<pre class="highlight"><code class="language-sql">--inner
 SELECT s.name, sc.subject, sc.mark
 FROM student s
 JOIN score sc ON s.id = sc.stu_id;
@@ -366,19 +353,16 @@ SELECT * FROM student s
 LEFT JOIN score sc ON s.id = sc.stu_id
 UNION
 SELECT * FROM student s
-RIGHT JOIN score sc ON s.id = sc.stu_id;
-</code></pre>
-<p>对于join后有空的字段，附上默认值的方式</p>
-<pre><code class="language-sql">COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10
-</code></pre>
+RIGHT JOIN score sc ON s.id = sc.stu_id;</code></pre>
+<p>对于join后有空的字段，附上默认值的方式
+<pre class="highlight"><code class="language-sql">COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10</code></pre></p>
 <h2 id="5-group-by">5. group by</h2>
-<p>除了普通的sum，count等聚合函数，还有字符串的拼接函数 <strong>STRING_AGG</strong></p>
-<pre><code class="language-sql">SELECT sell_date, 
+<p>除了普通的sum，count等聚合函数，还有字符串的拼接函数 <strong>STRING_AGG</strong>
+<pre class="highlight"><code class="language-sql">SELECT sell_date, 
        COUNT(1) AS num_sold,
        STRING_AGG(product, ',' ORDER BY product) AS products
 FROM sales
-GROUP BY sell_date;
-</code></pre>
+GROUP BY sell_date;</code></pre></p>
 <h2 id="5">5. 横表变纵表</h2>
 <table>
 <thead>
@@ -402,7 +386,7 @@ GROUP BY sell_date;
 </tr>
 </tbody>
 </table>
-<pre><code class="language-sql">select id, 
+<pre class="highlight"><code class="language-sql">select id, 
     sum(case month when 'Jan' then revenue end) as Jan_Revenue,
     sum(case month when 'Feb' then revenue end) as Feb_Revenue,
     sum(case month when 'Mar' then revenue end) as Mar_Revenue,
@@ -414,10 +398,9 @@ GROUP BY sell_date;
     sum(case month when 'Sep' then revenue end) as Sep_Revenue,
     sum(case month when 'Oct' then revenue end) as Oct_Revenue,
     sum(case month when 'Nov' then revenue end) as Nov_Revenue,
-    sum(case month when 'Dec' then revenue end) as Dec_Revenue from Department group by id;
-</code></pre>
+    sum(case month when 'Dec' then revenue end) as Dec_Revenue from Department group by id;</code></pre>
 <h2 id="6">6. 日期型</h2>
-<pre><code class="language-sql">-- 查询2023年1月1日到2023年12月31日之间的数据
+<pre class="highlight"><code class="language-sql">-- 查询2023年1月1日到2023年12月31日之间的数据
 SELECT * FROM your_table
 WHERE date_column BETWEEN '2023-01-01' AND '2023-12-31';
 
@@ -432,35 +415,28 @@ WHERE date_column &gt;= '2023-01-01' AND date_column &lt;= '2023-12-31';
 TO_CHAR(visited_on, 'YYYY-MM-DD') AS visited_on
 
 -- pgsql 获取一年中的第几周
-to_char(meeting_date, 'IYYY-&quot;W&quot;IW')
-</code></pre>
+to_char(meeting_date, 'IYYY-"W"IW')</code></pre>
 <h2 id="7">7. 其他</h2>
 <h3 id="null">null 值映射</h3>
-<pre><code>-- oracle
-NVL(employee_id, 'No Employee')
-</code></pre>
-<p>判断字段是否为空</p>
-<pre><code>-- Postgres
+<pre class="highlight"><code>-- oracle
+NVL(employee_id, 'No Employee')</code></pre>
+<p>判断字段是否为空
+<pre class="highlight"><code>-- Postgres
 SELECT * FROM t WHERE col IS NULL;
-SELECT * FROM t WHERE col IS NOT NULL;
-</code></pre>
+SELECT * FROM t WHERE col IS NOT NULL;</code></pre></p>
 <h3 id="postgres">Postgres</h3>
-<p>除法的四舍五入写法，不能直接使用 <span class="arithmatex">\(round\)</span> 函数</p>
-<pre><code class="language-sql">round((cast(cnt as numeric)-comp)/cnt, 2) as &quot;Cancellation Rate&quot;
-</code></pre>
-<p>或者</p>
-<pre><code class="language-sql">round((cnt-comp)/cnt::NUMERIC, 2) as &quot;Cancellation Rate&quot;
-</code></pre>
-<p>其他 sql 可以直接写成</p>
-<pre><code class="language-sql">round((cnt-comp)/cnt, 2) as &quot;Cancellation Rate&quot;
-</code></pre>
-<p>日期+1的写法</p>
-<pre><code class="language-sql">event_date + INTERVAL '1 day'
-</code></pre>
+<p>除法的四舍五入写法，不能直接使用 <span class="arithmatex">\(round\)</span> 函数
+<pre class="highlight"><code class="language-sql">round((cast(cnt as numeric)-comp)/cnt, 2) as "Cancellation Rate"</code></pre>
+或者
+<pre class="highlight"><code class="language-sql">round((cnt-comp)/cnt::NUMERIC, 2) as "Cancellation Rate"</code></pre></p>
+<p>其他 sql 可以直接写成
+<pre class="highlight"><code class="language-sql">round((cnt-comp)/cnt, 2) as "Cancellation Rate"</code></pre></p>
+<p>日期+1的写法
+<pre class="highlight"><code class="language-sql">event_date + INTERVAL '1 day'</code></pre></p>
 <h3 id="oracle">Oracle</h3>
 <p>引入 Dual 表，一个虚拟表
 可以将两个select出来的数字直接做运算，如</p>
-<pre><code class="language-sql">SELECT round(
+<p><pre class="highlight"><code class="language-sql">SELECT round(
     (SELECT count(*)
     FROM activity a, 
         (SELECT player_id,
@@ -472,13 +448,11 @@ SELECT * FROM t WHERE col IS NOT NULL;
                 AND a.event_date =b.second_day)/
     (SELECT COUNT(DISTINCT player_id)
     FROM activity), 2) AS fraction
-FROM dual;
-</code></pre>
-<p>对于Postgres和Mysql都不需要用dual，select出来的单个数值型结果可以直接运算</p>
+FROM dual;</code></pre>
+对于Postgres和Mysql都不需要用dual，select出来的单个数值型结果可以直接运算</p>
 <h3 id="mysql">Mysql</h3>
-<p>Data类型+1</p>
-<pre><code class="language-sql">DATE_ADD(MIN(event_date), INTERVAL 1 DAY)
-</code></pre>
+<p>Data类型+1
+<pre class="highlight"><code class="language-sql">DATE_ADD(MIN(event_date), INTERVAL 1 DAY)</code></pre></p>
 <h2 id="pg">常用字符串函数(PG)</h2>
 <p><strong>基础获取与定位</strong></p>
 <ul>

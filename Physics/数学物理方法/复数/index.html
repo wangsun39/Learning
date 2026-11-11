@@ -216,20 +216,19 @@
 <li>实部，虚部</li>
 <li>复数集 <span class="arithmatex">\(z\in\mathbb{C}\)</span></li>
 <li>复平面，复向量</li>
-<li>三角函数表示法 <span class="arithmatex">\((\rho,\phi)\)</span>  模，辐角</li>
-</ul>
-<pre><code class="language-math">\begin{aligned}
-&amp; \begin{cases}
+<li>三角函数表示法 <span class="arithmatex">\((\rho,\phi)\)</span>  模，辐角
+<div class="arithmatex">\[
+\begin{aligned}
+& \begin{cases}
 x=\rho\cos\phi \\
 y=\rho\sin\phi
 \end{cases} \\
-&amp; \begin{cases}
+& \begin{cases}
 \rho^2=x^2+y^2 \\
 \tan\phi=\frac{x}{y}
 \end{cases}
 \end{aligned}
-</code></pre>
-<ul>
+\]</div></li>
 <li>黎曼球表示复数的方法（测地投影法）</li>
 <li>棣莫弗定理 <span class="arithmatex">\((\cos\theta1+i\sin\theta1)*(\cos\theta1+i\sin\theta1)=\cos(\theta1+\theta2)+i\sin(\theta1+\theta2)\)</span></li>
 <li>欧拉公式  <span class="arithmatex">\(e^{i\theta}=\cos\theta+i\sin\theta\)</span></li>
@@ -280,16 +279,17 @@ $$\lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z} $$</p>
 <p>解析函数求导: <span class="arithmatex">\(\frac{\partial f}{\partial z}=\frac{\partial u}{\partial x}-i\frac{\partial u}{\partial y}\)</span>  (这步在证明可在上面充要条件的过程中得到)，除了这个式子之外，依据C-R条件，还能得到其他3个等价形式。</p>
 </li>
 <li>
-<p>若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u(x,y)和v(x,y)是\sigma上的\)</span><strong>调和函数</strong>，即满足二维拉普拉斯方程</p>
-</li>
-</ul>
-<pre><code class="language-math">\begin{array}{l}  
+<p>若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u(x,y)和v(x,y)是\sigma上的\)</span><strong>调和函数</strong>，即满足二维拉普拉斯方程
+<div class="arithmatex">\[
+\begin{array}{l}  
   \frac{\partial^2 u}{\partial x^2}+\frac{\partial^2 u}{\partial y^2}=\nabla^2 u(x,y)=0  \\  
   \frac{\partial^2 v}{\partial x^2}+\frac{\partial^2 v}{\partial y^2}=\nabla^2 v(x,y)=0 
 \end{array}
-</code></pre>
-<p><span class="arithmatex">\(\nabla^2=\nabla \cdot \nabla\)</span> (中间是点乘)称为拉普拉斯算符， <span class="arithmatex">\(\nabla\)</span> 是梯度算符， <span class="arithmatex">\(\nabla\cdot\)</span> 是散度算符。<strong>物理意义</strong>：解析函数的实部和虚部都可以用来描述二维静电场的电势场
-- 若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u,v的等值线 u(x,y)=C1和v(x,y)=C2\)</span> 在各个相交处正交。</p>
+\]</div>
+ <span class="arithmatex">\(\nabla^2=\nabla \cdot \nabla\)</span> (中间是点乘)称为拉普拉斯算符， <span class="arithmatex">\(\nabla\)</span> 是梯度算符， <span class="arithmatex">\(\nabla\cdot\)</span> 是散度算符。<strong>物理意义</strong>：解析函数的实部和虚部都可以用来描述二维静电场的电势场</p>
+</li>
+<li>若 <span class="arithmatex">\(f(z)=u+vi是区域\sigma上的解析函数，则u,v的等值线 u(x,y)=C1和v(x,y)=C2\)</span> 在各个相交处正交。</li>
+</ul>
 <p>解析函数的实部和虚部是有关联的，已知其中之一，是可以算出另一个的。</p>
 <p>初等解析函数
 - 幂函数  <span class="arithmatex">\((z^n)'=nz^{n-1}\)</span> 对于 <span class="arithmatex">\(z\in Z\)</span>
@@ -297,14 +297,15 @@ $$\lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z} $$</p>
 - 三角函数 <span class="arithmatex">\(sin z=\frac{e^{iz}-e^{-iz}}{2i}\)</span>, <span class="arithmatex">\(cos z=\frac{e^{iz}+e^{-iz}}{2}\)</span> 在全平面解析，其他三角函数 <span class="arithmatex">\(\tan z,\cot z,\sec z,\csc z, \sinh z,\cosh z,\tan z,\cot z,\sec z,\csc z\)</span> 也都解析，三角恒等式也都成立。</p>
 <h3 id="_4">多值函数</h3>
 <p><strong>根式函数</strong>
-- <span class="arithmatex">\(w(z)=\sqrt{z}\)</span> 有两个支：</p>
-<pre><code class="language-math">w(z)=\sqrt{z}=
+- <span class="arithmatex">\(w(z)=\sqrt{z}\)</span> 有两个支：
+<div class="arithmatex">\[
+w(z)=\sqrt{z}=
 \begin{cases}
 \sqrt{r}e^{i\frac{\theta}{2}} \\
 -\sqrt{r}e^{i\frac{\theta}{2}}
 \end{cases}
-</code></pre>
-<p>三次根式就有三个支，如果只考虑一个支，那么它是单值函数。
+\]</div>
+三次根式就有三个支，如果只考虑一个支，那么它是单值函数。
 - 有两个枝点，0和 <span class="arithmatex">\(\infty\)</span>，连接两个枝点的线称为<strong>支割线</strong>。这是定义一个单值解析函数的方法：只要不穿过支割线。
 - <span class="arithmatex">\(w(z)=\sqrt{(z-a)(z-b)}\)</span>, a, b是两个枝点（<span class="arithmatex">\(\infty\)</span>不是枝点），连接它们的点是支割线，另一种支割线是连接a和<span class="arithmatex">\(\infty\)</span></p>
 <p><strong>对数函数</strong>
@@ -313,21 +314,13 @@ $$\lim_{\Delta z \to 0} \frac{f(z+\Delta z) - f(z)}{\Delta z} $$</p>
 - 作割线连接0和 <span class="arithmatex">\(\infty\)</span>，规定割线一侧的<span class="arithmatex">\(\arg{z}\)</span>值，即可得到 <span class="arithmatex">\(w(z)=\ln{z}\)</span>单值分支，单值分支上都有 <span class="arithmatex">\(\frac{d}{dz}(\ln{z})=\frac{1}{z}\)</span></p>
 <details>
 <summary>补充：单值分支上 (ln z)′ = 1/z 的推导</summary>
-
-设 $f(z)=\ln z$ 的某个单值分支为
-$$f(z)=\ln|z|+i\theta(z),$$
-其中 $\theta(z)$ 是选定的连续辐角。于是
-$$e^{f(z)}=z.$$
-两边对 $z$ 求导：
-$$e^{f(z)}f'(z)=1.$$
-因为 $e^{f(z)}=z\neq 0$，所以
-$$f'(z)=\frac{1}{e^{f(z)}}=\frac1z.$$
-因此
-$$\frac{d}{dz}\ln z=\frac1z.$$
-不同单值分支只相差常数 $2n\pi i$，求导后常数项消失，所以导数与选哪个分支无关。
-
+<p>设 <span class="arithmatex">\(f(z)=\ln z\)</span> 的某个单值分支为 <span class="arithmatex">\(f(z)=\ln|z|+i\theta(z)\)</span>，其中 <span class="arithmatex">\(\theta(z)\)</span> 是选定的连续辐角。于是 <span class="arithmatex">\(e^{f(z)}=z\)</span>。</p>
+<p>两边对 <span class="arithmatex">\(z\)</span> 求导：
+<span class="arithmatex">\(e^{f(z)}f'(z)=1.\)</span></p>
+<p>因为 <span class="arithmatex">\(e^{f(z)}=z\neq 0\)</span>，所以
+<span class="arithmatex">\(f'(z)=\frac{1}{e^{f(z)}}=\frac1z.\)</span></p>
+<p>因此 <span class="arithmatex">\(\frac{d}{dz}\ln z=\frac1z\)</span>。不同单值分支只相差常数 <span class="arithmatex">\(2n\pi i\)</span>，求导后常数项消失，所以导数与选哪个分支无关。</p>
 </details>
-
 <p><strong>一般函数</strong></p>
 <p>由 <span class="arithmatex">\(e^{z}\)</span>和<span class="arithmatex">\(\ln{z}\)</span>的定义就能得到一般指数函数和幂函数的定义
 - 指数函数 <span class="arithmatex">\(w(z)=a^z=e^{(\ln{a})z}, a\in\mathbb{C},z\in\mathbb{C}\)</span>
@@ -457,13 +450,13 @@ $<span class="arithmatex">\(|u_{n+1}+u_{n+2}+...+u_{n+p}|&lt;\epsilon\)</span>$<
 <p>当 <span class="arithmatex">\(\lim_{k \to \infty} \left| \frac{a_{k+1}}{a_k} \right| |z - b| &lt; 1\)</span> 时，即 <span class="arithmatex">\(|z - b| &lt; \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|\)</span> 时，级数绝对收敛；</p>
 <p>当 <span class="arithmatex">\(\lim_{k \to \infty} \left| \frac{a_{k+1}}{a_k} \right| |z - b| &gt; 1\)</span> 时，即 <span class="arithmatex">\(|z - b| &gt; \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|\)</span> 时，级数发散.</p>
 <p>因此，幂级数的收敛圆以 <span class="arithmatex">\(b\)</span> 为圆心，收敛半径为</p>
-<p>$$
-  R = \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|. 
-  $$</p>
-<p>另外，也可以根据根式判别法求收敛半径，这是收敛圆半径的一种等价求法. 与上面做法类似，可得</p>
-<p>$$
-  R = \lim_{k \to \infty} \frac{1}{\sqrt[k]{|a_k|}}. 
-  $$</p></div>
+<div class="arithmatex">\[
+  R = \lim_{k \to \infty} \left| \frac{a_k}{a_{k+1}} \right|
+\]</div>
+<p>另外，也可以根据根式判别法求收敛半径，这是收敛圆半径的一种等价求法。与上面做法类似，可得</p>
+<div class="arithmatex">\[
+  R = \lim_{k \to \infty} \frac{1}{\sqrt[k]{|a_k|}}
+\]</div></div>
             </div>
         </div>
 

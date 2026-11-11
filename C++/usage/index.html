@@ -195,7 +195,7 @@
 <h3 id="lambda">Lambda 函数</h3>
 <p>用lambda函数初始化全局变量，可以在所有代码执行之前初始化，这里的lambda表达式必须要有个返回值（即使没有用），因为void类型的返回值无法赋值给一个init变量</p>
 <p>这种写法通常被称为“<strong>立即执行的函数表达式</strong>”</p>
-<pre><code class="language-cpp">
+<pre class="highlight"><code class="language-cpp">
 #define MX  100'000
 #define MOD  1'000'000'007
 
@@ -223,12 +223,10 @@ auto init = [] {
 
     for (auto&amp; [k, v]: counter) {
         ans += (v + k) / (k + 1) * (k + 1);
-    }
-</code></pre>
+    }</code></pre>
 <h3 id="vector">初始化vector</h3>
-<pre><code class="language-cpp">// 二维 n*2 vector
-vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(2, 0));
-</code></pre>
+<pre class="highlight"><code class="language-cpp">// 二维 n*2 vector
+vector&lt;vector&lt;int&gt;&gt; dp(n, vector&lt;int&gt;(2, 0));</code></pre>
 <h3 id="_1">有序集合</h3>
 <p>C++ 中“有序集合”相关的数据结构主要包括 std::set 和 std::multiset。它们一般基于红黑树等平衡二叉搜索树实现，保证元素有序、操作复杂度为对数级。</p>
 <p>一、核心容器</p>
@@ -252,63 +250,55 @@ std::multiset<T>
 - merge(other)：将 other 中不冲突的节点移入当前集合（C++17）
 - extract(key/it)：提取节点句柄，可修改键后再插入（C++17，安全修改键）</p>
 <h3 id="_2">优先队列</h3>
-<p>priority_queue 默认是一个最大堆，即优先级最高的元素是最大的元素。<br>使用 greater&lt;&gt; 会将其变成最小堆。</p>
-<pre><code class="language-cpp">// 二个元素
+<p>priority_queue 默认是一个最大堆，即优先级最高的元素是最大的元素。<br>使用 greater&lt;&gt; 会将其变成最小堆。
+<pre class="highlight"><code class="language-cpp">// 二个元素
 priority_queue&lt;pair&lt;int, int&gt;, vector&lt;pair&lt;int, int&gt;&gt;, greater&lt;&gt;&gt; pq;
 
 // 三个元素
 priority_queue&lt;tuple&lt;int, int, int&gt;, vector&lt;tuple&lt;int, int, int&gt;&gt;, greater&lt;&gt;&gt; pq;
-
 </code></pre>
-<ul>
-<li>优先队列默认是大顶堆</li>
-<li>默认是用了less&lt;&gt;比较函数</li>
-<li>定义小顶堆，可以用great&lt;&gt;，如 priority_queue&lt;int, vector<int>, greater<int>&gt; small_heap;</li>
-<li>自定义比较函数，如果依次传入a,b两个参数，返回true说明b的优先级高，返回false说明a的优先级高，优先级高的元素，在pop时，优先弹出。</li>
-</ul>
-<pre><code class="language-cpp">// lambda 函数定义比较函数，需要用关键字 decltype 获取函数类型
+- 优先队列默认是大顶堆
+- 默认是用了less&lt;&gt;比较函数
+- 定义小顶堆，可以用great&lt;&gt;，如 priority_queue<int, vector\<int>, greater\<int>> small_heap;
+- 自定义比较函数，如果依次传入a,b两个参数，返回true说明b的优先级高，返回false说明a的优先级高，优先级高的元素，在pop时，优先弹出。</p>
+<p><pre class="highlight"><code class="language-cpp">// lambda 函数定义比较函数，需要用关键字 decltype 获取函数类型
 // 按 nums[i][1] 排序，越小的排在前面，如果相同，nums[i][0] 小的排在前面
 std::priority_queue&lt;std::vector&lt;int&gt;, std::vector&lt;std::vector&lt;int&gt;&gt;, 
                     [](const std::vector&lt;int&gt;&amp; a, const std::vector&lt;int&gt;&amp; b) {
                         if (a[1] == b[1]) return a[0] &gt; b[0];
                         return a[1] &gt; b[1]; // b[1] 小返回true，此时b的优先级高
-                    }&gt; hp;
-</code></pre>
-<pre><code class="language-cpp">    // 一个三元组小顶堆的例子
+                    }&gt; hp;</code></pre>
+<pre class="highlight"><code class="language-cpp">    // 一个三元组小顶堆的例子
     using DII = tuple&lt;double, int, int&gt;;
     auto cmp = [](const DII&amp; a, const DII&amp; b) {
         return get&lt;0&gt;(a) &gt; get&lt;0&gt;(b);
     };
-    priority_queue&lt;DII, vector&lt;DII&gt;, decltype(cmp)&gt; pq;  // 小顶堆
-</code></pre>
+    priority_queue&lt;DII, vector&lt;DII&gt;, decltype(cmp)&gt; pq;  // 小顶堆</code></pre></p>
 <h3 id="_3">数组求和</h3>
-<pre><code class="language-cpp">// 两种方法
+<pre class="highlight"><code class="language-cpp">// 两种方法
 long long s = accumulate(nums1.begin(), nums1.end(), 0LL);
 
-long long s = reduce(candies.begin(), candies.end(), 0LL);
-</code></pre>
+long long s = reduce(candies.begin(), candies.end(), 0LL);</code></pre>
 <h2 id="ranges-c20">ranges 库 (&gt;=C++20)</h2>
 <p><a href="https://cppreference.cn/w/cpp/algorithm">ref</a></p>
 <h3 id="_4">计数</h3>
-<pre><code class="language-cpp">// 统计x的个数
+<pre class="highlight"><code class="language-cpp">// 统计x的个数
 int z1 = ranges::count(nums, x);
 
 // 自定义计数函数
 ranges::count_if(words, [&amp;](string x)-&gt;bool{
     return s.starts_with(x);
-});
-</code></pre>
+});</code></pre>
 <h3 id="_5">最大值</h3>
-<pre><code class="language-cpp">// vector 求最大值
+<pre class="highlight"><code class="language-cpp">// vector 求最大值
 long long mx = ranges::max(candies);
 
 // map 求最大值
 unordered_map&lt;int, int&gt; dis;
 ranges::max(dis | views::values);   //这个写法 leetcode 需要加 #include &lt;ranges&gt;
-
 </code></pre>
 <h3 id="_6">排序</h3>
-<pre><code class="language-cpp">ranges::sort(cpx)   // vector 排序
+<pre class="highlight"><code class="language-cpp">ranges::sort(cpx)   // vector 排序
 
 // 可以有第三个参数，投影函数，把数组中的值映射为另一个数，再进行比较，有点类似python中sort的key参数
 vector&lt;int&gt;&amp; nums = {2,1,3,3};
@@ -322,13 +312,11 @@ sort(intervals.begin(), intervals.end(), [](const std::vector&lt;int&gt; &amp;a,
 
 // 下面 a 前面的引用一定不能少，可能有10倍的性能差异
 ranges::sort(meetings, {}, [](auto&amp; a) { return a[2]; });
-
 </code></pre>
 <h3 id="iota">iota</h3>
-<p>传统方式</p>
-<pre><code class="language-c++">std::vector&lt;int&gt; vec(10); // 10个元素
-std::iota(vec.begin(), vec.end(), 0); // 填充 0,1,2,...,9
-</code></pre></div>
+<p>传统方式
+<pre class="highlight"><code class="language-c++">std::vector&lt;int&gt; vec(10); // 10个元素
+std::iota(vec.begin(), vec.end(), 0); // 填充 0,1,2,...,9</code></pre></p></div>
             </div>
         </div>
 

@@ -219,50 +219,45 @@ Chatbots appear to have memory by providing the full conversation as context.
 </ul>
 <h3 id="_1">评估</h3>
 <p>可以手工编写一个问题和答案</p>
-<p>也可以通过langchain来根据自动构造一些问答</p>
-<pre><code class="language-python">from langchain.evaluation.qa import QAGenerateChain
+<p>也可以通过langchain来根据自动构造一些问答
+<pre class="highlight"><code class="language-python">from langchain.evaluation.qa import QAGenerateChain
 
 example_gen_chain = QAGenerateChain.from_llm(ChatOpenAI(model=llm_model))
 new_examples = example_gen_chain.apply_and_parse(
-    [{&quot;doc&quot;: t} for t in data[:5]]
-)
-</code></pre>
+    [{"doc": t} for t in data[:5]]
+)</code></pre></p>
 <p>将这些问答的问题传给LLM，并用debug的方式观察整个回答问题的过程，包括上面的检索过程</p>
-<p>这个过程会打印大量中间的过程，包括：生成的prompt/token的使用量/cost/答案</p>
-<pre><code class="language-python">import langchain
+<p>这个过程会打印大量中间的过程，包括：生成的prompt/token的使用量/cost/答案
+<pre class="highlight"><code class="language-python">import langchain
 
 langchain.debug = True
-qa.run(examples[0][&quot;query&quot;])
-</code></pre>
+qa.run(examples[0]["query"])</code></pre></p>
 <p>再用LLM去给这些问答的打分，这种评估是比较难的，因为实际答案和期望答案在文字上可能完全不同的</p>
-<pre><code class="language-python">graded_outputs = eval_chain.evaluate(examples, predictions)
-</code></pre>
+<pre class="highlight"><code class="language-python">graded_outputs = eval_chain.evaluate(examples, predictions)</code></pre>
 <h3 id="agent">Agent</h3>
 <p>智能体</p>
 <p>需要一些其他工具协助LLM，回答问题，比如 计算器 or 维基百科网站</p>
 <p>当问它一个专门领域的问题，它会先根据问题选择合适的工具，再利用工具的接口，查询出结果返回给LLM，让LLM整理输出最终结果</p>
-<pre><code class="language-python">tools = load_tools([&quot;llm-math&quot;,&quot;wikipedia&quot;], llm=llm)
+<pre class="highlight"><code class="language-python">tools = load_tools(["llm-math","wikipedia"], llm=llm)
 agent= initialize_agent(
     tools, 
     llm, 
     agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     handle_parsing_errors=True,
     verbose = True)
-agent(&quot;What is the 25% of 300?&quot;)
-question = &quot;Tom M. Mitchell is an American computer scientist \
+agent("What is the 25% of 300?")
+question = "Tom M. Mitchell is an American computer scientist \
 and the Founders University Professor at Carnegie Mellon University (CMU)\
-what book did he write?&quot;
-result = agent(question)
-</code></pre>
+what book did he write?"
+result = agent(question)</code></pre>
 <p>另外一个例子，是代码的 copilot</p>
 <p>在LangChain中，PythonREPL作为一个工具，允许我们执行任意Python代码</p>
-<pre><code class="language-python">agent = create_python_agent(
+<p><pre class="highlight"><code class="language-python">agent = create_python_agent(
     llm,
     tool=PythonREPLTool(),
     verbose=True
-)
-</code></pre>
-<p>用Langchain的debug模式，可以看到更多的处理细节（我在试的时候发现一直有些错误的循环打印，不过最后的打印是对的）</p>
+)</code></pre>
+用Langchain的debug模式，可以看到更多的处理细节（我在试的时候发现一直有些错误的循环打印，不过最后的打印是对的）</p>
 <h2 id="chat-with-your-data">chat with your data</h2>
 <p><a href="https://learn.deeplearning.ai/courses/langchain-chat-with-your-data/lesson/snupv/introduction">chat with your data</a></p></div>
             </div>

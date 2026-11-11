@@ -186,10 +186,9 @@
                     <div class="col-md-9" role="main">
 
 <h3 id="_1">方向</h3>
-<pre><code class="language-c++">static constexpr int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-</code></pre>
+<pre class="highlight"><code class="language-c++">static constexpr int dirs[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};</code></pre>
 <h3 id="_2">矩阵快速幂</h3>
-<pre><code class="language-c++">class Solution {
+<pre class="highlight"><code class="language-c++">class Solution {
     static constexpr int MOD = 1'000'000'007;
     static constexpr int SIZE = 26;
 
@@ -226,16 +225,14 @@
         }
         return res;
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="_3">区间的优先队列</h3>
-<pre><code class="language-cpp">// 按 区间右端点 排序，越小的排在前面，如果相同，按区间左端点小的排在前面
+<pre class="highlight"><code class="language-cpp">// 按 区间右端点 排序，越小的排在前面，如果相同，按区间左端点小的排在前面
 std::priority_queue&lt;std::vector&lt;int&gt;, std::vector&lt;std::vector&lt;int&gt;&gt;, 
                     [](const std::vector&lt;int&gt;&amp; a, const std::vector&lt;int&gt;&amp; b) {
                         if (a[1] == b[1]) return a[0] &gt; b[0];
                         return a[1] &gt; b[1];
                     }&gt; hp;
-
 
 </code></pre></div>
             </div>

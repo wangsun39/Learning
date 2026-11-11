@@ -191,14 +191,13 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<pre><code class="language-js">//这个函数给所有数组添加了一个实例方法 last，用来获取数组的最后一个元素；如果数组为空，返回 -1 作为“哨兵值”。
+<pre class="highlight"><code class="language-js">//这个函数给所有数组添加了一个实例方法 last，用来获取数组的最后一个元素；如果数组为空，返回 -1 作为“哨兵值”。
 
 Array.prototype.last = function() {
     if (this.length == 0) return -1;
     return this.at(-1);
-};
-</code></pre>
-<pre><code class="language-js">/* 返回一个匿名函数（闭包）。这个函数：
+};</code></pre>
+<pre class="highlight"><code class="language-js">/* 返回一个匿名函数（闭包）。这个函数：
 先把当前 v 赋给 ans
 然后把 v 加 1（使状态前进）
 返回刚才的 ans（也就是调用前的计数值）*/
@@ -218,7 +217,6 @@ var createCounter = function(n) {
  * counter() // 11
  * counter() // 12
  */
-
 </code></pre>
 <h3 id="_1">箭头函数</h3>
 <p>箭头函数是 ES6 引入的一种简洁的函数表达方式，适用于需要简化代码的场景。它没有自己的 this 和 arguments，而是从外部作用域继承。</p>
@@ -232,13 +230,12 @@ var createCounter = function(n) {
 <p>async 函数：用 async 关键字声明，调用后立即返回一个 Promise，可以用 await 等待。</p>
 <p>setTimeout：调用后安排一个回调在指定时间后执行，立即返回一个定时器 ID（浏览器是数字；Node.js 是一个 Timeout 对象）。它不返回 Promise，不能直接 await。</p>
 <p>clearTimeout(id) 取消对应的定时器，id是setTimeout的返回值。</p>
-<pre><code class="language-js">/* sleep 的核心是返回一个在 ms 毫秒后 resolve 的 Promise。
+<p><pre class="highlight"><code class="language-js">/* sleep 的核心是返回一个在 ms 毫秒后 resolve 的 Promise。
 await 暂停当前 async 函数的执行，直到这个 Promise完成；完成后继续执行后续语句，最终使 sleep 的返回 Promise以 undefined结束。 */
 async function sleep(ms) {
   await new Promise(resolve =&gt; setTimeout(resolve, ms));
-}
-</code></pre>
-<p>以上函数的执行顺序：\
+}</code></pre>
+以上函数的执行顺序：\
 这个函数是把 setTimeout 包装成一个 Promise，并用 await 等待它完成。执行过程与 await 的作用如下：</p>
 <ul>
 <li>
@@ -288,7 +285,7 @@ Map 的键可以是任意类型，包括数组。但要注意键的比较是“�
  - forEach((value, key) =&gt; { ... })：遍历</p>
 <p>argMap[abc] 这个获取到的是 argMap 对象的属性abc，而不是key=abc，操作key要用上面的函数。</p>
 <h3 id="_4">循环</h3>
-<pre><code class="language-js">    for (let x of nums) {
+<pre class="highlight"><code class="language-js">    for (let x of nums) {
         ans = fn(ans, x);
     }
     // 倒序
@@ -298,8 +295,7 @@ Map 的键可以是任意类型，包括数组。但要注意键的比较是“�
     for (let fn of functions.slice().reverse()) {
             ans = fn(x);
             x = ans;
-        }
-</code></pre>
+        }</code></pre>
 <h3 id="_5">等号</h3>
 <p>在 JavaScript 里，三个等号 === 叫做“严格相等运算符”。它用于比较两个值是否相等，但不会进行类型转换。只有当“类型相同 且 值相同”时才返回 true。</p>
 <p>对比：</p>
@@ -308,7 +304,7 @@ Map 的键可以是任意类型，包括数组。但要注意键的比较是“�
 <li>===（严格相等）：不做任何类型转换，更可预测，推荐默认使用。</li>
 </ul>
 <h3 id="_6">二维数组</h3>
-<pre><code class="language-js">/**
+<pre class="highlight"><code class="language-js">/**
  * @param {number} rowsCount
  * @param {number} colsCount
  * @return {Array&lt;Array&lt;number&gt;&gt;}
@@ -327,11 +323,9 @@ Array.prototype.snail = function(rowsCount, colsCount) {
     }
 
     return matrix;
-}
-</code></pre>
+}</code></pre>
 <h3 id="_7">打印函数</h3>
-<pre><code class="language-js">console.log('got b =', b);
-</code></pre>
+<pre class="highlight"><code class="language-js">console.log('got b =', b);</code></pre>
 <h3 id="yield">yield 用法</h3>
 <p>核心概念</p>
 <ul>
@@ -340,7 +334,7 @@ Array.prototype.snail = function(rowsCount, colsCount) {
 <li>next(value) 会把这个 value 作为“上一个 yield 表达式的返回值”传回生成器，从而实现双向通信。</li>
 <li>yield* 用来“委托”到另一个可迭代对象或生成器，相当于把它的所有产出逐个 yield 出来。</li>
 </ul>
-<pre><code class="language-js">function* gen() {
+<pre class="highlight"><code class="language-js">function* gen() {
   console.log('start');
   const a = yield 10;      // 暂停，返回 { value: 10, done: false }
   console.log('got a =', a);
@@ -351,14 +345,13 @@ Array.prototype.snail = function(rowsCount, colsCount) {
 
 const g = gen();
 
-console.log(g.next());        // { value: 10, done: false }, 打印 &quot;start&quot;
-console.log(g.next('X'));     // { value: 20, done: false }, 打印 &quot;got a = X&quot;
-console.log(g.next('Y'));     // { value: 30, done: true },  打印 &quot;got b = Y&quot;
+console.log(g.next());        // { value: 10, done: false }, 打印 "start"
+console.log(g.next('X'));     // { value: 20, done: false }, 打印 "got a = X"
+console.log(g.next('Y'));     // { value: 30, done: true },  打印 "got b = Y"
 
-// 注意：for...of 不会遍历到 return 的最终值（done: true 的 value 被忽略）
-</code></pre>
-<p>递归函数中使用yield</p>
-<pre><code class="language-js">var inorderTraversal = function*(arr) {
+// 注意：for...of 不会遍历到 return 的最终值（done: true 的 value 被忽略）</code></pre>
+<p>递归函数中使用yield
+<pre class="highlight"><code class="language-js">var inorderTraversal = function*(arr) {
     function* dfs(arr) {
         for (let i = 0; i &lt; arr.length; i++) {
             if (Array.isArray(arr[i])) {
@@ -374,10 +367,9 @@ console.log(g.next('Y'));     // { value: 30, done: true },  打印 &quot;got b 
 
 // 测试
 const generator = inorderTraversal([1, [2, 3], 4]);
-console.log([...generator]); // [1, 2, 3, 4]
-</code></pre>
+console.log([...generator]); // [1, 2, 3, 4]</code></pre></p>
 <h3 id="_8">遍历列表和字典</h3>
-<pre><code class="language-js">    const res = [];
+<pre class="highlight"><code class="language-js">    const res = [];
     for (let e of obj) {
         res.push(e);
     }
@@ -386,8 +378,7 @@ console.log([...generator]); // [1, 2, 3, 4]
     const keys = Object.keys(obj);
     for (let k of keys) {
         res[k] = v;
-    }
-</code></pre></div>
+    }</code></pre></div>
             </div>
         </div>
 

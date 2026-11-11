@@ -247,31 +247,26 @@
 </ul>
 <h2 id="1-groupby">1. groupby用法</h2>
 <p>在使用 groupby() 后，分组的结果通常会将分组键作为索引。如果需要将分组键恢复为普通列，可以使用 reset_index()</p>
-<pre><code class="language-python">def game_analysis(activity: pd.DataFrame) -&gt; pd.DataFrame:
+<pre class="highlight"><code class="language-python">def game_analysis(activity: pd.DataFrame) -&gt; pd.DataFrame:
     grouped = activity.groupby('player_id')
     ans = grouped['event_date'].min().reset_index()
     ans.rename(columns={'event_date': 'first_login'}, inplace=True)
-    return ans
-</code></pre>
-<p>可以groupby多个字段</p>
-<pre><code class="language-python">grouped = df.groupby(['Category', 'Region'])
-</code></pre>
+    return ans</code></pre>
+<p>可以groupby多个字段
+<pre class="highlight"><code class="language-python">grouped = df.groupby(['Category', 'Region'])</code></pre></p>
 <h3 id="min">min的写法</h3>
-<p>统计每个分组中某个字段的最小值</p>
-<pre><code class="language-python">grouped = activity.groupby('player_id')
-ans = grouped['event_date'].min().reset_index()
-</code></pre>
+<p>统计每个分组中某个字段的最小值
+<pre class="highlight"><code class="language-python">grouped = activity.groupby('player_id')
+ans = grouped['event_date'].min().reset_index()</code></pre></p>
 <h3 id="max">max的写法</h3>
-<p>统计每个分组中某个字段的最小值</p>
-<pre><code class="language-python">grouped = activity.groupby('player_id')
-ans = grouped['event_date'].min().reset_index()
-</code></pre>
+<p>统计每个分组中某个字段的最小值
+<pre class="highlight"><code class="language-python">grouped = activity.groupby('player_id')
+ans = grouped['event_date'].min().reset_index()</code></pre></p>
 <h3 id="size">size的写法</h3>
-<p>统计每个分组中记录的个数</p>
-<pre><code class="language-python">grouped = selected.groupby('managerId')
+<p>统计每个分组中记录的个数
+<pre class="highlight"><code class="language-python">grouped = selected.groupby('managerId')
 g1 = grouped.size().reset_index(name='count')
-print(g1.to_markdown(index=False))
-</code></pre>
+print(g1.to_markdown(index=False))</code></pre></p>
 <table>
 <thead>
 <tr>
@@ -287,120 +282,28 @@ print(g1.to_markdown(index=False))
 </tbody>
 </table>
 <h3 id="sumcount">sum/count 的写法</h3>
-<pre><code class="language-python">print('1:', df.to_markdown(index=False))
-</code></pre>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">id</th>
-<th style="text-align: right;">client_id</th>
-<th style="text-align: right;">driver_id</th>
-<th style="text-align: right;">city_id</th>
-<th style="text-align: left;">status</th>
-<th style="text-align: left;">request_at</th>
-<th style="text-align: right;">comp</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">completed</td>
-<td style="text-align: left;">2013-10-01</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">completed</td>
-<td style="text-align: left;">2013-10-01</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">cancelled_by_client</td>
-<td style="text-align: left;">2013-10-01</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">completed</td>
-<td style="text-align: left;">2013-10-02</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">completed</td>
-<td style="text-align: left;">2013-10-02</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">completed</td>
-<td style="text-align: left;">2013-10-03</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">cancelled_by_driver</td>
-<td style="text-align: left;">2013-10-03</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
+<p><pre class="highlight"><code class="language-python">print('1:', df.to_markdown(index=False))</code></pre>
+|   id |   client_id |   driver_id |   city_id | status              | request_at   |   comp |
+|-----:|------------:|------------:|----------:|:--------------------|:-------------|-------:|
+|    1 |           1 |          10 |         1 | completed           | 2013-10-01   |      1 |
+|    3 |           3 |          12 |         6 | completed           | 2013-10-01   |      1 |
+|    4 |           4 |          13 |         6 | cancelled_by_client | 2013-10-01   |      0 |
+|    5 |           1 |          10 |         1 | completed           | 2013-10-02   |      1 |
+|    7 |           3 |          12 |         6 | completed           | 2013-10-02   |      1 |
+|    9 |           3 |          10 |        12 | completed           | 2013-10-03   |      1 |
+|   10 |           4 |          13 |        12 | cancelled_by_driver | 2013-10-03   |      0 |</p>
 <p>按request_at分组统计comp的和，组内的记录数， 并重新命名。agg函数可以几列聚集列</p>
-<pre><code class="language-python">grouped = df.groupby('request_at')
+<p><pre class="highlight"><code class="language-python">grouped = df.groupby('request_at')
 ans = grouped.agg({'comp': 'sum', 'request_at': 'count'}).rename(columns={'request_at': 'count'}).reset_index()
-print('2:', ans.to_markdown(index=False))
-</code></pre>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">request_at</th>
-<th style="text-align: right;">comp</th>
-<th style="text-align: right;">count</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">2013-10-01</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td style="text-align: left;">2013-10-02</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td style="text-align: left;">2013-10-03</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-</tbody>
-</table>
+print('2:', ans.to_markdown(index=False))</code></pre>
+| request_at   |   comp |   count |
+|:-------------|-------:|--------:|
+| 2013-10-01   |      2 |       3 |
+| 2013-10-02   |      2 |       2 |
+| 2013-10-03   |      1 |       2 |</p>
 <h3 id="_1">综合用法</h3>
-<p>groupby + 汇总 同时进行</p>
-<pre><code class="language-python">ans = (
+<p>groupby + 汇总 同时进行
+<pre class="highlight"><code class="language-python">ans = (
         transactions
         .groupby(['country', 'month'], dropna=False)   # 显式保留 NaN
         .agg(
@@ -413,80 +316,30 @@ print('2:', ans.to_markdown(index=False))
                 products=('product', lambda x: ','.join(sorted(x.unique()))),  # 添加自定义函数
                 filter =('rating', lambda x: len(x) &gt;= 3 and x.iloc[-3] &lt; x.iloc[-2] &lt; x.iloc[-1])
         )
-    ).reset_index()
-</code></pre>
+    ).reset_index()</code></pre></p>
 <h3 id="_2">分组后执行复杂的运算</h3>
-<pre><code class="language-python">ans = (
+<pre class="highlight"><code class="language-python">ans = (
         result.groupby('product_id')
         .apply(lambda g: round(g['units'].mul(g['price']).sum() / g['units'].sum(), 2))
         .reset_index(name='average_price')
-    )
-</code></pre>
+    )</code></pre>
 <h3 id="_3">在每个分组内执行操作</h3>
 <p>使用 <strong>transform</strong> 对每个分组应用<strong>聚合函数</strong>（如 count），并将结果广播到原始 DataFrame 的每一行。</p>
-<pre><code class="language-python"># 使用 groupby 和 transform 计算每个 t_rank 分组的行数
+<p><pre class="highlight"><code class="language-python"># 使用 groupby 和 transform 计算每个 t_rank 分组的行数
 
     print(df.to_markdown(index=False))
     df['count'] = df.groupby('t_rank')['t_rank'].transform('count')
     // ['t_rank'] 并没有实际的作用，count函数可以作用与任何列，但需要写一个
     print(df.to_markdown(index=False))
-
 </code></pre>
-<table>
-<thead>
-<tr>
-<th style="text-align: right;">index</th>
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">visit_date</th>
-<th style="text-align: right;">people</th>
-<th style="text-align: right;">t_rank</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">2017-01-02 00:00:00</td>
-<td style="text-align: right;">109</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">2017-01-03 00:00:00</td>
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">2017-01-05 00:00:00</td>
-<td style="text-align: right;">145</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">2017-01-06 00:00:00</td>
-<td style="text-align: right;">1455</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">2017-01-07 00:00:00</td>
-<td style="text-align: right;">199</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">2017-01-09 00:00:00</td>
-<td style="text-align: right;">188</td>
-<td style="text-align: right;">3</td>
-</tr>
-</tbody>
-</table>
+|   index |   id | visit_date          |   people |   t_rank |
+|--------:|-----:|:--------------------|---------:|---------:|
+|       0 |    2 | 2017-01-02 00:00:00 |      109 |        2 |
+|       1 |    3 | 2017-01-03 00:00:00 |      150 |        2 |
+|       2 |    5 | 2017-01-05 00:00:00 |      145 |        3 |
+|       3 |    6 | 2017-01-06 00:00:00 |     1455 |        3 |
+|       4 |    7 | 2017-01-07 00:00:00 |      199 |        3 |
+|       5 |    8 | 2017-01-09 00:00:00 |      188 |        3 |</p>
 <table>
 <thead>
 <tr>
@@ -549,11 +402,10 @@ print('2:', ans.to_markdown(index=False))
 </tr>
 </tbody>
 </table>
-<p>组内取最小值，过滤出到达最小值的行</p>
-<pre><code class="language-python">    sales['first_year'] = sales.groupby('product_id')['year'].transform('min')
+<p>组内取最小值，过滤出到达最小值的行
+<pre class="highlight"><code class="language-python">    sales['first_year'] = sales.groupby('product_id')['year'].transform('min')
     # print(sales)
-    sales[sales['year'] == sales['first_year']][['product_id', 'first_year', 'quantity', 'price']]
-</code></pre>
+    sales[sales['year'] == sales['first_year']][['product_id', 'first_year', 'quantity', 'price']]</code></pre></p>
 <table>
 <thead>
 <tr>
@@ -613,77 +465,53 @@ print('2:', ans.to_markdown(index=False))
 </tbody>
 </table>
 <h2 id="2-merge">2. merge 用法</h2>
-<pre><code class="language-python">pd.merge(table1, table2, left_on='player_id', right_on='player_id', how='inner')
+<pre class="highlight"><code class="language-python">pd.merge(table1, table2, left_on='player_id', right_on='player_id', how='inner')
 # 笛卡尔积，不需要关联字段
-ss = pd.merge(students, subjects, how='cross')
-</code></pre>
+ss = pd.merge(students, subjects, how='cross')</code></pre>
 <p><strong>how</strong>的取值还可以有 <strong>left/right/outer</strong></p>
-<p>如果是两个关联字段</p>
-<pre><code class="language-python"># 按 EmployeeID 和 Year 两个字段进行关联
+<p>如果是两个关联字段
+<pre class="highlight"><code class="language-python"># 按 EmployeeID 和 Year 两个字段进行关联
 result = df1.merge(df2, on=['EmployeeID', 'Year'], how='inner')
 
 # 按 EmployeeID 和 Year 两个字段进行关联，字段名不同
-result = df1.merge(df2, left_on=['EmployeeID', 'Year'], right_on=['ID', 'Year'], how='inner')
-</code></pre>
-<p>在 pandas 的 merge 操作中，如果某些行在另一个 DataFrame 中没有匹配的记录，合并后这些字段会变成 NaN。如果你想把这些 NaN 设置成默认值，可以使用 .fillna()。</p>
-<pre><code class="language-python">ans = pd.merge(users, g, left_on='user_id', right_on='buyer_id', how='left')
-ans['count'] = ans['count'].fillna(0)
-</code></pre>
+result = df1.merge(df2, left_on=['EmployeeID', 'Year'], right_on=['ID', 'Year'], how='inner')</code></pre></p>
+<p>在 pandas 的 merge 操作中，如果某些行在另一个 DataFrame 中没有匹配的记录，合并后这些字段会变成 NaN。如果你想把这些 NaN 设置成默认值，可以使用 .fillna()。
+<pre class="highlight"><code class="language-python">ans = pd.merge(users, g, left_on='user_id', right_on='buyer_id', how='left')
+ans['count'] = ans['count'].fillna(0)</code></pre></p>
 <h2 id="_4">列求和</h2>
-<pre><code class="language-python">total_sales = df['Sales'].sum()
+<pre class="highlight"><code class="language-python">total_sales = df['Sales'].sum()
 
 # 使用 apply() 方法求和
-total_sales = df['Sales'].apply(lambda x: x).sum()
-</code></pre>
+total_sales = df['Sales'].apply(lambda x: x).sum()</code></pre>
 <h2 id="3-loc">3. loc 用法</h2>
 <h3 id="_5">修改某(些)列的值</h3>
-<pre><code class="language-python"># 修改 score 大于 80 的行的 score 值，减去 10
+<p><pre class="highlight"><code class="language-python"># 修改 score 大于 80 的行的 score 值，减去 10
 df.loc[df['score'] &gt; 80, 'score'] -= 10
 
-# 修改 id 为 3 的行的 score 值，设置为 100，并将 name 设置为 &quot;New Name&quot;
-df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
-</code></pre>
-<p><strong>iloc</strong> 可以定位第i行</p>
-<pre><code class="language-python">    for i, row in grouped.iterrows():  # 遍历每条记录
+# 修改 id 为 3 的行的 score 值，设置为 100，并将 name 设置为 "New Name"
+df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']</code></pre>
+<strong>iloc</strong> 可以定位第i行</p>
+<pre class="highlight"><code class="language-python">    for i, row in grouped.iterrows():  # 遍历每条记录
         if i &lt; 6:
             cur += row['amount']
             continue
         cur += row['amount']
         if i &gt; 6:
             cur -= grouped.iloc[i - 7]['amount']
-        ans.append([row['visited_on'], cur, round(cur / 7, 2)])
-</code></pre>
+        ans.append([row['visited_on'], cur, round(cur / 7, 2)])</code></pre>
 <h2 id="4">4. 行列互转</h2>
-<p>pivot() 是 pandas.DataFrame 的一个“长转宽”变形函数，它把多行记录按照某个键值展开成列，常用于透视表或报表格式化。</p>
-<pre><code class="language-python">DataFrame.pivot(index=None, columns=None, values=None)
-</code></pre>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>index</code></td>
-<td>用作新 DataFrame <strong>行索引</strong> 的列名（可以多个）</td>
-</tr>
-<tr>
-<td><code>columns</code></td>
-<td>用作新 DataFrame <strong>列名</strong> 的列（其唯一值会变成列）</td>
-</tr>
-<tr>
-<td><code>values</code></td>
-<td>要填充到新 DataFrame <strong>单元格</strong> 的列（只能一个；多个请用 <code>pivot_table</code>）</td>
-</tr>
-</tbody>
-</table>
+<p>pivot() 是 pandas.DataFrame 的一个“长转宽”变形函数，它把多行记录按照某个键值展开成列，常用于透视表或报表格式化。
+<pre class="highlight"><code class="language-python">DataFrame.pivot(index=None, columns=None, values=None)</code></pre>
+| 参数        | 说明                                                  |
+| --------- | --------------------------------------------------- |
+| <code>index</code>   | 用作新 DataFrame <strong>行索引</strong> 的列名（可以多个）                     |
+| <code>columns</code> | 用作新 DataFrame <strong>列名</strong> 的列（其唯一值会变成列）                   |
+| <code>values</code>  | 要填充到新 DataFrame <strong>单元格</strong> 的列（只能一个；多个请用 <code>pivot_table</code>） |</p>
 <p>举例</p>
-<pre><code class="language-python">def reformat_table(department: pd.DataFrame) -&gt; pd.DataFrame:
+<pre class="highlight"><code class="language-python">def reformat_table(department: pd.DataFrame) -&gt; pd.DataFrame:
     # 更有解法
-    months = [&quot;Jan&quot;, &quot;Feb&quot;, &quot;Mar&quot;, &quot;Apr&quot;, &quot;May&quot;, &quot;Jun&quot;,
-              &quot;Jul&quot;, &quot;Aug&quot;, &quot;Sep&quot;, &quot;Oct&quot;, &quot;Nov&quot;, &quot;Dec&quot;]
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
     # 使用 pivot 重塑数据
     data = department.pivot(index='id', columns='month', values='revenue')
@@ -694,12 +522,11 @@ df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
     print(data)
 
     # 重命名列：加上 _Revenue 后缀
-    data.columns = [f&quot;{m}_Revenue&quot; for m in data.columns]
+    data.columns = [f"{m}_Revenue" for m in data.columns]
     print(data)
 
     # 重置索引，恢复 id 为列
-    return data.reset_index()
-</code></pre>
+    return data.reset_index()</code></pre>
 <p>melt 用于把“宽表”转为“长表”。函数签名如下： pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None, ignore_index=True)
 | 参数 | 说明 |
 | --- | --- |
@@ -712,7 +539,7 @@ df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']
 | <code>ignore_index</code> | 是否重置结果行索引为连续整数（默认 <code>True</code>；<code>False</code> 保留原索引） |</p>
 <h2 id="5">5. 其他</h2>
 <h3 id="dataframe">构造 DataFrame</h3>
-<pre><code class="language-python"># 字典：键为列名，值为列表/序列（长度需一致）
+<pre class="highlight"><code class="language-python"># 字典：键为列名，值为列表/序列（长度需一致）
 df = pd.DataFrame({'A': [1, 2], 'B': ['x', 'y']})
 
 # 列表的字典（行记录）
@@ -725,7 +552,6 @@ df = pd.DataFrame([(1, 'x'), (2, 'y')], columns=['A', 'B'])
 # 字典的 Series（不同索引会自动对齐缺失）
 df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
                    'B': pd.Series(['x'], index=['r1'])})
-
 </code></pre>
 <h3 id="dataframe_1">DataFrame 的自带属性</h3>
 <ul>
@@ -749,7 +575,7 @@ df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
 <li>flags：DataFrame 的标志控制器，可设置/查看如 allows_duplicate_labels 等标志</li>
 </ul>
 <h3 id="_6">排序</h3>
-<pre><code class="language-python"># 单列升序排序
+<pre class="highlight"><code class="language-python"># 单列升序排序
 df_sorted = df.sort_values(by='age')
 
 # 单列降序排序
@@ -762,11 +588,10 @@ df_sorted = df.sort_values(by=['age', 'score'], ascending=[True, False])
 grouped.sort_values(by='sell_date', inplace=True)
 
 ans.sort_values(by=['transition_count', 'first_course', 'second_course'], ascending=[False, True, True],
-                           key=lambda col: col.str.lower() if col.dtype == 'object' else col)
-</code></pre>
+                           key=lambda col: col.str.lower() if col.dtype == 'object' else col)</code></pre>
 <h3 id="_7">选列</h3>
-<p>使用列名列表选取多列</p>
-<pre><code class="language-python"># 示例 DataFrame
+<p>使用列名列表选取多列
+<pre class="highlight"><code class="language-python"># 示例 DataFrame
 df = pd.DataFrame({
     'A': [1, 2, 3],
     'B': [4, 5, 6],
@@ -791,72 +616,62 @@ selected = df.iloc[:, [0, 2]]
 
 # 选取连续的列（第1列到第3列）
 subset = df.iloc[:, 1:3]
-
-</code></pre>
+</code></pre></p>
 <h3 id="_8">过滤</h3>
-<pre><code class="language-python"># 或者的关系，'|' 两侧的括号不能省
+<pre class="highlight"><code class="language-python"># 或者的关系，'|' 两侧的括号不能省
 mg[(mg['bonus']&lt;1000) | (mg['bonus'].isna())]
 mg[(mg['bonus']&lt;1000) | (mg['bonus'].notna())]
 
 # 过滤 + 选列
-ans.loc[(ans['x'] + ans['y'] &gt; ans['z']) &amp; (ans['x'] + ans['z'] &gt; ans['y']) &amp; (ans['y'] + ans['z'] &gt; ans['x']), 'triangle'] = 'Yes'
-</code></pre>
+ans.loc[(ans['x'] + ans['y'] &gt; ans['z']) &amp; (ans['x'] + ans['z'] &gt; ans['y']) &amp; (ans['y'] + ans['z'] &gt; ans['x']), 'triangle'] = 'Yes'</code></pre>
 <p>简单过滤某列的值，是否有重复元素，达到group by + having的效果</p>
-<pre><code class="language-python">cond1 = insurance['tiv_2015'].duplicated(keep=False)
+<pre class="highlight"><code class="language-python">cond1 = insurance['tiv_2015'].duplicated(keep=False)
 // 按两列groupby过滤
 cond2 = ~insurance[['lat','lon']].duplicated(keep=False)
-df = insurance[cond1 &amp; cond2]['tiv_2016']
-</code></pre>
+df = insurance[cond1 &amp; cond2]['tiv_2016']</code></pre>
 <p>not in 的对应写法</p>
-<pre><code class="language-python"># 实现 NOT IN
-result = df1[~df1['A'].isin(df2['A'])]
-</code></pre>
+<pre class="highlight"><code class="language-python"># 实现 NOT IN
+result = df1[~df1['A'].isin(df2['A'])]</code></pre>
 <p>获取字段的字符串需要用 <strong>字符串访问器</strong> (.str.)</p>
-<p>正则的写法</p>
-<pre><code class="language-python">ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', na=False)]
+<p>正则的写法
+<pre class="highlight"><code class="language-python">ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', na=False)]
 
 # 反选
 cond = logs['ip'].str.match(r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$', na=False)
-    ans = logs[~cond]
-</code></pre>
-<p>str.contains(pattern): 只要字符串中任意位置“包含”pattern 即返回 True，等价于 re.search 的语义。
+    ans = logs[~cond]</code></pre>
+str.contains(pattern): 只要字符串中任意位置“包含”pattern 即返回 True，等价于 re.search 的语义。
 str.match(pattern): 只在“字符串开头”尝试匹配，等价于 re.match 的语义（可理解为自动在前面加了一个 ^）。如果想要求整串完全匹配，用 str.fullmatch（pandas 1.0+）或自己加 ^...$。</p>
 <h3 id="_9">删掉某列</h3>
-<pre><code class="language-python"># 删除某列
+<pre class="highlight"><code class="language-python"># 删除某列
 df = df.drop(columns=['score'])  # 删除 'score' 列
 # 或者
 df = df.drop('score', axis=1)    # 删除 'score' 列
 # 原地删除一列
-result.drop(columns=['matched'], inplace=True)
-</code></pre>
+result.drop(columns=['matched'], inplace=True)</code></pre>
 <h3 id="_10">堆叠两个表</h3>
-<p>concat </p>
-<pre><code class="language-python">    df1 = request_accepted[['requester_id']].copy()
+<p>concat 
+<pre class="highlight"><code class="language-python">    df1 = request_accepted[['requester_id']].copy()
     df1.rename(columns={'requester_id': 'id'}, inplace=True)
     df2 = request_accepted[['accepter_id']].copy()
     df2.rename(columns={'accepter_id': 'id'}, inplace=True)
-    df = pd.concat([df1, df2], ignore_index=True)
-</code></pre>
+    df = pd.concat([df1, df2], ignore_index=True)</code></pre></p>
 <h3 id="_11">获取行号</h3>
-<pre><code class="language-python">    df = df.reset_index()  # 增加 'index' 列记录行号
+<pre class="highlight"><code class="language-python">    df = df.reset_index()  # 增加 'index' 列记录行号
     df['t_rank'] = df['id']-df['index']
 
     # 或者下面的写法
-    df['t_rank'] = df['id'] - df.index
-</code></pre>
+    df['t_rank'] = df['id'] - df.index</code></pre>
 <h3 id="_12">删除重复行</h3>
 <p><strong>keep</strong>：指定保留重复行的方式。
 - 'first'（默认值）：保留重复行中的第一行。
 - 'last'：保留重复行中的最后一行。
-- False：删除所有重复行（即重复组内的所有项都丢弃，<strong>只保留完全唯一的行</strong>）。</p>
-<pre><code class="language-python">df_drop = my_numbers.drop_duplicates(subset=['num'], keep=False)
-</code></pre>
+- False：删除所有重复行（即重复组内的所有项都丢弃，<strong>只保留完全唯一的行</strong>）。
+<pre class="highlight"><code class="language-python">df_drop = my_numbers.drop_duplicates(subset=['num'], keep=False)</code></pre></p>
 <h3 id="_13">调整列顺序</h3>
-<pre><code class="language-python">df = df.reindex(columns=['C', 'A', 'B'])
-</code></pre>
+<pre class="highlight"><code class="language-python">df = df.reindex(columns=['C', 'A', 'B'])</code></pre>
 <h3 id="lambda">lambda 函数</h3>
-<p>修改某个字段</p>
-<pre><code class="language-python">    salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
+<p>修改某个字段
+<pre class="highlight"><code class="language-python">    salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
 
     def get_season(date):
         if date.month in (3,4,5):
@@ -866,34 +681,29 @@ result.drop(columns=['matched'], inplace=True)
         if date.month in (9,10,11):
             return 'Fall'
         return 'Winter'
-    sales['season'] = sales['sale_date'].apply(get_season)
-</code></pre>
+    sales['season'] = sales['sale_date'].apply(get_season)</code></pre></p>
 <h3 id="_14">列重命名</h3>
-<pre><code class="language-python">ans.rename(columns={'activity_date': 'day'}, inplace=True)
-</code></pre>
+<pre class="highlight"><code class="language-python">ans.rename(columns={'activity_date': 'day'}, inplace=True)</code></pre>
 <h3 id="reset_index">reset_index同时重命名新列</h3>
-<pre><code class="language-python">ans = grouped['user_id'].nunique().reset_index(name='active_users')
-</code></pre>
+<pre class="highlight"><code class="language-python">ans = grouped['user_id'].nunique().reset_index(name='active_users')</code></pre>
 <h3 id="round">round函数的四舍五入</h3>
 <p>在Python中的round函数和NumPy中的np.round函数默认使用的是"四舍五入"规则。具体来说，当要舍入的数字是正好在5的一半上方时，它们将向最接近的偶数舍入。这种规则被称为"银行家舍入法"或"四舍六入五留双"，它旨在减少舍入误差的累积，从而提高精度。
 如果我们想要使用不同的舍入规则，需要通过指定精度来使用decimal模块中的ROUND_HALF_UP等舍入模式，或者自定义舍入逻辑。
 <a href="https://leetcode.cn/problems/queries-quality-and-percentage/solutions/1508376/by-zg104-1sdy">参考</a></p>
 <h3 id="_15">新增一列</h3>
-<pre><code class="language-python"># 新增常量列
+<pre class="highlight"><code class="language-python"># 新增常量列
 df2 = df.assign(store='store1')
 
 # 用 lambda
 df2 = df.assign(
     total=lambda d: d['price'] * d['qty'],
     tax=lambda d: d['total'] * 0.06  # 可引用同一次 assign 里前面创建的列
-)
-</code></pre>
+)</code></pre>
 <h3 id="_16">日期类型的比较</h3>
-<pre><code class="language-python">ans = logins.loc[(logins['time_stamp'] &gt;= '2020-01-01') &amp; (logins['time_stamp'] &lt; '2021-01-01')]
+<pre class="highlight"><code class="language-python">ans = logins.loc[(logins['time_stamp'] &gt;= '2020-01-01') &amp; (logins['time_stamp'] &lt; '2021-01-01')]
 
 # 字符串转成时间
-ans['session_duration_minutes'] = (pd.to_datetime(ans['max_time']) - pd.to_datetime(ans['min_time'])) / pd.Timedelta(minutes=1)
-</code></pre></div>
+ans['session_duration_minutes'] = (pd.to_datetime(ans['max_time']) - pd.to_datetime(ans['min_time'])) / pd.Timedelta(minutes=1)</code></pre></div>
             </div>
         </div>
 

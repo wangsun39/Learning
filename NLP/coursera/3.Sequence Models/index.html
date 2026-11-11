@@ -257,9 +257,9 @@
 <p><strong>Dense 层</strong></p>
 <p>对输入的最后一维做仿射变换（线性变换加偏置），再施加激活函数。公式为 y = activation(x · W + b)，其中 W 形状为 (input_features, units)，b 形状为 (units)。是神经网络中最基本的“全连接层”，负责将输入特征通过线性变换和非线性激活进行组合与映射，是分类、回归和通用特征变换的核心组件。</p>
 <p><img alt="alt text" src="../afflix/image-15.png" /></p>
-<pre><code class="language-python"># GRADED FUNCTION: create_model
+<pre class="highlight"><code class="language-python"># GRADED FUNCTION: create_model
 def create_model(num_words, embedding_dim, max_len):
-    &quot;&quot;&quot;
+    """
     Creates a text classifier model
 
     Args:
@@ -269,7 +269,7 @@ def create_model(num_words, embedding_dim, max_len):
 
     Returns:
         model (tf.keras Model): the text classifier model
-    &quot;&quot;&quot;
+    """
 
     tf.random.set_seed(123)
 
@@ -299,8 +299,7 @@ history = model.fit(train_x_prepared, train_y_prepared, epochs=20, validation_da
 example_for_prediction = np.append(val_x_prepared[0:10], val_x_prepared[-10:], axis=0)
 
 # Make a prediction on the tweets.
-model.predict(example_for_prediction)
-</code></pre>
+model.predict(example_for_prediction)</code></pre>
 <h2 id="rnn-vs-n-grams">RNN vs N-grams</h2>
 <p>传统的N-grams如果要获取在句子之中相距较远的两个次之间的关系，N要设置的很大 \
 当N很大时，N-grams需要计算很大的条件概率，这对内存和硬盘的消耗量就非常大</p>
@@ -347,9 +346,9 @@ model.predict(example_for_prediction)
 </li>
 <li>Dataset Creation</li>
 </ul>
-<pre><code class="language-python"># GRADED FUNCTION: create_batch_dataset
+<pre class="highlight"><code class="language-python"># GRADED FUNCTION: create_batch_dataset
 def create_batch_dataset(lines, vocab, seq_length=100, batch_size=64):
-    &quot;&quot;&quot;
+    """
     Creates a batch dataset from a list of text lines.
 
     Args:
@@ -360,7 +359,7 @@ def create_batch_dataset(lines, vocab, seq_length=100, batch_size=64):
 
     Returns:
         tf.data.Dataset: A batch dataset generator.
-    &quot;&quot;&quot;
+    """
     # Buffer size to shuffle the dataset
     # (TF data is designed to work with possibly infinite sequences,
     # so it doesn't attempt to shuffle the entire sequence in memory. Instead,
@@ -368,7 +367,7 @@ def create_batch_dataset(lines, vocab, seq_length=100, batch_size=64):
     BUFFER_SIZE = 10000
 
     # For simplicity, just join all lines into a single line
-    single_line_data  = &quot;\n&quot;.join(lines)
+    single_line_data  = "\n".join(lines)
 
     ### START CODE HERE ###
 
@@ -394,14 +393,13 @@ def create_batch_dataset(lines, vocab, seq_length=100, batch_size=64):
     # 预取一般放在流水线末尾，以覆盖上游所有处理的耗时。
     ### END CODE HERE ###
 
-    return dataset
-</code></pre>
+    return dataset</code></pre>
 <ul>
 <li>Defining the GRU Language Model，一个三层模型如下</li>
 </ul>
-<pre><code class="language-python"># GRADED CLASS: GRULM
+<pre class="highlight"><code class="language-python"># GRADED CLASS: GRULM
 class GRULM(tf.keras.Model):
-    &quot;&quot;&quot;
+    """
     A GRU-based language model that maps from a tensor of tokens to activations over a vocabulary.
 
     Args:
@@ -411,7 +409,7 @@ class GRULM(tf.keras.Model):
 
     Returns:
         tf.keras.Model: A GRULM language model.
-    &quot;&quot;&quot;
+    """
     def __init__(self, vocab_size=256, embedding_dim=256, rnn_units=128):
         super().__init__(self)
 
@@ -456,7 +454,7 @@ model = GRULM(
     rnn_units = rnn_units)
 
 def compile_model(model):
-    &quot;&quot;&quot;
+    """
     Sets the loss and optimizer for the given model
 
     Args:
@@ -464,7 +462,7 @@ def compile_model(model):
 
     Returns:
         tf.keras.Model: The compiled model.
-    &quot;&quot;&quot;
+    """
     ### START CODE HERE ###
 
     # Define the loss function. Use SparseCategoricalCrossentropy 
@@ -480,7 +478,6 @@ def compile_model(model):
     ### END CODE HERE ###
 
     return model
-
 </code></pre>
 <ul>
 <li>Evaluating using the Deep Nets</li>
@@ -494,8 +491,8 @@ $$ = -\frac{1}{N}{{\sum_{i=1}^{N}{\log P(w_i| w_1,...,w_{i-1})}}} \]</div>
 <p>以下计算困惑度的函数，入参 preds 是计算值， target 是实际值，具体如下：
 - <span class="arithmatex">\(preds\)</span> 形状 <span class="arithmatex">\([batch, seq\_len, vocab]\)</span>，每个位置是对各词的“对数概率”（<span class="arithmatex">\(\log p\)</span>）。
 - <span class="arithmatex">\(target\)</span> 形状 <span class="arithmatex">\([batch, seq\_len]\)</span> 每个位置是目标 token 的 <strong>id</strong>；id=1 的位置是 padding，需要在计算中忽略。</p>
-<pre><code class="language-python">def log_perplexity(preds, target):
-    &quot;&quot;&quot;
+<pre class="highlight"><code class="language-python">def log_perplexity(preds, target):
+    """
     Function to calculate the log perplexity of a model.
 
     Args:
@@ -504,7 +501,7 @@ $$ = -\frac{1}{N}{{\sum_{i=1}^{N}{\log P(w_i| w_1,...,w_{i-1})}}} \]</div>
 
     Returns:
         float: The log perplexity of the model.
-    &quot;&quot;&quot;
+    """
     PADDING_ID = 1
 
     ### START CODE HERE ###
@@ -547,7 +544,6 @@ $$ = -\frac{1}{N}{{\sum_{i=1}^{N}{\log P(w_i| w_1,...,w_{i-1})}}} \]</div>
 
     ### END CODE HERE ###
     return -log_ppx
-
 </code></pre>
 <h2 id="lstm">LSTM</h2>
 <p>LSTM与GRU类似，是为了解决普通RNN可能出现的梯度消失或梯度爆炸而提出的。
@@ -592,9 +588,9 @@ $$ = -\frac{1}{N}{{\sum_{i=1}^{N}{\log P(w_i| w_1,...,w_{i-1})}}} \]</div>
 </li>
 </ul>
 <h4 id="_5">构建模型</h4>
-<pre><code class="language-python"># GRADED FUNCTION: NER
+<pre class="highlight"><code class="language-python"># GRADED FUNCTION: NER
 def NER(len_tags, vocab_size, embedding_dim = 50):
-    &quot;&quot;&quot;
+    """
     Create a Named Entity Recognition (NER) model.
 
     Parameters:
@@ -604,7 +600,7 @@ def NER(len_tags, vocab_size, embedding_dim = 50):
 
     Returns:
     model (Sequential): NER model.
-    &quot;&quot;&quot;
+    """
 
     ### START CODE HERE ### 
 
@@ -634,13 +630,12 @@ def NER(len_tags, vocab_size, embedding_dim = 50):
     ### END CODE HERE ### 
 
     return model
-
 </code></pre>
 <h4 id="_6">损失函数</h4>
 <p>SparseCategoricalCrossentropy：稀疏类别交叉熵损失函数</p>
-<pre><code class="language-python"># GRADED FUNCTION: masked_loss
+<pre class="highlight"><code class="language-python"># GRADED FUNCTION: masked_loss
 def masked_loss(y_true, y_pred):
-    &quot;&quot;&quot;
+    """
     Calculate the masked sparse categorical cross-entropy loss.
 
     Parameters:
@@ -649,7 +644,7 @@ def masked_loss(y_true, y_pred):
 
     Returns:
     loss (tensor): Calculated loss.
-    &quot;&quot;&quot;
+    """
 
     ### START CODE HERE ### 
 
@@ -660,11 +655,10 @@ def masked_loss(y_true, y_pred):
     # Use the previous defined function to compute the loss
     loss = loss_fn(y_true,y_pred)
 
-    ### END CODE HERE ### 
-</code></pre>
+    ### END CODE HERE ### </code></pre>
 <h4 id="_7">计算准确度</h4>
-<pre><code class="language-python">def masked_accuracy(y_true, y_pred):
-    &quot;&quot;&quot;
+<pre class="highlight"><code class="language-python">def masked_accuracy(y_true, y_pred):
+    """
     Calculate masked accuracy for predicted labels.
 
     Parameters:
@@ -674,7 +668,7 @@ def masked_loss(y_true, y_pred):
     Returns:
     accuracy (tensor): Masked accuracy.
 
-    &quot;&quot;&quot;
+    """
 
     ### START CODE HERE ### 
 
@@ -698,10 +692,9 @@ def masked_loss(y_true, y_pred):
     ### END CODE HERE ### 
 
     return masked_acc
-
 </code></pre>
 <h4 id="_8">模型训练</h4>
-<pre><code class="language-python">model.compile(optimizer=tf.keras.optimizers.Adam(0.01), 
+<pre class="highlight"><code class="language-python">model.compile(optimizer=tf.keras.optimizers.Adam(0.01), 
               loss = masked_loss,
                metrics = [masked_accuracy])
 
@@ -713,12 +706,11 @@ model.fit(train_dataset.batch(BATCH_SIZE),
           validation_data = val_dataset.batch(BATCH_SIZE),
           shuffle=True,
           epochs = 2)
-
 </code></pre>
 <h4 id="_9">模型预测</h4>
-<pre><code class="language-python"># GRADED FUNCTION: predict
+<pre class="highlight"><code class="language-python"># GRADED FUNCTION: predict
 def predict(sentence, model, sentence_vectorizer, tag_map):
-    &quot;&quot;&quot;
+    """
     Predict NER labels for a given sentence using a trained model.
 
     Parameters:
@@ -730,7 +722,7 @@ def predict(sentence, model, sentence_vectorizer, tag_map):
     Returns:
     predictions (list): Predicted NER labels for the sentence.
 
-    &quot;&quot;&quot;
+    """
 
     ### START CODE HERE ### 
 
@@ -756,8 +748,7 @@ def predict(sentence, model, sentence_vectorizer, tag_map):
 
     ### END CODE HERE ### 
 
-    return pred
-</code></pre></div>
+    return pred</code></pre></div>
             </div>
         </div>
 
