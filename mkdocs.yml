@@ -9,7 +9,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
-        - name: math
+        - name: math # 启用 math 块的用法
           class: arithmatex
           format: !!python/object/apply:pymdownx.arithmatex.arithmatex_fenced_format
             kwds:
