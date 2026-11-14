@@ -1,231 +1,1644 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
         <link rel="canonical" href="https://wangsun39.github.io/Learning/SQL/language/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+      
+      
+        <link rel="prev" href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
         <title>Language - Learning</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Learning</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
-</li>
-                                    
-<li>
-    <a href="../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
-</li>
-                                    
-<li>
-    <a href="../../C%2B%2B/string/" class="dropdown-item">String</a>
-</li>
-                                    
-<li>
-    <a href="../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../NLP/langchain/" class="dropdown-item">Langchain</a>
-</li>
-                                    
-<li>
-    <a href="../../NLP/pandas/" class="dropdown-item">Pandas</a>
-</li>
-                                    
-<li>
-    <a href="../../NLP/pca/" class="dropdown-item">Pca</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Coursera</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../NLP/coursera/2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
-</li>
-            
-<li>
-    <a href="../../NLP/coursera/3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Afflix</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../NLP/coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="dropdown-item">1.Classification and Vector Spaces</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">数学物理方法</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="dropdown-item">复数</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">高中</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">Language</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="2"><a href="#1-order-by" class="nav-link">1. order by 用法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#2" class="nav-link">2. 窗口函数</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#3-case-when" class="nav-link">3. case when</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#4-join-on" class="nav-link">4. join on</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#5-group-by" class="nav-link">5. group by</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 横表变纵表</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#6" class="nav-link">6. 日期型</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#7" class="nav-link">7. 其他</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#pg" class="nav-link">常用字符串函数(PG)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-order-by" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning" class="md-header__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Language
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning" class="md-nav__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Learning 笔记仓库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/Javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/linkage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NLP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP 知识库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/langchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Langchain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/pca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Coursera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/coursera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera NLP 课程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/coursera/1.Classification%20and%20Vector%20Spaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Classification and Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/coursera/2.Probabilistic%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Probabilistic Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/coursera/3.Sequence%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Sequence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学物理方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学物理方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    复数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高中
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高中
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    必修三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. order by 用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 窗口函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 窗口函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#row_number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROW_NUMBER()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rank-dense_rank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RANK() 和 DENSE_RANK()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumavgminmaxfirst_valuelast_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST_VALUE、LAST_VALUE 等）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LEAD() 和 LAG()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-case-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. case when
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-join-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. join on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. group by
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 横表变纵表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 日期型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        null 值映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Postgres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mysql
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用字符串函数(PG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-order-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. order by 用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. 窗口函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 窗口函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#row_number" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROW_NUMBER()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rank-dense_rank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RANK() 和 DENSE_RANK()
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumavgminmaxfirst_valuelast_value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST_VALUE、LAST_VALUE 等）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lead-lag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LEAD() 和 LAG()
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-case-when" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. case when
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-join-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. join on
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-group-by" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. group by
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 横表变纵表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. 日期型
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. 其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#null" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        null 值映射
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Postgres
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mysql
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常用字符串函数(PG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Language</h1>
 
 <ul>
 <li><a href="#1-order-by-用法">1. order by 用法</a></li>
@@ -248,37 +1661,40 @@
 </ul>
 <h2 id="1-order-by">1. order by 用法</h2>
 <p>取第一行
-<pre class="highlight"><code class="language-sql">--oracle
-select customer_number from (select customer_number, count(1) as cnt from Orders group by customer_number order by cnt desc) where ROWNUM = 1;
+<div class="highlight"><pre><span></span><code><span class="c1">--oracle</span>
+<span class="k">select</span><span class="w"> </span><span class="n">customer_number</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">customer_number</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Orders</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">customer_number</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ROWNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
---pg or Mysql 可以用limit
-select customer_number from (select customer_number, count(1) as cnt from Orders group by customer_number order by cnt desc limit 1) a;</code></pre></p>
+<span class="c1">--pg or Mysql 可以用limit</span>
+<span class="k">select</span><span class="w"> </span><span class="n">customer_number</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">customer_number</span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Orders</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">customer_number</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">cnt</span><span class="w"> </span><span class="k">desc</span><span class="w"> </span><span class="k">limit</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+</code></pre></div></p>
 <p>取某一行可以加offset</p>
-<pre class="highlight"><code class="language-sql">--oracle
-SELECT *
-FROM (
-    SELECT *
-    FROM (
-        SELECT *
-        FROM students
-        ORDER BY score DESC
-    )
-    WHERE ROWNUM &lt;= 2
-)
-WHERE ROWNUM = 1;
+<div class="highlight"><pre><span></span><code><span class="c1">--oracle</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">students</span>
+<span class="w">        </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">DESC</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">ROWNUM</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">ROWNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
---pg or Mysql 可以用limit
-SELECT *
-FROM students
-ORDER BY score DESC
-LIMIT 1 OFFSET 1;</code></pre>
+<span class="c1">--pg or Mysql 可以用limit</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">students</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="k">DESC</span>
+<span class="k">LIMIT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">OFFSET</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="2">2. 窗口函数</h2>
 <p>SQL 窗口函数（Window Functions）是一种强大的分析工具，允许在不改变行数的情况下，对一组行（称为“窗口”）进行聚合、排序、排名等操作。与 GROUP BY 不同，窗口函数不会折叠结果行，而是为每一行返回一个基于窗口计算的值。</p>
-<pre class="highlight"><code class="language-sql">&lt;窗口函数&gt; OVER (
-    [PARTITION BY 分区列1, 分区列2, ...]
-    [ORDER BY 排序列1, 排序列2, ...]
-    [ROWS BETWEEN 起始行 AND 结束行]  -- 可选，定义行范围
-)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="err">窗口函数</span><span class="o">&gt;</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">[</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">分区列</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">分区列</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="err">排序列</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="err">排序列</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">...]</span>
+<span class="w">    </span><span class="p">[</span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="err">起始行</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="err">结束行</span><span class="p">]</span><span class="w">  </span><span class="c1">-- 可选，定义行范围</span>
+<span class="p">)</span>
+</code></pre></div>
 <p>常见窗口函数分类
 | 类别  | 函数示例                                          | 说明              |
 | --- | --------------------------------------------- | --------------- |
@@ -287,82 +1703,93 @@ LIMIT 1 OFFSET 1;</code></pre>
 | 偏移类 | <code>LAG()</code>, <code>LEAD()</code>                             | 获取前后行的值         |
 | 首尾类 | <code>FIRST_VALUE()</code>, <code>LAST_VALUE()</code>               | 获取窗口内第一行或最后一行的值 |</p>
 <p>ROWS BETWEEN 可用于定义滑动窗口，如近3行的平均值：
-<pre class="highlight"><code class="language-sql">AVG(amount) OVER (ORDER BY sale_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="k">AVG</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sale_date</span><span class="w"> </span><span class="k">ROWS</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">PRECEDING</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="k">CURRENT</span><span class="w"> </span><span class="k">ROW</span><span class="p">)</span>
+</code></pre></div></p>
 <h3 id="row_number">ROW_NUMBER()</h3>
 <p>为每一行分配一个唯一的序号，序号在每个分区中从 1 开始递增。</p>
-<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
-       ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS row_num
-FROM employees;</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span>
+<span class="w">       </span><span class="n">ROW_NUMBER</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row_num</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</code></pre></div>
 <h3 id="rank-dense_rank">RANK() 和 DENSE_RANK()</h3>
 <ul>
 <li>RANK()：为每一行分配一个排名，如果存在并列值，则会跳过一些排名。</li>
 <li>DENSE_RANK()：为每一行分配一个排名，即使存在并列值，排名也不会跳过。</li>
 </ul>
-<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
-       RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS rank_num,
-       DENSE_RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS dense_rank_num
-FROM employees;</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span>
+<span class="w">       </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rank_num</span><span class="p">,</span>
+<span class="w">       </span><span class="n">DENSE_RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department_id</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">dense_rank_num</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</code></pre></div>
 <h3 id="sumavgminmaxfirst_valuelast_value">聚合函数（SUM()、AVG()、MIN()、MAX()、FIRST_VALUE、LAST_VALUE 等）</h3>
 <p>这些函数可以在窗口函数中使用，计算分区内的聚合值，同时保留每一行的原始数据。
-<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
-       SUM(salary) OVER (PARTITION BY department_id) AS total_salary,
-       AVG(salary) OVER (PARTITION BY department_id) AS avg_salary
-FROM employees;</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span>
+<span class="w">       </span><span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_salary</span><span class="p">,</span>
+<span class="w">       </span><span class="k">AVG</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">department_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_salary</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</code></pre></div></p>
 <p>LAST_VALUE() 窗口函数中的窗口最后一行对应的值，这里要注意的是窗口函数默认的窗口范围是：
 [unbounded preceding, current row]
 即窗口内第一行到当前行，因此默认情况下LAST_VALUE就是当前行，作用不大，如果要获取整个窗口的真正最后一行有两种方法：</p>
 <ul>
 <li>第一种就是改变默认范围，改成rows between unbounded preceding and unbounded following，就是上界到下界整个范围:
-<pre class="highlight"><code class="language-sql">LAST_VALUE(score) over(partition by student_id, subject order by exam_date rows between unbounded preceding and unbounded following) latest_score</code></pre></li>
+<div class="highlight"><pre><span></span><code><span class="n">LAST_VALUE</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">exam_date</span><span class="w"> </span><span class="k">rows</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">preceding</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">unbounded</span><span class="w"> </span><span class="n">following</span><span class="p">)</span><span class="w"> </span><span class="n">latest_score</span>
+</code></pre></div></li>
 <li>第二种就是用FIRST_VALUE，但是order by选择相反顺序来排序：
-<pre class="highlight"><code class="language-sql">FIRST_VALUE(score) over(partition by student_id, subject order by exam_date desc) latest_score</code></pre></li>
+<div class="highlight"><pre><span></span><code><span class="n">FIRST_VALUE</span><span class="p">(</span><span class="n">score</span><span class="p">)</span><span class="w"> </span><span class="n">over</span><span class="p">(</span><span class="n">partition</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="k">order</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">exam_date</span><span class="w"> </span><span class="k">desc</span><span class="p">)</span><span class="w"> </span><span class="n">latest_score</span>
+</code></pre></div></li>
 </ul>
 <h3 id="lead-lag">LEAD() 和 LAG()</h3>
 <ul>
 <li>LEAD(column, n)：获取当前行之后第 n 行的值。</li>
 <li>LAG(column, n)：获取当前行之前第 n 行的值。
-<pre class="highlight"><code class="language-sql">SELECT id, name, salary,
-       LEAD(salary, 1) OVER (ORDER BY salary) AS next_salary,
-       LAG(salary, 1) OVER (ORDER BY salary) AS prev_salary
-FROM employees;</code></pre></li>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span>
+<span class="w">       </span><span class="n">LEAD</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">next_salary</span><span class="p">,</span>
+<span class="w">       </span><span class="n">LAG</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">prev_salary</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span>
+</code></pre></div></li>
 </ul>
 <h2 id="3-case-when">3. case when</h2>
-<pre class="highlight"><code class="language-sql">select id,
-    case when p_id is null then 'Root'
-         when id in (select p_id from tree) then 'Inner'
-    else 'Leaf' end type
-from tree;</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="n">p_id</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'Root'</span>
+<span class="w">         </span><span class="k">when</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="n">p_id</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tree</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="s1">'Inner'</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="s1">'Leaf'</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="k">type</span>
+<span class="k">from</span><span class="w"> </span><span class="n">tree</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="4-join-on">4. join on</h2>
-<pre class="highlight"><code class="language-sql">--inner
-SELECT s.name, sc.subject, sc.mark
-FROM student s
-JOIN score sc ON s.id = sc.stu_id;
+<div class="highlight"><pre><span></span><code><span class="c1">--inner</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">mark</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">stu_id</span><span class="p">;</span>
 
--- left join
-SELECT s.name, sc.subject, sc.mark
-FROM student s
-LEFT JOIN score sc ON s.id = sc.stu_id;
+<span class="c1">-- left join</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">mark</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">stu_id</span><span class="p">;</span>
 
--- right join
-SELECT s.name, sc.subject, sc.mark
-FROM student s
-RIGHT JOIN score sc ON s.id = sc.stu_id;
+<span class="c1">-- right join</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">mark</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span>
+<span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">stu_id</span><span class="p">;</span>
 
--- full outer join
-SELECT * FROM student s
-LEFT JOIN score sc ON s.id = sc.stu_id
-UNION
-SELECT * FROM student s
-RIGHT JOIN score sc ON s.id = sc.stu_id;</code></pre>
+<span class="c1">-- full outer join</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span>
+<span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">stu_id</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">student</span><span class="w"> </span><span class="n">s</span>
+<span class="k">RIGHT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">score</span><span class="w"> </span><span class="n">sc</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sc</span><span class="p">.</span><span class="n">stu_id</span><span class="p">;</span>
+</code></pre></div>
 <p>对于join后有空的字段，附上默认值的方式
-<pre class="highlight"><code class="language-sql">COALESCE(b.new_price, 10)  -- new_price为空，就用默认值10</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="k">COALESCE</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">new_price</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">  </span><span class="c1">-- new_price为空，就用默认值10</span>
+</code></pre></div></p>
 <h2 id="5-group-by">5. group by</h2>
 <p>除了普通的sum，count等聚合函数，还有字符串的拼接函数 <strong>STRING_AGG</strong>
-<pre class="highlight"><code class="language-sql">SELECT sell_date, 
-       COUNT(1) AS num_sold,
-       STRING_AGG(product, ',' ORDER BY product) AS products
-FROM sales
-GROUP BY sell_date;</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">sell_date</span><span class="p">,</span><span class="w"> </span>
+<span class="w">       </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num_sold</span><span class="p">,</span>
+<span class="w">       </span><span class="n">STRING_AGG</span><span class="p">(</span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="s1">','</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">products</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sell_date</span><span class="p">;</span>
+</code></pre></div></p>
 <h2 id="5">5. 横表变纵表</h2>
 <table>
 <thead>
@@ -386,73 +1813,83 @@ GROUP BY sell_date;</code></pre></p>
 </tr>
 </tbody>
 </table>
-<pre class="highlight"><code class="language-sql">select id, 
-    sum(case month when 'Jan' then revenue end) as Jan_Revenue,
-    sum(case month when 'Feb' then revenue end) as Feb_Revenue,
-    sum(case month when 'Mar' then revenue end) as Mar_Revenue,
-    sum(case month when 'Apr' then revenue end) as Apr_Revenue,
-    sum(case month when 'May' then revenue end) as May_Revenue,
-    sum(case month when 'Jun' then revenue end) as Jun_Revenue,
-    sum(case month when 'Jul' then revenue end) as Jul_Revenue,
-    sum(case month when 'Aug' then revenue end) as Aug_Revenue,
-    sum(case month when 'Sep' then revenue end) as Sep_Revenue,
-    sum(case month when 'Oct' then revenue end) as Oct_Revenue,
-    sum(case month when 'Nov' then revenue end) as Nov_Revenue,
-    sum(case month when 'Dec' then revenue end) as Dec_Revenue from Department group by id;</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">select</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Jan'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Jan_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Feb'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Feb_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Mar'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Mar_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Apr'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Apr_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'May'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">May_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Jun'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Jun_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Jul'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Jul_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Aug'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Aug_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Sep'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Sep_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Oct'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Oct_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Nov'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Nov_Revenue</span><span class="p">,</span>
+<span class="w">    </span><span class="k">sum</span><span class="p">(</span><span class="k">case</span><span class="w"> </span><span class="k">month</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="s1">'Dec'</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="n">revenue</span><span class="w"> </span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Dec_Revenue</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Department</span><span class="w"> </span><span class="k">group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</code></pre></div>
 <h2 id="6">6. 日期型</h2>
-<pre class="highlight"><code class="language-sql">-- 查询2023年1月1日到2023年12月31日之间的数据
-SELECT * FROM your_table
-WHERE date_column BETWEEN '2023-01-01' AND '2023-12-31';
+<div class="highlight"><pre><span></span><code><span class="c1">-- 查询2023年1月1日到2023年12月31日之间的数据</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">your_table</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">date_column</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">'2023-01-01'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">'2023-12-31'</span><span class="p">;</span>
 
--- 带时间
-time_stamp BETWEEN '2020-01-01' AND '2020-12-31 23:59:59'
+<span class="c1">-- 带时间</span>
+<span class="n">time_stamp</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="s1">'2020-01-01'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="s1">'2020-12-31 23:59:59'</span>
 
--- 或者使用&gt;=和&lt;=
-SELECT * FROM your_table
-WHERE date_column &gt;= '2023-01-01' AND date_column &lt;= '2023-12-31';
+<span class="c1">-- 或者使用&gt;=和&lt;=</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">your_table</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">date_column</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="s1">'2023-01-01'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">date_column</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="s1">'2023-12-31'</span><span class="p">;</span>
 
--- oracle 去掉时间，只保留日期
-TO_CHAR(visited_on, 'YYYY-MM-DD') AS visited_on
+<span class="c1">-- oracle 去掉时间，只保留日期</span>
+<span class="n">TO_CHAR</span><span class="p">(</span><span class="n">visited_on</span><span class="p">,</span><span class="w"> </span><span class="s1">'YYYY-MM-DD'</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">visited_on</span>
 
--- pgsql 获取一年中的第几周
-to_char(meeting_date, 'IYYY-"W"IW')</code></pre>
+<span class="c1">-- pgsql 获取一年中的第几周</span>
+<span class="n">to_char</span><span class="p">(</span><span class="n">meeting_date</span><span class="p">,</span><span class="w"> </span><span class="s1">'IYYY-"W"IW'</span><span class="p">)</span>
+</code></pre></div>
 <h2 id="7">7. 其他</h2>
 <h3 id="null">null 值映射</h3>
-<pre class="highlight"><code>-- oracle
-NVL(employee_id, 'No Employee')</code></pre>
+<div class="highlight"><pre><span></span><code>-- oracle
+NVL(employee_id, 'No Employee')
+</code></pre></div>
 <p>判断字段是否为空
-<pre class="highlight"><code>-- Postgres
+<div class="highlight"><pre><span></span><code>-- Postgres
 SELECT * FROM t WHERE col IS NULL;
-SELECT * FROM t WHERE col IS NOT NULL;</code></pre></p>
+SELECT * FROM t WHERE col IS NOT NULL;
+</code></pre></div></p>
 <h3 id="postgres">Postgres</h3>
 <p>除法的四舍五入写法，不能直接使用 <span class="arithmatex">\(round\)</span> 函数
-<pre class="highlight"><code class="language-sql">round((cast(cnt as numeric)-comp)/cnt, 2) as "Cancellation Rate"</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">round</span><span class="p">((</span><span class="k">cast</span><span class="p">(</span><span class="n">cnt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nb">numeric</span><span class="p">)</span><span class="o">-</span><span class="n">comp</span><span class="p">)</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="ss">"Cancellation Rate"</span>
+</code></pre></div>
 或者
-<pre class="highlight"><code class="language-sql">round((cnt-comp)/cnt::NUMERIC, 2) as "Cancellation Rate"</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">round</span><span class="p">((</span><span class="n">cnt</span><span class="o">-</span><span class="n">comp</span><span class="p">)</span><span class="o">/</span><span class="n">cnt</span><span class="p">::</span><span class="nb">NUMERIC</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="ss">"Cancellation Rate"</span>
+</code></pre></div></p>
 <p>其他 sql 可以直接写成
-<pre class="highlight"><code class="language-sql">round((cnt-comp)/cnt, 2) as "Cancellation Rate"</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">round</span><span class="p">((</span><span class="n">cnt</span><span class="o">-</span><span class="n">comp</span><span class="p">)</span><span class="o">/</span><span class="n">cnt</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="ss">"Cancellation Rate"</span>
+</code></pre></div></p>
 <p>日期+1的写法
-<pre class="highlight"><code class="language-sql">event_date + INTERVAL '1 day'</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">event_date</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="s1">'1 day'</span>
+</code></pre></div></p>
 <h3 id="oracle">Oracle</h3>
 <p>引入 Dual 表，一个虚拟表
 可以将两个select出来的数字直接做运算，如</p>
-<p><pre class="highlight"><code class="language-sql">SELECT round(
-    (SELECT count(*)
-    FROM activity a, 
-        (SELECT player_id,
-         min(event_date) AS first_day,
-         min(event_date) + 1 AS second_day
-        FROM activity
-        GROUP BY  player_id) b
-        WHERE a.player_id=b.player_id
-                AND a.event_date =b.second_day)/
-    (SELECT COUNT(DISTINCT player_id)
-    FROM activity), 2) AS fraction
-FROM dual;</code></pre>
+<p><div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">round</span><span class="p">(</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">activity</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">player_id</span><span class="p">,</span>
+<span class="w">         </span><span class="k">min</span><span class="p">(</span><span class="n">event_date</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_day</span><span class="p">,</span>
+<span class="w">         </span><span class="k">min</span><span class="p">(</span><span class="n">event_date</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">second_day</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">activity</span>
+<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w">  </span><span class="n">player_id</span><span class="p">)</span><span class="w"> </span><span class="n">b</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">player_id</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">player_id</span>
+<span class="w">                </span><span class="k">AND</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">event_date</span><span class="w"> </span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">second_day</span><span class="p">)</span><span class="o">/</span>
+<span class="w">    </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">player_id</span><span class="p">)</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">activity</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">fraction</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">dual</span><span class="p">;</span>
+</code></pre></div>
 对于Postgres和Mysql都不需要用dual，select出来的单个数值型结果可以直接运算</p>
 <h3 id="mysql">Mysql</h3>
 <p>Data类型+1
-<pre class="highlight"><code class="language-sql">DATE_ADD(MIN(event_date), INTERVAL 1 DAY)</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">DATE_ADD</span><span class="p">(</span><span class="k">MIN</span><span class="p">(</span><span class="n">event_date</span><span class="p">),</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">DAY</span><span class="p">)</span>
+</code></pre></div></p>
 <h2 id="pg">常用字符串函数(PG)</h2>
 <p><strong>基础获取与定位</strong></p>
 <ul>
@@ -481,84 +1918,65 @@ FROM dual;</code></pre>
 <li>format(format_str, variadic args)：C风格/Printf 风格格式化（%s、%I、%L 等）</li>
 <li>%s 普通替换，%I 标识符，%L 文字常量</li>
 <li>to_char(value, format)：把数值/日期格式化为文本（虽然主要用于数值/日期，但产物是字符串）</li>
-</ul></div>
-            </div>
-        </div>
+</ul>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../javascripts/mathjax.js"></script>
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script src="../../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

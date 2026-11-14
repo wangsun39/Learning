@@ -1,216 +1,1944 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
         <link rel="canonical" href="https://wangsun39.github.io/Learning/NLP/pandas/">
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+      
+      
+        <link rel="prev" href="../langchain/">
+      
+      
+        <link rel="next" href="../pca/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
         <title>Pandas - Learning</title>
-        <link href="../../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/fontawesome.min.css" rel="stylesheet">
-        <link href="../../css/brands.min.css" rel="stylesheet">
-        <link href="../../css/solid.min.css" rel="stylesheet">
-        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
-        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-        <script>hljs.highlightAll();</script> 
-    </head>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
 
-    <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-            <div class="container">
-                <a class="navbar-brand" href="../..">Learning</a>
-                <!-- Expander button -->
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Expanded navigation -->
-                <div id="navbar-collapse" class="navbar-collapse collapse">
-                        <!-- Main navigation -->
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item">
-                                <a href="../.." class="nav-link">Welcome to MkDocs</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Algorithm</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../Algorithm/Javascript/" class="dropdown-item">Javascript</a>
-</li>
-                                    
-<li>
-    <a href="../../Algorithm/linkage/" class="dropdown-item">Linkage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">C++</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../C%2B%2B/definition/" class="dropdown-item">Definition</a>
-</li>
-                                    
-<li>
-    <a href="../../C%2B%2B/string/" class="dropdown-item">String</a>
-</li>
-                                    
-<li>
-    <a href="../../C%2B%2B/usage/" class="dropdown-item">Usage</a>
-</li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">NLP</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../langchain/" class="dropdown-item">Langchain</a>
-</li>
-                                    
-<li>
-    <a href="./" class="dropdown-item active" aria-current="page">Pandas</a>
-</li>
-                                    
-<li>
-    <a href="../pca/" class="dropdown-item">Pca</a>
-</li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Coursera</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../coursera/2.Probabilistic%20Models/" class="dropdown-item">2.Probabilistic Models</a>
-</li>
-            
-<li>
-    <a href="../coursera/3.Sequence%20Models/" class="dropdown-item">3.Sequence Models</a>
-</li>
-            
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">Afflix</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../coursera/afflix/1.Classification%20and%20Vector%20Spaces/" class="dropdown-item">1.Classification and Vector Spaces</a>
-</li>
-    </ul>
-  </li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Physics</a>
-                                <ul class="dropdown-menu">
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">数学物理方法</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="dropdown-item">复数</a>
-</li>
-    </ul>
-  </li>
-                                    
-  <li class="dropdown-submenu">
-    <a href="#" class="dropdown-item">高中</a>
-    <ul class="dropdown-menu">
-            
-<li>
-    <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="dropdown-item">必修三</a>
-</li>
-    </ul>
-  </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SQL</a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../SQL/language/" class="dropdown-item">Language</a>
-</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    <ul class="nav navbar-nav ms-md-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../langchain/" class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../pca/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
-            <span class="fa fa-angle-down"></span>
-        </button>
-    </div>
 
     
-    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
-        <ul class="nav flex-column">
-            
-            <li class="nav-item" data-bs-level="2"><a href="#1-groupby" class="nav-link">1. groupby用法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#2-merge" class="nav-link">2. merge 用法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">列求和</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#3-loc" class="nav-link">3. loc 用法</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#4" class="nav-link">4. 行列互转</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="2"><a href="#5" class="nav-link">5. 其他</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-        </ul>
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-groupby" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
-</div></div>
-                    <div class="col-md-9" role="main">
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Learning" class="md-header__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pandas
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Learning" class="md-nav__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Learning 笔记仓库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/Javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithm/linkage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%2B%2B/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NLP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP 知识库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../langchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Langchain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-groupby" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. groupby用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. groupby用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        max的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        size的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sum/count 的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        综合用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分组后执行复杂的运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在每个分组内执行操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. merge 用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列求和
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-loc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. loc 用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. loc 用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改某(些)列的值
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 行列互转
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造 DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DataFrame 的自带属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删掉某列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        堆叠两个表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取行号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除重复行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整列顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lambda 函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列重命名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_index同时重命名新列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        round函数的四舍五入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新增一列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日期类型的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Coursera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coursera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera NLP 课程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coursera/1.Classification%20and%20Vector%20Spaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Classification and Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coursera/2.Probabilistic%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Probabilistic Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coursera/3.Sequence%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Sequence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学物理方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学物理方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    复数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高中
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高中
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    必修三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SQL/language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-groupby" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. groupby用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. groupby用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        max的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        size的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sumcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sum/count 的写法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        综合用法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分组后执行复杂的运算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在每个分组内执行操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. merge 用法
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列求和
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-loc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. loc 用法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. loc 用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改某(些)列的值
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 行列互转
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. 其他
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 其他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造 DataFrame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DataFrame 的自带属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        排序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        选列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        过滤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删掉某列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        堆叠两个表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        获取行号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除重复行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调整列顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lambda 函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        列重命名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_index" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_index同时重命名新列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#round" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        round函数的四舍五入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        新增一列
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        日期类型的比较
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Pandas</h1>
 
 <p>2025/4/26</p>
 <ul>
@@ -247,26 +1975,31 @@
 </ul>
 <h2 id="1-groupby">1. groupby用法</h2>
 <p>在使用 groupby() 后，分组的结果通常会将分组键作为索引。如果需要将分组键恢复为普通列，可以使用 reset_index()</p>
-<pre class="highlight"><code class="language-python">def game_analysis(activity: pd.DataFrame) -&gt; pd.DataFrame:
-    grouped = activity.groupby('player_id')
-    ans = grouped['event_date'].min().reset_index()
-    ans.rename(columns={'event_date': 'first_login'}, inplace=True)
-    return ans</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">game_analysis</span><span class="p">(</span><span class="n">activity</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">grouped</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'player_id'</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">'event_date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">ans</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'event_date'</span><span class="p">:</span> <span class="s1">'first_login'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ans</span>
+</code></pre></div>
 <p>可以groupby多个字段
-<pre class="highlight"><code class="language-python">grouped = df.groupby(['Category', 'Region'])</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Category'</span><span class="p">,</span> <span class="s1">'Region'</span><span class="p">])</span>
+</code></pre></div></p>
 <h3 id="min">min的写法</h3>
 <p>统计每个分组中某个字段的最小值
-<pre class="highlight"><code class="language-python">grouped = activity.groupby('player_id')
-ans = grouped['event_date'].min().reset_index()</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'player_id'</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">'event_date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div></p>
 <h3 id="max">max的写法</h3>
 <p>统计每个分组中某个字段的最小值
-<pre class="highlight"><code class="language-python">grouped = activity.groupby('player_id')
-ans = grouped['event_date'].min().reset_index()</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'player_id'</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">'event_date'</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div></p>
 <h3 id="size">size的写法</h3>
 <p>统计每个分组中记录的个数
-<pre class="highlight"><code class="language-python">grouped = selected.groupby('managerId')
-g1 = grouped.size().reset_index(name='count')
-print(g1.to_markdown(index=False))</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'managerId'</span><span class="p">)</span>
+<span class="n">g1</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'count'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">g1</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div></p>
 <table>
 <thead>
 <tr>
@@ -282,7 +2015,8 @@ print(g1.to_markdown(index=False))</code></pre></p>
 </tbody>
 </table>
 <h3 id="sumcount">sum/count 的写法</h3>
-<p><pre class="highlight"><code class="language-python">print('1:', df.to_markdown(index=False))</code></pre>
+<p><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">'1:'</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
 |   id |   client_id |   driver_id |   city_id | status              | request_at   |   comp |
 |-----:|------------:|------------:|----------:|:--------------------|:-------------|-------:|
 |    1 |           1 |          10 |         1 | completed           | 2013-10-01   |      1 |
@@ -293,9 +2027,10 @@ print(g1.to_markdown(index=False))</code></pre></p>
 |    9 |           3 |          10 |        12 | completed           | 2013-10-03   |      1 |
 |   10 |           4 |          13 |        12 | cancelled_by_driver | 2013-10-03   |      0 |</p>
 <p>按request_at分组统计comp的和，组内的记录数， 并重新命名。agg函数可以几列聚集列</p>
-<p><pre class="highlight"><code class="language-python">grouped = df.groupby('request_at')
-ans = grouped.agg({'comp': 'sum', 'request_at': 'count'}).rename(columns={'request_at': 'count'}).reset_index()
-print('2:', ans.to_markdown(index=False))</code></pre>
+<p><div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'request_at'</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'comp'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'request_at'</span><span class="p">:</span> <span class="s1">'count'</span><span class="p">})</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'request_at'</span><span class="p">:</span> <span class="s1">'count'</span><span class="p">})</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'2:'</span><span class="p">,</span> <span class="n">ans</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
 | request_at   |   comp |   count |
 |:-------------|-------:|--------:|
 | 2013-10-01   |      2 |       3 |
@@ -303,35 +2038,37 @@ print('2:', ans.to_markdown(index=False))</code></pre>
 | 2013-10-03   |      1 |       2 |</p>
 <h3 id="_1">综合用法</h3>
 <p>groupby + 汇总 同时进行
-<pre class="highlight"><code class="language-python">ans = (
-        transactions
-        .groupby(['country', 'month'], dropna=False)   # 显式保留 NaN
-        .agg(
-                trans_count=('amount', 'size'),  # 新增：统计每组的行数
-                approved_count=('ca', 'sum'),
-                trans_total_amount=('amount', 'sum'),
-                avg=('rating', 'mean'),
-                unique_leads=('lead_id', 'nunique'),  # 对lead_id去重后的数量
-                approved_total_amount=('aa', 'sum'),
-                products=('product', lambda x: ','.join(sorted(x.unique()))),  # 添加自定义函数
-                filter =('rating', lambda x: len(x) &gt;= 3 and x.iloc[-3] &lt; x.iloc[-2] &lt; x.iloc[-1])
-        )
-    ).reset_index()</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">transactions</span>
+        <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'country'</span><span class="p">,</span> <span class="s1">'month'</span><span class="p">],</span> <span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>   <span class="c1"># 显式保留 NaN</span>
+        <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+                <span class="n">trans_count</span><span class="o">=</span><span class="p">(</span><span class="s1">'amount'</span><span class="p">,</span> <span class="s1">'size'</span><span class="p">),</span>  <span class="c1"># 新增：统计每组的行数</span>
+                <span class="n">approved_count</span><span class="o">=</span><span class="p">(</span><span class="s1">'ca'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">),</span>
+                <span class="n">trans_total_amount</span><span class="o">=</span><span class="p">(</span><span class="s1">'amount'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">),</span>
+                <span class="n">avg</span><span class="o">=</span><span class="p">(</span><span class="s1">'rating'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">),</span>
+                <span class="n">unique_leads</span><span class="o">=</span><span class="p">(</span><span class="s1">'lead_id'</span><span class="p">,</span> <span class="s1">'nunique'</span><span class="p">),</span>  <span class="c1"># 对lead_id去重后的数量</span>
+                <span class="n">approved_total_amount</span><span class="o">=</span><span class="p">(</span><span class="s1">'aa'</span><span class="p">,</span> <span class="s1">'sum'</span><span class="p">),</span>
+                <span class="n">products</span><span class="o">=</span><span class="p">(</span><span class="s1">'product'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">unique</span><span class="p">()))),</span>  <span class="c1"># 添加自定义函数</span>
+                <span class="nb">filter</span> <span class="o">=</span><span class="p">(</span><span class="s1">'rating'</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">x</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div></p>
 <h3 id="_2">分组后执行复杂的运算</h3>
-<pre class="highlight"><code class="language-python">ans = (
-        result.groupby('product_id')
-        .apply(lambda g: round(g['units'].mul(g['price']).sum() / g['units'].sum(), 2))
-        .reset_index(name='average_price')
-    )</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'product_id'</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">g</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s1">'units'</span><span class="p">]</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">g</span><span class="p">[</span><span class="s1">'price'</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">g</span><span class="p">[</span><span class="s1">'units'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'average_price'</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
 <h3 id="_3">在每个分组内执行操作</h3>
 <p>使用 <strong>transform</strong> 对每个分组应用<strong>聚合函数</strong>（如 count），并将结果广播到原始 DataFrame 的每一行。</p>
-<p><pre class="highlight"><code class="language-python"># 使用 groupby 和 transform 计算每个 t_rank 分组的行数
+<p><div class="highlight"><pre><span></span><code><span class="c1"># 使用 groupby 和 transform 计算每个 t_rank 分组的行数</span>
 
-    print(df.to_markdown(index=False))
-    df['count'] = df.groupby('t_rank')['t_rank'].transform('count')
-    // ['t_rank'] 并没有实际的作用，count函数可以作用与任何列，但需要写一个
-    print(df.to_markdown(index=False))
-</code></pre>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'t_rank'</span><span class="p">)[</span><span class="s1">'t_rank'</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">'count'</span><span class="p">)</span>
+    <span class="o">//</span> <span class="p">[</span><span class="s1">'t_rank'</span><span class="p">]</span> <span class="n">并没有实际的作用</span><span class="err">，</span><span class="n">count函数可以作用与任何列</span><span class="err">，</span><span class="n">但需要写一个</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
 |   index |   id | visit_date          |   people |   t_rank |
 |--------:|-----:|:--------------------|---------:|---------:|
 |       0 |    2 | 2017-01-02 00:00:00 |      109 |        2 |
@@ -403,9 +2140,10 @@ print('2:', ans.to_markdown(index=False))</code></pre>
 </tbody>
 </table>
 <p>组内取最小值，过滤出到达最小值的行
-<pre class="highlight"><code class="language-python">    sales['first_year'] = sales.groupby('product_id')['year'].transform('min')
-    # print(sales)
-    sales[sales['year'] == sales['first_year']][['product_id', 'first_year', 'quantity', 'price']]</code></pre></p>
+<div class="highlight"><pre><span></span><code>    <span class="n">sales</span><span class="p">[</span><span class="s1">'first_year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'product_id'</span><span class="p">)[</span><span class="s1">'year'</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">'min'</span><span class="p">)</span>
+    <span class="c1"># print(sales)</span>
+    <span class="n">sales</span><span class="p">[</span><span class="n">sales</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">==</span> <span class="n">sales</span><span class="p">[</span><span class="s1">'first_year'</span><span class="p">]][[</span><span class="s1">'product_id'</span><span class="p">,</span> <span class="s1">'first_year'</span><span class="p">,</span> <span class="s1">'quantity'</span><span class="p">,</span> <span class="s1">'price'</span><span class="p">]]</span>
+</code></pre></div></p>
 <table>
 <thead>
 <tr>
@@ -465,68 +2203,76 @@ print('2:', ans.to_markdown(index=False))</code></pre>
 </tbody>
 </table>
 <h2 id="2-merge">2. merge 用法</h2>
-<pre class="highlight"><code class="language-python">pd.merge(table1, table2, left_on='player_id', right_on='player_id', how='inner')
-# 笛卡尔积，不需要关联字段
-ss = pd.merge(students, subjects, how='cross')</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">table1</span><span class="p">,</span> <span class="n">table2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'player_id'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'player_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
+<span class="c1"># 笛卡尔积，不需要关联字段</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">subjects</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'cross'</span><span class="p">)</span>
+</code></pre></div>
 <p><strong>how</strong>的取值还可以有 <strong>left/right/outer</strong></p>
 <p>如果是两个关联字段
-<pre class="highlight"><code class="language-python"># 按 EmployeeID 和 Year 两个字段进行关联
-result = df1.merge(df2, on=['EmployeeID', 'Year'], how='inner')
+<div class="highlight"><pre><span></span><code><span class="c1"># 按 EmployeeID 和 Year 两个字段进行关联</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">'EmployeeID'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
 
-# 按 EmployeeID 和 Year 两个字段进行关联，字段名不同
-result = df1.merge(df2, left_on=['EmployeeID', 'Year'], right_on=['ID', 'Year'], how='inner')</code></pre></p>
+<span class="c1"># 按 EmployeeID 和 Year 两个字段进行关联，字段名不同</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">'EmployeeID'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">],</span> <span class="n">right_on</span><span class="o">=</span><span class="p">[</span><span class="s1">'ID'</span><span class="p">,</span> <span class="s1">'Year'</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
+</code></pre></div></p>
 <p>在 pandas 的 merge 操作中，如果某些行在另一个 DataFrame 中没有匹配的记录，合并后这些字段会变成 NaN。如果你想把这些 NaN 设置成默认值，可以使用 .fillna()。
-<pre class="highlight"><code class="language-python">ans = pd.merge(users, g, left_on='user_id', right_on='buyer_id', how='left')
-ans['count'] = ans['count'].fillna(0)</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">'user_id'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'buyer_id'</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
+<span class="n">ans</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></p>
 <h2 id="_4">列求和</h2>
-<pre class="highlight"><code class="language-python">total_sales = df['Sales'].sum()
+<div class="highlight"><pre><span></span><code><span class="n">total_sales</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Sales'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-# 使用 apply() 方法求和
-total_sales = df['Sales'].apply(lambda x: x).sum()</code></pre>
+<span class="c1"># 使用 apply() 方法求和</span>
+<span class="n">total_sales</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Sales'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</code></pre></div>
 <h2 id="3-loc">3. loc 用法</h2>
 <h3 id="_5">修改某(些)列的值</h3>
-<p><pre class="highlight"><code class="language-python"># 修改 score 大于 80 的行的 score 值，减去 10
-df.loc[df['score'] &gt; 80, 'score'] -= 10
+<p><div class="highlight"><pre><span></span><code><span class="c1"># 修改 score 大于 80 的行的 score 值，减去 10</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">'score'</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">10</span>
 
-# 修改 id 为 3 的行的 score 值，设置为 100，并将 name 设置为 "New Name"
-df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']</code></pre>
+<span class="c1"># 修改 id 为 3 的行的 score 值，设置为 100，并将 name 设置为 "New Name"</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'score'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="s1">'New Name'</span><span class="p">]</span>
+</code></pre></div>
 <strong>iloc</strong> 可以定位第i行</p>
-<pre class="highlight"><code class="language-python">    for i, row in grouped.iterrows():  # 遍历每条记录
-        if i &lt; 6:
-            cur += row['amount']
-            continue
-        cur += row['amount']
-        if i &gt; 6:
-            cur -= grouped.iloc[i - 7]['amount']
-        ans.append([row['visited_on'], cur, round(cur / 7, 2)])</code></pre>
+<div class="highlight"><pre><span></span><code>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grouped</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>  <span class="c1"># 遍历每条记录</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">cur</span> <span class="o">+=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span>
+            <span class="k">continue</span>
+        <span class="n">cur</span> <span class="o">+=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'amount'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">cur</span> <span class="o">-=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">7</span><span class="p">][</span><span class="s1">'amount'</span><span class="p">]</span>
+        <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s1">'visited_on'</span><span class="p">],</span> <span class="n">cur</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">cur</span> <span class="o">/</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+</code></pre></div>
 <h2 id="4">4. 行列互转</h2>
 <p>pivot() 是 pandas.DataFrame 的一个“长转宽”变形函数，它把多行记录按照某个键值展开成列，常用于透视表或报表格式化。
-<pre class="highlight"><code class="language-python">DataFrame.pivot(index=None, columns=None, values=None)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">DataFrame</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
 | 参数        | 说明                                                  |
 | --------- | --------------------------------------------------- |
 | <code>index</code>   | 用作新 DataFrame <strong>行索引</strong> 的列名（可以多个）                     |
 | <code>columns</code> | 用作新 DataFrame <strong>列名</strong> 的列（其唯一值会变成列）                   |
 | <code>values</code>  | 要填充到新 DataFrame <strong>单元格</strong> 的列（只能一个；多个请用 <code>pivot_table</code>） |</p>
 <p>举例</p>
-<pre class="highlight"><code class="language-python">def reformat_table(department: pd.DataFrame) -&gt; pd.DataFrame:
-    # 更有解法
-    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-              "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">reformat_table</span><span class="p">(</span><span class="n">department</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="c1"># 更有解法</span>
+    <span class="n">months</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Jan"</span><span class="p">,</span> <span class="s2">"Feb"</span><span class="p">,</span> <span class="s2">"Mar"</span><span class="p">,</span> <span class="s2">"Apr"</span><span class="p">,</span> <span class="s2">"May"</span><span class="p">,</span> <span class="s2">"Jun"</span><span class="p">,</span>
+              <span class="s2">"Jul"</span><span class="p">,</span> <span class="s2">"Aug"</span><span class="p">,</span> <span class="s2">"Sep"</span><span class="p">,</span> <span class="s2">"Oct"</span><span class="p">,</span> <span class="s2">"Nov"</span><span class="p">,</span> <span class="s2">"Dec"</span><span class="p">]</span>
 
-    # 使用 pivot 重塑数据
-    data = department.pivot(index='id', columns='month', values='revenue')
-    print(data)
+    <span class="c1"># 使用 pivot 重塑数据</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">department</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">'month'</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">'revenue'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    # 按指定月份顺序重新排列列，缺失月份用 NaN 填充
-    data = data.reindex(columns=months)
-    print(data)
+    <span class="c1"># 按指定月份顺序重新排列列，缺失月份用 NaN 填充</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">months</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    # 重命名列：加上 _Revenue 后缀
-    data.columns = [f"{m}_Revenue" for m in data.columns]
-    print(data)
+    <span class="c1"># 重命名列：加上 _Revenue 后缀</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s2">_Revenue"</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    # 重置索引，恢复 id 为列
-    return data.reset_index()</code></pre>
+    <span class="c1"># 重置索引，恢复 id 为列</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</code></pre></div>
 <p>melt 用于把“宽表”转为“长表”。函数签名如下： pandas.melt(frame, id_vars=None, value_vars=None, var_name=None, value_name='value', col_level=None, ignore_index=True)
 | 参数 | 说明 |
 | --- | --- |
@@ -539,20 +2285,20 @@ df.loc[df['id'] == 3, ['score', 'name']] = [100, 'New Name']</code></pre>
 | <code>ignore_index</code> | 是否重置结果行索引为连续整数（默认 <code>True</code>；<code>False</code> 保留原索引） |</p>
 <h2 id="5">5. 其他</h2>
 <h3 id="dataframe">构造 DataFrame</h3>
-<pre class="highlight"><code class="language-python"># 字典：键为列名，值为列表/序列（长度需一致）
-df = pd.DataFrame({'A': [1, 2], 'B': ['x', 'y']})
+<div class="highlight"><pre><span></span><code><span class="c1"># 字典：键为列名，值为列表/序列（长度需一致）</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'x'</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">]})</span>
 
-# 列表的字典（行记录）
-data = [{'A': 1, 'B': 'x'}, {'A': 2, 'B': 'y'}]
-df = pd.DataFrame(data)
+<span class="c1"># 列表的字典（行记录）</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="s1">'x'</span><span class="p">},</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="s1">'y'</span><span class="p">}]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-# 列表的列表/元组 + 指定列名
-df = pd.DataFrame([(1, 'x'), (2, 'y')], columns=['A', 'B'])
+<span class="c1"># 列表的列表/元组 + 指定列名</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'x'</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'y'</span><span class="p">)],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">])</span>
 
-# 字典的 Series（不同索引会自动对齐缺失）
-df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
-                   'B': pd.Series(['x'], index=['r1'])})
-</code></pre>
+<span class="c1"># 字典的 Series（不同索引会自动对齐缺失）</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">'A'</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'r1'</span><span class="p">,</span> <span class="s1">'r2'</span><span class="p">]),</span>
+                   <span class="s1">'B'</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">'x'</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">'r1'</span><span class="p">])})</span>
+</code></pre></div>
 <h3 id="dataframe_1">DataFrame 的自带属性</h3>
 <ul>
 <li>index：行索引，返回一个 Index 对象</li>
@@ -575,212 +2321,208 @@ df = pd.DataFrame({'A': pd.Series([1, 2], index=['r1', 'r2']),
 <li>flags：DataFrame 的标志控制器，可设置/查看如 allows_duplicate_labels 等标志</li>
 </ul>
 <h3 id="_6">排序</h3>
-<pre class="highlight"><code class="language-python"># 单列升序排序
-df_sorted = df.sort_values(by='age')
+<div class="highlight"><pre><span></span><code><span class="c1"># 单列升序排序</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'age'</span><span class="p">)</span>
 
-# 单列降序排序
-df_sorted = df.sort_values(by='score', ascending=False)
+<span class="c1"># 单列降序排序</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'score'</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-# 多列排序：先按年龄升序，再按成绩降序
-df_sorted = df.sort_values(by=['age', 'score'], ascending=[True, False])
+<span class="c1"># 多列排序：先按年龄升序，再按成绩降序</span>
+<span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'age'</span><span class="p">,</span> <span class="s1">'score'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
-# 原地排序
-grouped.sort_values(by='sell_date', inplace=True)
+<span class="c1"># 原地排序</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'sell_date'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-ans.sort_values(by=['transition_count', 'first_course', 'second_course'], ascending=[False, True, True],
-                           key=lambda col: col.str.lower() if col.dtype == 'object' else col)</code></pre>
+<span class="n">ans</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'transition_count'</span><span class="p">,</span> <span class="s1">'first_course'</span><span class="p">,</span> <span class="s1">'second_course'</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+                           <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">'object'</span> <span class="k">else</span> <span class="n">col</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="_7">选列</h3>
 <p>使用列名列表选取多列
-<pre class="highlight"><code class="language-python"># 示例 DataFrame
-df = pd.DataFrame({
-    'A': [1, 2, 3],
-    'B': [4, 5, 6],
-    'C': [7, 8, 9],
-    'D': [10, 11, 12]
-})
+<div class="highlight"><pre><span></span><code><span class="c1"># 示例 DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">'A'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+    <span class="s1">'B'</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+    <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="s1">'D'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<span class="p">})</span>
 
-# 选取特定列
-selected_columns = df[['A', 'C']]
+<span class="c1"># 选取特定列</span>
+<span class="n">selected_columns</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">]]</span>
 
-# 选取单列（返回 Series）
-column_a = df.A
+<span class="c1"># 选取单列（返回 Series）</span>
+<span class="n">column_a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">A</span>
 
-# 选取所有行的特定列
-selected = df.loc[:, ['A', 'B']]
+<span class="c1"># 选取所有行的特定列</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">]]</span>
 
-# 选取特定行和列
-subset = df.loc[0:1, ['A', 'C']]
+<span class="c1"># 选取特定行和列</span>
+<span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">]]</span>
 
-# 按列索引位置选取（第0列和第2列）
-selected = df.iloc[:, [0, 2]]
+<span class="c1"># 按列索引位置选取（第0列和第2列）</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 
-# 选取连续的列（第1列到第3列）
-subset = df.iloc[:, 1:3]
-</code></pre></p>
+<span class="c1"># 选取连续的列（第1列到第3列）</span>
+<span class="n">subset</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</code></pre></div></p>
 <h3 id="_8">过滤</h3>
-<pre class="highlight"><code class="language-python"># 或者的关系，'|' 两侧的括号不能省
-mg[(mg['bonus']&lt;1000) | (mg['bonus'].isna())]
-mg[(mg['bonus']&lt;1000) | (mg['bonus'].notna())]
+<div class="highlight"><pre><span></span><code><span class="c1"># 或者的关系，'|' 两侧的括号不能省</span>
+<span class="n">mg</span><span class="p">[(</span><span class="n">mg</span><span class="p">[</span><span class="s1">'bonus'</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1000</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">mg</span><span class="p">[</span><span class="s1">'bonus'</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())]</span>
+<span class="n">mg</span><span class="p">[(</span><span class="n">mg</span><span class="p">[</span><span class="s1">'bonus'</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1000</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">mg</span><span class="p">[</span><span class="s1">'bonus'</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">())]</span>
 
-# 过滤 + 选列
-ans.loc[(ans['x'] + ans['y'] &gt; ans['z']) &amp; (ans['x'] + ans['z'] &gt; ans['y']) &amp; (ans['y'] + ans['z'] &gt; ans['x']), 'triangle'] = 'Yes'</code></pre>
+<span class="c1"># 过滤 + 选列</span>
+<span class="n">ans</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">ans</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]</span> <span class="o">+</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'z'</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]</span> <span class="o">+</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'z'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'y'</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">'y'</span><span class="p">]</span> <span class="o">+</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'z'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ans</span><span class="p">[</span><span class="s1">'x'</span><span class="p">]),</span> <span class="s1">'triangle'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'Yes'</span>
+</code></pre></div>
 <p>简单过滤某列的值，是否有重复元素，达到group by + having的效果</p>
-<pre class="highlight"><code class="language-python">cond1 = insurance['tiv_2015'].duplicated(keep=False)
-// 按两列groupby过滤
-cond2 = ~insurance[['lat','lon']].duplicated(keep=False)
-df = insurance[cond1 &amp; cond2]['tiv_2016']</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">cond1</span> <span class="o">=</span> <span class="n">insurance</span><span class="p">[</span><span class="s1">'tiv_2015'</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">按两列groupby过滤</span>
+<span class="n">cond2</span> <span class="o">=</span> <span class="o">~</span><span class="n">insurance</span><span class="p">[[</span><span class="s1">'lat'</span><span class="p">,</span><span class="s1">'lon'</span><span class="p">]]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">insurance</span><span class="p">[</span><span class="n">cond1</span> <span class="o">&amp;</span> <span class="n">cond2</span><span class="p">][</span><span class="s1">'tiv_2016'</span><span class="p">]</span>
+</code></pre></div>
 <p>not in 的对应写法</p>
-<pre class="highlight"><code class="language-python"># 实现 NOT IN
-result = df1[~df1['A'].isin(df2['A'])]</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 实现 NOT IN</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="p">[</span><span class="o">~</span><span class="n">df1</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">'A'</span><span class="p">])]</span>
+</code></pre></div>
 <p>获取字段的字符串需要用 <strong>字符串访问器</strong> (.str.)</p>
 <p>正则的写法
-<pre class="highlight"><code class="language-python">ans = users[users['mail'].str.match(r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$', na=False)]
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="n">users</span><span class="p">[</span><span class="s1">'mail'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$'</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>
 
-# 反选
-cond = logs['ip'].str.match(r'^((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})$', na=False)
-    ans = logs[~cond]</code></pre>
+<span class="c1"># 反选</span>
+<span class="n">cond</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="s1">'ip'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">'^((25[0-5]|2[0-4][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|[0-9]{1,2})\.)</span><span class="si">{3}</span><span class="s1">(25[0-5]|2[0-4][0-9]|1[0-9]</span><span class="si">{2}</span><span class="s1">|[0-9]{1,2})$'</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="n">logs</span><span class="p">[</span><span class="o">~</span><span class="n">cond</span><span class="p">]</span>
+</code></pre></div>
 str.contains(pattern): 只要字符串中任意位置“包含”pattern 即返回 True，等价于 re.search 的语义。
 str.match(pattern): 只在“字符串开头”尝试匹配，等价于 re.match 的语义（可理解为自动在前面加了一个 ^）。如果想要求整串完全匹配，用 str.fullmatch（pandas 1.0+）或自己加 ^...$。</p>
 <h3 id="_9">删掉某列</h3>
-<pre class="highlight"><code class="language-python"># 删除某列
-df = df.drop(columns=['score'])  # 删除 'score' 列
-# 或者
-df = df.drop('score', axis=1)    # 删除 'score' 列
-# 原地删除一列
-result.drop(columns=['matched'], inplace=True)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1"># 删除某列</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'score'</span><span class="p">])</span>  <span class="c1"># 删除 'score' 列</span>
+<span class="c1"># 或者</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'score'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    <span class="c1"># 删除 'score' 列</span>
+<span class="c1"># 原地删除一列</span>
+<span class="n">result</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'matched'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="_10">堆叠两个表</h3>
 <p>concat 
-<pre class="highlight"><code class="language-python">    df1 = request_accepted[['requester_id']].copy()
-    df1.rename(columns={'requester_id': 'id'}, inplace=True)
-    df2 = request_accepted[['accepter_id']].copy()
-    df2.rename(columns={'accepter_id': 'id'}, inplace=True)
-    df = pd.concat([df1, df2], ignore_index=True)</code></pre></p>
+<div class="highlight"><pre><span></span><code>    <span class="n">df1</span> <span class="o">=</span> <span class="n">request_accepted</span><span class="p">[[</span><span class="s1">'requester_id'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'requester_id'</span><span class="p">:</span> <span class="s1">'id'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df2</span> <span class="o">=</span> <span class="n">request_accepted</span><span class="p">[[</span><span class="s1">'accepter_id'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">df2</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'accepter_id'</span><span class="p">:</span> <span class="s1">'id'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></p>
 <h3 id="_11">获取行号</h3>
-<pre class="highlight"><code class="language-python">    df = df.reset_index()  # 增加 'index' 列记录行号
-    df['t_rank'] = df['id']-df['index']
+<div class="highlight"><pre><span></span><code>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>  <span class="c1"># 增加 'index' 列记录行号</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'t_rank'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span><span class="o">-</span><span class="n">df</span><span class="p">[</span><span class="s1">'index'</span><span class="p">]</span>
 
-    # 或者下面的写法
-    df['t_rank'] = df['id'] - df.index</code></pre>
+    <span class="c1"># 或者下面的写法</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'t_rank'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</code></pre></div>
 <h3 id="_12">删除重复行</h3>
 <p><strong>keep</strong>：指定保留重复行的方式。
 - 'first'（默认值）：保留重复行中的第一行。
 - 'last'：保留重复行中的最后一行。
 - False：删除所有重复行（即重复组内的所有项都丢弃，<strong>只保留完全唯一的行</strong>）。
-<pre class="highlight"><code class="language-python">df_drop = my_numbers.drop_duplicates(subset=['num'], keep=False)</code></pre></p>
+<div class="highlight"><pre><span></span><code><span class="n">df_drop</span> <span class="o">=</span> <span class="n">my_numbers</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">'num'</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></p>
 <h3 id="_13">调整列顺序</h3>
-<pre class="highlight"><code class="language-python">df = df.reindex(columns=['C', 'A', 'B'])</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'C'</span><span class="p">,</span> <span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">])</span>
+</code></pre></div>
 <h3 id="lambda">lambda 函数</h3>
 <p>修改某个字段
-<pre class="highlight"><code class="language-python">    salary['sex'] = salary['sex'].apply(lambda x: 'm' if x == 'f' else 'f')
+<div class="highlight"><pre><span></span><code>    <span class="n">salary</span><span class="p">[</span><span class="s1">'sex'</span><span class="p">]</span> <span class="o">=</span> <span class="n">salary</span><span class="p">[</span><span class="s1">'sex'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">'m'</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">'f'</span> <span class="k">else</span> <span class="s1">'f'</span><span class="p">)</span>
 
-    def get_season(date):
-        if date.month in (3,4,5):
-            return 'Spring'
-        if date.month in (6,7,8):
-            return 'Summer'
-        if date.month in (9,10,11):
-            return 'Fall'
-        return 'Winter'
-    sales['season'] = sales['sale_date'].apply(get_season)</code></pre></p>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_season</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">'Spring'</span>
+        <span class="k">if</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">'Summer'</span>
+        <span class="k">if</span> <span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s1">'Fall'</span>
+        <span class="k">return</span> <span class="s1">'Winter'</span>
+    <span class="n">sales</span><span class="p">[</span><span class="s1">'season'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales</span><span class="p">[</span><span class="s1">'sale_date'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">get_season</span><span class="p">)</span>
+</code></pre></div></p>
 <h3 id="_14">列重命名</h3>
-<pre class="highlight"><code class="language-python">ans.rename(columns={'activity_date': 'day'}, inplace=True)</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'activity_date'</span><span class="p">:</span> <span class="s1">'day'</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="reset_index">reset_index同时重命名新列</h3>
-<pre class="highlight"><code class="language-python">ans = grouped['user_id'].nunique().reset_index(name='active_users')</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="n">grouped</span><span class="p">[</span><span class="s1">'user_id'</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'active_users'</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="round">round函数的四舍五入</h3>
 <p>在Python中的round函数和NumPy中的np.round函数默认使用的是"四舍五入"规则。具体来说，当要舍入的数字是正好在5的一半上方时，它们将向最接近的偶数舍入。这种规则被称为"银行家舍入法"或"四舍六入五留双"，它旨在减少舍入误差的累积，从而提高精度。
 如果我们想要使用不同的舍入规则，需要通过指定精度来使用decimal模块中的ROUND_HALF_UP等舍入模式，或者自定义舍入逻辑。
 <a href="https://leetcode.cn/problems/queries-quality-and-percentage/solutions/1508376/by-zg104-1sdy">参考</a></p>
 <h3 id="_15">新增一列</h3>
-<pre class="highlight"><code class="language-python"># 新增常量列
-df2 = df.assign(store='store1')
+<div class="highlight"><pre><span></span><code><span class="c1"># 新增常量列</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="s1">'store1'</span><span class="p">)</span>
 
-# 用 lambda
-df2 = df.assign(
-    total=lambda d: d['price'] * d['qty'],
-    tax=lambda d: d['total'] * 0.06  # 可引用同一次 assign 里前面创建的列
-)</code></pre>
+<span class="c1"># 用 lambda</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span>
+    <span class="n">total</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s1">'qty'</span><span class="p">],</span>
+    <span class="n">tax</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">'total'</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.06</span>  <span class="c1"># 可引用同一次 assign 里前面创建的列</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="_16">日期类型的比较</h3>
-<pre class="highlight"><code class="language-python">ans = logins.loc[(logins['time_stamp'] &gt;= '2020-01-01') &amp; (logins['time_stamp'] &lt; '2021-01-01')]
+<div class="highlight"><pre><span></span><code><span class="n">ans</span> <span class="o">=</span> <span class="n">logins</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">logins</span><span class="p">[</span><span class="s1">'time_stamp'</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s1">'2020-01-01'</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">logins</span><span class="p">[</span><span class="s1">'time_stamp'</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s1">'2021-01-01'</span><span class="p">)]</span>
 
-# 字符串转成时间
-ans['session_duration_minutes'] = (pd.to_datetime(ans['max_time']) - pd.to_datetime(ans['min_time'])) / pd.Timedelta(minutes=1)</code></pre></div>
-            </div>
-        </div>
+<span class="c1"># 字符串转成时间</span>
+<span class="n">ans</span><span class="p">[</span><span class="s1">'session_duration_minutes'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">'max_time'</span><span class="p">])</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ans</span><span class="p">[</span><span class="s1">'min_time'</span><span class="p">]))</span> <span class="o">/</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
 
-        <footer class="col-md-12">
-            <hr>
-            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
-        <script src="../../js/bootstrap.bundle.min.js"></script>
-        <script>
-            var base_url = "../..",
-                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
-        </script>
-        <script src="../../js/base.js"></script>
-        <script src="../../javascripts/mathjax.js"></script>
-        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script src="../../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="width: 20%;">Keys</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="help shortcut"><kbd>?</kbd></td>
-                    <td>Open this help</td>
-                  </tr>
-                  <tr>
-                    <td class="next shortcut"><kbd>n</kbd></td>
-                    <td>Next page</td>
-                  </tr>
-                  <tr>
-                    <td class="prev shortcut"><kbd>p</kbd></td>
-                    <td>Previous page</td>
-                  </tr>
-                  <tr>
-                    <td class="search shortcut"><kbd>s</kbd></td>
-                    <td>Search</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-
-    </body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
 </html>

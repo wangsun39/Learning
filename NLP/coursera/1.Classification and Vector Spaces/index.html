@@ -1,0 +1,2001 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wangsun39.github.io/Learning/NLP/coursera/1.Classification%20and%20Vector%20Spaces/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../2.Probabilistic%20Models/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1.Classification and Vector Spaces - Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week1-tweets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Learning" class="md-header__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.Classification and Vector Spaces
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Learning" class="md-nav__button md-logo" aria-label="Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    📚 Learning 笔记仓库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithm
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algorithm/Javascript/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Javascript
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Algorithm/linkage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linkage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    C++
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    C++
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%2B%2B/definition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Definition
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%2B%2B/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    String
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../C%2B%2B/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NLP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NLP 知识库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../langchain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Langchain
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pca
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Coursera
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Coursera NLP 课程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Classification and Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Classification and Vector Spaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#week1-tweets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week1 分类tweets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week1 分类tweets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正负数据计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特征提取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week2-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week2 概率 + 贝叶斯规则 {#a}
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week2 概率 + 贝叶斯规则 {#a}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laplacian-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laplacian Smoothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-likelyhood" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log likelyhood
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        朴素贝叶斯的训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week3 词向量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week3 词向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        欧式距离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        余弦相似度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week4 机器翻译
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week4 机器翻译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transforming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transforming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locality-sensitive-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locality sensitive hashing （位置敏感哈希）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locality sensitive hashing （位置敏感哈希）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knn_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        近似KNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Probabilistic%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Probabilistic Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Sequence%20Models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Sequence Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    物理笔记
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学物理方法
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学物理方法
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E6%95%B0%E5%AD%A6%E7%89%A9%E7%90%86%E6%96%B9%E6%B3%95/%E5%A4%8D%E6%95%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    复数
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    高中
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    高中
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Physics/%E9%AB%98%E4%B8%AD/%E5%BF%85%E4%BF%AE%E4%B8%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    必修三
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SQL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SQL/language/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Language
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#week1-tweets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week1 分类tweets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week1 分类tweets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正负数据计算
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特征提取
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week2-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week2 概率 + 贝叶斯规则 {#a}
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week2 概率 + 贝叶斯规则 {#a}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laplacian-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laplacian Smoothing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-likelyhood" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        log likelyhood
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        朴素贝叶斯的训练
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week3 词向量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week3 词向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        欧式距离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        余弦相似度
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCA
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#week4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Week4 机器翻译
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Week4 机器翻译">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transforming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transforming
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        KNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#locality-sensitive-hashing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Locality sensitive hashing （位置敏感哈希）
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Locality sensitive hashing （位置敏感哈希）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多个平面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knn_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        近似KNN
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>1.Classification and Vector Spaces</h1>
+
+<p><a href="https://www.coursera.org/learn/classification-vector-spaces-in-nlp/">参考视频</a></p>
+<ul>
+<li><a href="#week1-分类tweets">Week1 分类tweets</a></li>
+<li><a href="#预处理">预处理</a></li>
+<li><a href="#正负数据计算">正负数据计算</a></li>
+<li><a href="#特征提取">特征提取</a></li>
+<li><a href="#训练">训练</a></li>
+<li><a href="#week2-概率--贝叶斯规则-a">Week2 概率 + 贝叶斯规则 {#a}</a></li>
+<li><a href="#laplacian-smoothing">Laplacian Smoothing</a></li>
+<li><a href="#log-likelyhood">log likelyhood</a></li>
+<li><a href="#朴素贝叶斯的训练">朴素贝叶斯的训练</a></li>
+<li><a href="#应用场景">应用场景</a></li>
+<li><a href="#week3-词向量">Week3 词向量</a></li>
+<li><a href="#欧式距离">欧式距离</a></li>
+<li><a href="#余弦相似度">余弦相似度</a></li>
+<li><a href="#pca">PCA</a></li>
+<li><a href="#week4-机器翻译">Week4 机器翻译</a></li>
+<li><a href="#transforming">Transforming</a></li>
+<li><a href="#knn">KNN</a></li>
+<li><a href="#locality-sensitive-hashing-位置敏感哈希">Locality sensitive hashing （位置敏感哈希）</a><ul>
+<li><a href="#一个平面">一个平面</a></li>
+<li><a href="#多个平面">多个平面</a></li>
+</ul>
+</li>
+<li><a href="#近似knn">近似KNN</a></li>
+</ul>
+<h2 id="week1-tweets">Week1 分类tweets</h2>
+<p>个人感觉这个方法比较粗糙，准确率不高</p>
+<h3 id="_1">预处理</h3>
+<ul>
+<li>Removing stopwords, punctuation, handles and URLs</li>
+<li>Stemming</li>
+<li>Lowercasing</li>
+</ul>
+<h3 id="_2">正负数据计算</h3>
+<p>把收集来的tweets语料分成两类，positive和negative</p>
+<p>为每个单词在postive和nagative中的的次数计数， 如：</p>
+<p><img alt="alt text" src="../afflix/image-1.png" /></p>
+<h3 id="_3">特征提取</h3>
+<p>对于一个tweet，提取3个features
+$$ [Bias, Sum Pos. Freq, Sum Neg. Freq] $$
+<span class="arithmatex">\(Bias=1\)</span> <br>
+<span class="arithmatex">\(Sum Pos. Freq = \sum_{\omega } freqs(w, 1)\)</span> <br>
+<span class="arithmatex">\(Sum Neg. Freq = \sum_{\omega } freqs(w, 0)\)</span></p>
+<p>如，freqs[("today",1.0)] 表示today在pos的tweets中出现的次数
+freqs[("today",0.0)] 表示today在neg的tweets中出现的次数</p>
+<p>每个单词在正负样本中出现的计数的总和</p>
+<p>每个tweet，就对应下面一个三元组</p>
+<div class="arithmatex">\[ [1, \sum_{\omega } freqs(w, 1), \sum_{\omega } freqs(w, 0)] \]</div>
+<h3 id="_4">训练</h3>
+<p>训练方法就是逻辑回归(Logistic Regression)</p>
+<ul>
+<li>input: 训练集中每个tweet的所有三元组</li>
+<li>output: 每个tweet的标签</li>
+</ul>
+<h2 id="week2-a">Week2 概率 + 贝叶斯规则 {#a}</h2>
+<p>朴素贝叶斯是在指，<strong>假设用于分类的所有特征都是互相独立没有关联的</strong>。<br>虽然这个假设非常的强，实际中不太可能出现，单作为简单的处理方式，还是可以的。</p>
+<p>在一个大的语料库中，对每个单词在正负两种情感的tweet中出现的次数进行统计,
+得到 <span class="arithmatex">\(P(w_i|pos)\)</span> 和 <span class="arithmatex">\(P(w_i|neg)\)</span></p>
+<p>现在的问题是，对于一个新的tweet，我们要分析它的正负情感属性。
+这个新tweet中出现了这些单词，<span class="arithmatex">\(w_1,w_2,...,w_m\)</span>。这相当于计算<span class="arithmatex">\(P(pos|(w_1,w_2,...,w_m))\)</span>，或计算<span class="arithmatex">\(P(neg|(w_1,w_2,...,w_m))\)</span></p>
+<p>根据贝叶斯公式，可知
+$$ P(pos|(w_1,w_2,...,w_m))=\frac{P(pos)P((w_1,w_2,...,w_m)|pos)}{P(w_1,w_2,...,w_m)}  $$</p>
+<p><strong>按朴素贝叶斯的假设</strong> <span class="arithmatex">\(P((w_1,w_2,...,w_m)|pos) = P(w_1|pos)...P(w_m|pos)=\prod_{i=1}^{m}P(w_i|pos)\)</span></p>
+<p>我们可以通过计算 <span class="arithmatex">\(P(pos|(w_1,w_2,...,w_m))\)</span> 和 <span class="arithmatex">\(P(neg|(w_1,w_2,...,w_m))\)</span> 的比值来对新 tweet进行评估，那么
+$<span class="arithmatex">\(\frac{P(pos|(w_1,w_2,...,w_m))}{P(neg|(w_1,w_2,...,w_m))}=\frac{P(pos)\prod_{i=1}^{m}P(w_i|pos)}{P(neg)\prod_{i=1}^{m}P(w_i|neg)}=\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>如果P(pos)=P(neg)，可以约掉这两项，实际中可能它们并不相同，计算的时候就要带着这两项。</p>
+<p>简化后，实际我们只需要计算这个的比值，将它与1进行比较
+$<span class="arithmatex">\(\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>由于某些词<span class="arithmatex">\(P(w_i|pos)或P(w_i|neg)\)</span>可能为0，为了避免除以0，可以做一个Laplacian Smoothing</p>
+<h3 id="laplacian-smoothing">Laplacian Smoothing</h3>
+<div class="arithmatex">\[P(w_i|class)=\frac{freq(wi,class)+1}{N_{class}+V_{class}},  class\in  \{  pos,neg \} \]</div>
+<p><span class="arithmatex">\(N_{class}\)</span>=frequency of all words in class <br>
+<span class="arithmatex">\(V_{class}\)</span>= number of unique words in class</p>
+<p>拉普拉斯变换之后，就不会有除以0的情况了</p>
+<h3 id="log-likelyhood">log likelyhood</h3>
+<p>P(pos) 和 P(neg) 也称为先验概率。
+以下是完整的朴素贝叶斯二分类公式
+$<span class="arithmatex">\(\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)}\)</span>$</p>
+<p>为了避免运算过程中的精度问题，将上面的公式改为log形式
+$<span class="arithmatex">\(log(\frac{P(pos)}{P(neg)}\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)})=log(\frac{P(pos)}{P(neg)})+log(\prod_{i=1}^{m}\frac{P(w_i|pos)}{P(w_i|neg)})=log(\frac{P(pos)}{P(neg)})+\sum_{i=1}^{m}log(\frac{P(w_i|pos)}{P(w_i|neg)} )\)</span>$</p>
+<p>判断准则是，以上公式的值是否大于0，大于0为正属性，小于0为负属性</p>
+<h3 id="_5">朴素贝叶斯的训练</h3>
+<ul>
+<li>收集标注语料库</li>
+<li>预处理</li>
+<li>lowercase</li>
+<li>Remove punctuation, urls, names</li>
+<li>Remove stop words</li>
+<li>Stemming</li>
+<li>Tokenize sentence</li>
+<li>计数，每个词统计在正负样本中的次数</li>
+<li>计算 <span class="arithmatex">\(P(w|class)\)</span></li>
+<li>计算 <span class="arithmatex">\(\lambda(w)=log(\frac{P(w|pos)}{P(w|neg)})\)</span></li>
+<li>计算 <span class="arithmatex">\(logprior=log(\frac{P(pos)}{P(neg)})\)</span></li>
+</ul>
+<h3 id="_6">应用场景</h3>
+<ul>
+<li>Sentiment analysis</li>
+<li>Author identification</li>
+<li>Information retrieval</li>
+<li>Word disambiguation</li>
+<li>Simple, fast and robust!</li>
+</ul>
+<h2 id="week3">Week3 词向量</h2>
+<p>两种方式构建词向量
+- word by word
+  - 在语料中，统计某个词周围距离&lt;k的词的计数，维度是所有单词的个数
+  <img alt="alt text" src="../afflix/image.png" />
+- word by doc
+  - 在语料中，统计某个词在某类语料中出现的计数，维度是所有分类的个数
+<img alt="alt text" src="../afflix/image-2.png" /></p>
+<p>用词向量空间描述两个词的关系</p>
+<h3 id="_7">欧式距离</h3>
+<p>用于衡量两个向量之间的距离</p>
+<div class="arithmatex">\[ d(\vec{u}, \vec{v}) = \sqrt{\sum_{i=1}^{n} (\vec{u_i}-\vec{v_i})^2  } = ||\vec{u}- \vec{v}||_2 \]</div>
+<p><strong>不足：当向量的长度差异很大时，欧式距离不是很准确（语料集的大小差异很大）</strong></p>
+<h3 id="_8">余弦相似度</h3>
+<p><img alt="alt text" src="../afflix/image-3.png" /></p>
+<p>衡量两个向量在方向上的相似度</p>
+<p>可以用此方式预测一个关系</p>
+<h3 id="pca">PCA</h3>
+<p>词向量往往是高维向量，PCA是一种降维简化的方法
+PCA算法有单独介绍的章节</p>
+<h2 id="week4">Week4 机器翻译</h2>
+<h3 id="transforming">Transforming</h3>
+<p>语言A翻译为语言B，需要计算出两种语言的所有词的词向量
+将A的一个词翻译成B的一个词，就是找到一个词向量的映射关系，这可以通过一个转换矩阵<span class="arithmatex">\(R\)</span>表示。而转换过程就是向量和矩阵的乘法 <span class="arithmatex">\(XR=Y\)</span> 。现在的问题就是如何找到转换矩阵<span class="arithmatex">\(R\)</span>。</p>
+<p>实际上，这就是一个机器学习的过程，用一些已有的X和Y的对应关系，学习到一个最为解决的矩阵R。</p>
+<p>$$
+\begin{align*}
+initialize\ R \
+in\ a\ loop&amp;: \
+&amp;Loss=||XR-Y||_F=\frac{2}{m}(X^T(XR-Y)) \
+&amp;g=\frac{d}{dR}Loss \
+&amp;R=R-\alpha g</p>
+<p>\end{align*}
+$$</p>
+<p>用这种方法得到了R之后，就可以用R来预测测试集中的其他向量了，但这有个问题，XR得到得向量Y，不一定是语言B中对应任何单词，这时就需要在语言B中找一个与Y最接近得单词作为预测值。这就需要用到KNN。</p>
+<h3 id="knn">KNN</h3>
+<p>在一个向量空间中找一个与目标最接近的向量。</p>
+<p>在整个B语言的空间中寻找，是个效率很低的实现，可以考虑将大的向量空间，按类型分成若干个小的向量空间，在每个小向量空间中查找的性能就要高很多。</p>
+<p>可以使用hash函数将每个向量分配到一个子空间中。</p>
+<p>如何划分子空间呢? 先了解一下位置敏感哈希的概念</p>
+<h3 id="locality-sensitive-hashing">Locality sensitive hashing （位置敏感哈希）</h3>
+<p>Locality sensitive hashing is a technique that allows you to hash similar inputs into the same buckets with high probability. </p>
+<p>一些点，如何用一个平面将它们分开，使得不同的点被分隔在平面的两侧，相当于找到一个Hash函数，将这些点分类。</p>
+<h4 id="_9">一个平面</h4>
+<p>对于二维平面的点，每个点看作从原点的一个向量，考虑如何找到一条过原点的直线（下图的虚线），如何将这些向量分在这条直线两侧，先找到它的一个法向量P</p>
+<p><img alt="alt text" src="../afflix/image4.png" /></p>
+<p>这里使用的是 <strong>向量的内积</strong>，数学上点乘，就是</p>
+<p><span class="arithmatex">\(\vec{a} \cdot \vec{b} = |a||b|cos\theta\)</span></p>
+<p>具有性质
+1. 表征或计算两个向量之间的夹角：同向是正，反向是负，垂直为0
+2. b向量在a向量方向上的投影*|a|<br> (<span class="arithmatex">\(\vec{a} \cdot \vec{b} = |a||b|cos\theta=|a|p,p为b在a上的投影\)</span>)</p>
+<p>这样通过判断向量Vi与P的内积就可以直到Vi是在哪个分类中。</p>
+<h4 id="_10">多个平面</h4>
+<p>如果要用多个平面将这些点分割在多个子区域内
+可以根据V与P的内积值的正负号，决定V在这个平面的Hash值Hi
+将所有Hi加和，计算总的Hash值
+$<span class="arithmatex">\(h = \sum_{i=1}^{n} 2^i *h_i   (其中 h_i=\begin{cases}
+1 当 sign(\vec{a} \cdot \vec{b}) &gt; 0\\
+0 其他
+\end{cases} )\)</span>$</p>
+<h3 id="knn_1">近似KNN</h3>
+<p>由于在整个向量空间中求KNN计数量是非常大的，为了折中，可以考虑在一个范围内计算一个近似的KNN。那如何找近似空间呢？
+可以多次执行下面的算法
+  - 随机选择一组平面，把与目标点在一个子空间范围的点都最为目标点的近似
+  - 将这些点放入候选项之中</p>
+<p>多次执行之后，在所有候选点中找一个与目标点最近的，作为近似KNN的最终答案。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
