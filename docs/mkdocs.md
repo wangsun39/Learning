@@ -23,7 +23,7 @@ python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-#### 3. 安装 MkDocs 与公式扩展
+#### 3. 安装 MkDocs 扩展
 - 系统策略避坑：如果你使用的是 Windows 11，且开启了“智能应用控制（Smart App Control）”，系统可能会拦截虚拟环境自动生成的 pip.exe 和 mkdocs.exe。不要轻易关闭系统安全策略。
 - 解决方案：统一使用 python -m 的方式调用模块，绕过 .exe 拦截。
 
@@ -35,6 +35,9 @@ python -m pip install mkdocs
 
 # 安装数学公式扩展插件
 python -m pip install pymdown-extensions
+
+# 安装 Material 主题
+python -m pip install mkdocs-material
 ```
 #### 4. 验证安装
 ```powershell

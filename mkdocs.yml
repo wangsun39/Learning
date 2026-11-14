@@ -1,11 +1,20 @@
 site_name: Learning
 site_url: https://wangsun39.github.io/Learning/
 
+theme:
+  name: material
+  features:
+    - content.code.copy # 代码块一键复制功能
+
 # 启用数学公式渲染扩展
 markdown_extensions:
   - md_in_html
   - pymdownx.arithmatex:
       generic: true
+  # 下面这几行是用来解析 :octicons-...: 图标的
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
